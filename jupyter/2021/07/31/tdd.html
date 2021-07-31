@@ -189,23 +189,17 @@ window.onload = wrap_img;
 <h2 id="Evidencia-empírica">
 <a class="anchor" href="#Evidencia-emp%C3%ADrica" aria-hidden="true"><span class="octicon octicon-link"></span></a>Evidencia empírica<a class="anchor-link" href="#Evidencia-emp%C3%ADrica"> </a>
 </h2>
-<p>El 2008, Nagappan, Maximilien, Bhat y Williams publicaron el paper llamado <em><a href="/.attachments/Realizing%20Quality%20Improvement%20Through%20Test%20Driven%20Development%20-%20Results%20and%20Experiences%20of%20Four%20Industrial%20Teams%20(nagappan_tdd">Realizing Quality Improvement Through Test Driven Development - Results and Experiences of Four Industrial Teams</a>-8514b668-2c79-4567-a57d-f682b44dd3d9.pdf)</em>, en donde estudiaron 4 equipos de trabajo (3 de Microsoft y 1 de IBM), con proyectos que variaban entre las 6000 lineas de código hasta las 155k. Estas son parte de sus conclusiones:
-</p>
-<div class="flash flash-warn">
-    <svg class="octicon octicon-zap octicon octicon-zap" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10.561 1.5a.016.016 0 00-.01.004L3.286 8.571A.25.25 0 003.462 9H6.75a.75.75 0 01.694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0012.538 7H9.25a.75.75 0 01-.683-1.06l2.008-4.418.003-.006a.02.02 0 00-.004-.009.02.02 0 00-.006-.006L10.56 1.5zM9.504.43a1.516 1.516 0 012.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 01-.871.354h-.302a1.25 1.25 0 01-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429z"></path></svg>
-    <strong>Important: </strong>Todos los equipos demostraron una baja considerable en la densidad de defectos: 40% para el equipo de IBM, y entre 60-90% para los equipos de Microsoft.
-</div>
+<p>El 2008, Nagappan, Maximilien, Bhat y Williams publicaron el paper llamado <em><a href="/.attachments/Realizing%20Quality%20Improvement%20Through%20Test%20Driven%20Development%20-%20Results%20and%20Experiences%20of%20Four%20Industrial%20Teams%20(nagappan_tdd">Realizing Quality Improvement Through Test Driven Development - Results and Experiences of Four Industrial Teams</a>-8514b668-2c79-4567-a57d-f682b44dd3d9.pdf)</em>, en donde estudiaron 4 equipos de trabajo (3 de Microsoft y 1 de IBM), con proyectos que variaban entre las 6000 lineas de código hasta las 155k. Estas son parte de sus conclusiones:</p>
+<blockquote>
+<p>Todos los equipos demostraron una baja considerable en la densidad de defectos:40% para el equipo de IBM, y entre 60-90% para los equipos de Microsoft.
 Como todo en la vida, nada es gratis:
-<div class="flash flash-error">
-    <svg class="octicon octicon-alert octicon octicon-alert" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path></svg>
-    <strong>Warning: </strong>Incremento del tiempo de desarrollo varía entre un 15% a 35%.
-</div>
-Sin embargo
-<div class="flash flash-warn">
-    <svg class="octicon octicon-zap octicon octicon-zap octicon octicon-zap" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10.561 1.5a.016.016 0 00-.01.004L3.286 8.571A.25.25 0 003.462 9H6.75a.75.75 0 01.694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0012.538 7H9.25a.75.75 0 01-.683-1.06l2.008-4.418.003-.006a.02.02 0 00-.004-.009.02.02 0 00-.006-.006L10.56 1.5zM9.504.43a1.516 1.516 0 012.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 01-.871.354h-.302a1.25 1.25 0 01-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429z"></path></svg>
-    <strong>Important: </strong>Desde un punto de vista de eficacia este incremento en tiempo de desarrollo se compensa por los costos de mantención reducidos debido al incremento en calidad.
-</div>
-Además, es importante escribir tests junto con la implementación en pequeñas iteraciones. <a href="https://collaboration.csc.ncsu.edu/laurie/Papers/TDDpaperv8.pdf">George y Williams</a> encontraron que escribir tests después de que la aplicación está mas o menos lista hace que se testee menos porque los desarrolladores piensan en menos casos, y además la aplicación se vuelve menos testeable. Otra conclusión interesante del estudio de George y Williams es que un 79% de los desarrolladores experimentaron que el uso de TDD conlleva a un diseño más simple.
+Incremento del tiempo de desarrollo varía entre un 15% a 35%.</p>
+</blockquote>
+<p>Sin embargo</p>
+<blockquote>
+<p>Desde un punto de vista de eficacia este incremento en tiempo de desarrollo se compensa por los costos de mantención reducidos debido al incremento en calidad.</p>
+</blockquote>
+<p>Además, es importante escribir tests junto con la implementación en pequeñas iteraciones. <a href="https://collaboration.csc.ncsu.edu/laurie/Papers/TDDpaperv8.pdf">George y Williams</a> encontraron que escribir tests después de que la aplicación está mas o menos lista hace que se testee menos porque los desarrolladores piensan en menos casos, y además la aplicación se vuelve menos testeable. Otra conclusión interesante del estudio de George y Williams es que un 79% de los desarrolladores experimentaron que el uso de TDD conlleva a un diseño más simple.</p>
 <h2 id="¿Puedo-usar-TDD-siempre?">
 <a class="anchor" href="#%C2%BFPuedo-usar-TDD-siempre?" aria-hidden="true"><span class="octicon octicon-link"></span></a>¿Puedo usar TDD siempre?<a class="anchor-link" href="#%C2%BFPuedo-usar-TDD-siempre?"> </a>
 </h2>
