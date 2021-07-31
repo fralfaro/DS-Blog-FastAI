@@ -9,7 +9,7 @@ permalink: /about/
 - Name: Francisco Antonio Alfaro Medina
 - Phone: +56 9 94541139
 - Email: francisco.alfaro.496@gmail.com
-- Curriculum Vitae: [cv](https://gitlab.com/FAAM/curriculum_vitae/-/jobs/1363077500/artifacts/browse)
+- Curriculum Vitae: [cv](https://gitlab.com/FAAM/curriculum_vitae/-/jobs/artifacts/master/browse?job=generate_pdf)
 - Social Media:
   - [Github](https://github.com/fralfaro)
   - [Gitlab](https://gitlab.com/FAAM)
