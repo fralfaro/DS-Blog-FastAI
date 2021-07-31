@@ -17,7 +17,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-07-31T00:00:00-05:00" />
 <script type="application/ld+json">
-{"datePublished":"2021-07-31T00:00:00-05:00","url":"https://fralfaro.github.io/ds_blog/jupyter/2021/07/31/tdd.html","@type":"BlogPosting","image":"https://fralfaro.github.io/ds_blog/images/chart-preview.png","headline":"TDD","dateModified":"2021-07-31T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://fralfaro.github.io/ds_blog/jupyter/2021/07/31/tdd.html"},"description":"Introducción a la metodlogía TDD.","@context":"https://schema.org"}</script>
+{"description":"Introducción a la metodlogía TDD.","url":"https://fralfaro.github.io/ds_blog/jupyter/2021/07/31/tdd.html","@type":"BlogPosting","headline":"TDD","dateModified":"2021-07-31T00:00:00-05:00","datePublished":"2021-07-31T00:00:00-05:00","image":"https://fralfaro.github.io/ds_blog/images/chart-preview.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://fralfaro.github.io/ds_blog/jupyter/2021/07/31/tdd.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/ds_blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://fralfaro.github.io/ds_blog/feed.xml" title="DS-Blog" /><link rel="shortcut icon" type="image/x-icon" href="/ds_blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -189,16 +189,39 @@ window.onload = wrap_img;
 <h2 id="Evidencia-empírica">
 <a class="anchor" href="#Evidencia-emp%C3%ADrica" aria-hidden="true"><span class="octicon octicon-link"></span></a>Evidencia empírica<a class="anchor-link" href="#Evidencia-emp%C3%ADrica"> </a>
 </h2>
-<p>El 2008, Nagappan, Maximilien, Bhat y Williams publicaron el paper llamado <em><a href="/.attachments/Realizing%20Quality%20Improvement%20Through%20Test%20Driven%20Development%20-%20Results%20and%20Experiences%20of%20Four%20Industrial%20Teams%20(nagappan_tdd">Realizing Quality Improvement Through Test Driven Development - Results and Experiences of Four Industrial Teams</a>-8514b668-2c79-4567-a57d-f682b44dd3d9.pdf)</em>, en donde estudiaron 4 equipos de trabajo (3 de Microsoft y 1 de IBM), con proyectos que variaban entre las 6000 lineas de código hasta las 155k. Estas son parte de sus conclusiones:</p>
+<p>El 2008, Nagappan, Maximilien, Bhat y Williams publicaron el paper llamado <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2009/10/Realizing-Quality-Improvement-Through-Test-Driven-Development-Results-and-Experiences-of-Four-Industrial-Teams-nagappan_tdd.pdf">Realizing Quality Improvement Through Test Driven Development - Results and Experiences of Four Industrial Teams</a>, en donde estudiaron 4 equipos de trabajo (3 de Microsoft y 1 de IBM), con proyectos que variaban entre las 6000 lineas de código hasta las 155k. Estas son parte de sus conclusiones:</p>
 <blockquote>
-<p>Todos los equipos demostraron una baja considerable en la densidad de defectos:40% para el equipo de IBM, y entre 60-90% para los equipos de Microsoft.
-Como todo en la vida, nada es gratis:
-Incremento del tiempo de desarrollo varía entre un 15% a 35%.</p>
+<p>Todos los equipos demostraron una baja considerable en la densidad de defectos:40% para el equipo de IBM, y entre 60-90% para los equipos de Microsoft.</p>
 </blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Como todo en la vida, nada es gratis:</p>
+<blockquote>
+<p>Incremento del tiempo de desarrollo varía entre un 15% a 35%.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Sin embargo</p>
 <blockquote>
 <p>Desde un punto de vista de eficacia este incremento en tiempo de desarrollo se compensa por los costos de mantención reducidos debido al incremento en calidad.</p>
 </blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Además, es importante escribir tests junto con la implementación en pequeñas iteraciones. <a href="https://collaboration.csc.ncsu.edu/laurie/Papers/TDDpaperv8.pdf">George y Williams</a> encontraron que escribir tests después de que la aplicación está mas o menos lista hace que se testee menos porque los desarrolladores piensan en menos casos, y además la aplicación se vuelve menos testeable. Otra conclusión interesante del estudio de George y Williams es que un 79% de los desarrolladores experimentaron que el uso de TDD conlleva a un diseño más simple.</p>
 <h2 id="¿Puedo-usar-TDD-siempre?">
 <a class="anchor" href="#%C2%BFPuedo-usar-TDD-siempre?" aria-hidden="true"><span class="octicon octicon-link"></span></a>¿Puedo usar TDD siempre?<a class="anchor-link" href="#%C2%BFPuedo-usar-TDD-siempre?"> </a>
