@@ -39,8 +39,9 @@ baseurl: "/ds_blog" # the subpath of your site, e.g. "/blog".
 # Github and twitter are optional:
 minima:
   social_links:
-    github: https://github.com/fralfaro
-    linkedin: https://www.linkedin.com/in/faam/
+    github: fralfaro
+    gitlab: FAAM
+    linkedin: FAAM
 
 # Set this to true to get LaTeX math equation support
 use_math: 
