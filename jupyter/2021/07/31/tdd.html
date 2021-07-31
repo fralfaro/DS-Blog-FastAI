@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>TDD | DS-Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="TDD" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introducción a la metodlogía TDD." />
+<meta property="og:description" content="Introducción a la metodlogía TDD." />
+<link rel="canonical" href="https://fralfaro.github.io/ds_blog/jupyter/2021/07/31/tdd.html" />
+<meta property="og:url" content="https://fralfaro.github.io/ds_blog/jupyter/2021/07/31/tdd.html" />
+<meta property="og:site_name" content="DS-Blog" />
+<meta property="og:image" content="https://fralfaro.github.io/ds_blog/images/chart-preview.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-07-31T00:00:00-05:00" />
+<script type="application/ld+json">
+{"datePublished":"2021-07-31T00:00:00-05:00","url":"https://fralfaro.github.io/ds_blog/jupyter/2021/07/31/tdd.html","@type":"BlogPosting","image":"https://fralfaro.github.io/ds_blog/images/chart-preview.png","headline":"TDD","dateModified":"2021-07-31T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://fralfaro.github.io/ds_blog/jupyter/2021/07/31/tdd.html"},"description":"Introducción a la metodlogía TDD.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/ds_blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://fralfaro.github.io/ds_blog/feed.xml" title="DS-Blog" /><link rel="shortcut icon" type="image/x-icon" href="/ds_blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/ds_blog/">DS-Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/ds_blog/about/">About Me</a><a class="page-link" href="/ds_blog/search/">Search</a><a class="page-link" href="/ds_blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">TDD</h1><p class="page-description">Introducción a la metodlogía TDD.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-07-31T00:00:00-05:00" itemprop="datePublished">
+        Jul 31, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/ds_blog/categories/#jupyter">jupyter</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/fralfaro/ds_blog/tree/master/_notebooks/2021-07-31-tdd.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/ds_blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/fralfaro/ds_blog/master?filepath=_notebooks%2F2021-07-31-tdd.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/ds_blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/fralfaro/ds_blog/blob/master/_notebooks/2021-07-31-tdd.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/ds_blog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Introducción">Introducción </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#¿Qué-es-el-Test-Driven-Development?">¿Qué es el Test Driven Development? </a></li>
+<li class="toc-entry toc-h2"><a href="#¿Porqué-debería-usarlo?">¿Porqué debería usarlo? </a></li>
+<li class="toc-entry toc-h2"><a href="#Evidencia-empírica">Evidencia empírica </a></li>
+<li class="toc-entry toc-h2"><a href="#¿Puedo-usar-TDD-siempre?">¿Puedo usar TDD siempre? </a></li>
+<li class="toc-entry toc-h2"><a href="#Librerías-disponibles">Librerías disponibles </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Python">Python </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Knowledge-base-/-Lecturas-recomendadas">Knowledge base / Lecturas recomendadas </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-07-31-tdd.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Introducción">
+<a class="anchor" href="#Introducci%C3%B3n" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introducción<a class="anchor-link" href="#Introducci%C3%B3n"> </a>
+</h1>
+<p>Esta página busca dar señales de cómo abordar el desarrollo de software para Data Science usando <em>Test Driven Development</em>, una técnica ampliamente usada en otros rubros de la programación.</p>
+<h2 id="¿Qué-es-el-Test-Driven-Development?">
+<a class="anchor" href="#%C2%BFQu%C3%A9-es-el-Test-Driven-Development?" aria-hidden="true"><span class="octicon octicon-link"></span></a>¿Qué es el <em>Test Driven Development</em>?<a class="anchor-link" href="#%C2%BFQu%C3%A9-es-el-Test-Driven-Development?"> </a>
+</h2>
+<p>En palabras simples, el desarrollo guiado por pruebas pone las pruebas en el corazón de nuestro trabajo. En su forma más simple consiste en un proceso iterativo de 3 fases:</p>
+<p><img src="https://i0.wp.com/www.clubdetecnologia.net/wp-content/uploads/2017/10/tdd-red-green-refactor.png?fit=688%2C324&amp;ssl=1" alt=""></p>
+<ul>
+<li>
+<strong>Red</strong>: Escribe un test que ponga a prueba una nueva funcionalidad y asegurate de que el test falla</li>
+<li>
+<strong>Green</strong>: Escribe el código mínimo necesario para pasar ese test</li>
+<li>
+<strong>Refactor</strong>: Refactoriza de ser necesario</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="¿Porqué-debería-usarlo?">
+<a class="anchor" href="#%C2%BFPorqu%C3%A9-deber%C3%ADa-usarlo?" aria-hidden="true"><span class="octicon octicon-link"></span></a>¿Porqué debería usarlo?<a class="anchor-link" href="#%C2%BFPorqu%C3%A9-deber%C3%ADa-usarlo?"> </a>
+</h2>
+<p>Existen varias razones por las que uno debería usar TDD. Entre ellas podemos encontrar:</p>
+<ul>
+<li>Formular bien nuestros pensamientos mediante la escritura de un test significativo antes de ponernos a solucionar el problema nos ayuda a clarificar los límites del problema y cómo podemos resolverlo. Con el tiempo esto ayuda a obtener un diseño modular y reusable del código.</li>
+<li>Escribir tests ayuda la forma en que escribimos código, haciéndolo más legible a otros. Sin embargo, no es un acto de altruismo, la mayoría de las veces ese otro es tu futuro yo.</li>
+<li>Verifica que el código funciona de la manera que se espera, y lo hace de forma automática.</li>
+<li>Te permite realizar <em>refactoring</em> con la certeza de que no has roto nada.</li>
+<li>Los tests escritos sirven como documentación para otros desarrolladores.</li>
+<li>Es una práctica <strong>requerida</strong> en metodologías de desarrollo de software <em>agile</em>.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Evidencia-empírica">
+<a class="anchor" href="#Evidencia-emp%C3%ADrica" aria-hidden="true"><span class="octicon octicon-link"></span></a>Evidencia empírica<a class="anchor-link" href="#Evidencia-emp%C3%ADrica"> </a>
+</h2>
+<p>El 2008, Nagappan, Maximilien, Bhat y Williams publicaron el paper llamado <em><a href="/.attachments/Realizing%20Quality%20Improvement%20Through%20Test%20Driven%20Development%20-%20Results%20and%20Experiences%20of%20Four%20Industrial%20Teams%20(nagappan_tdd">Realizing Quality Improvement Through Test Driven Development - Results and Experiences of Four Industrial Teams</a>-8514b668-2c79-4567-a57d-f682b44dd3d9.pdf)</em>, en donde estudiaron 4 equipos de trabajo (3 de Microsoft y 1 de IBM), con proyectos que variaban entre las 6000 lineas de código hasta las 155k. Estas son parte de sus conclusiones:
+</p>
+<div class="flash flash-warn">
+    <svg class="octicon octicon-zap octicon octicon-zap" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10.561 1.5a.016.016 0 00-.01.004L3.286 8.571A.25.25 0 003.462 9H6.75a.75.75 0 01.694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0012.538 7H9.25a.75.75 0 01-.683-1.06l2.008-4.418.003-.006a.02.02 0 00-.004-.009.02.02 0 00-.006-.006L10.56 1.5zM9.504.43a1.516 1.516 0 012.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 01-.871.354h-.302a1.25 1.25 0 01-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429z"></path></svg>
+    <strong>Important: </strong>Todos los equipos demostraron una baja considerable en la densidad de defectos: 40% para el equipo de IBM, y entre 60-90% para los equipos de Microsoft.
+</div>
+Como todo en la vida, nada es gratis:
+<div class="flash flash-error">
+    <svg class="octicon octicon-alert octicon octicon-alert" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path></svg>
+    <strong>Warning: </strong>Incremento del tiempo de desarrollo varía entre un 15% a 35%.
+</div>
+Sin embargo
+<div class="flash flash-warn">
+    <svg class="octicon octicon-zap octicon octicon-zap octicon octicon-zap" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10.561 1.5a.016.016 0 00-.01.004L3.286 8.571A.25.25 0 003.462 9H6.75a.75.75 0 01.694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0012.538 7H9.25a.75.75 0 01-.683-1.06l2.008-4.418.003-.006a.02.02 0 00-.004-.009.02.02 0 00-.006-.006L10.56 1.5zM9.504.43a1.516 1.516 0 012.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 01-.871.354h-.302a1.25 1.25 0 01-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429z"></path></svg>
+    <strong>Important: </strong>Desde un punto de vista de eficacia este incremento en tiempo de desarrollo se compensa por los costos de mantención reducidos debido al incremento en calidad.
+</div>
+Además, es importante escribir tests junto con la implementación en pequeñas iteraciones. <a href="https://collaboration.csc.ncsu.edu/laurie/Papers/TDDpaperv8.pdf">George y Williams</a> encontraron que escribir tests después de que la aplicación está mas o menos lista hace que se testee menos porque los desarrolladores piensan en menos casos, y además la aplicación se vuelve menos testeable. Otra conclusión interesante del estudio de George y Williams es que un 79% de los desarrolladores experimentaron que el uso de TDD conlleva a un diseño más simple.
+<h2 id="¿Puedo-usar-TDD-siempre?">
+<a class="anchor" href="#%C2%BFPuedo-usar-TDD-siempre?" aria-hidden="true"><span class="octicon octicon-link"></span></a>¿Puedo usar TDD siempre?<a class="anchor-link" href="#%C2%BFPuedo-usar-TDD-siempre?"> </a>
+</h2>
+<p>No, pero puedes usarlo casi siempre. El análisis exploratorio es un caso en que el uso de TDD no hace sentido. Una vez que tenemos definido el problema a solucionar y un mejor entendimiento del problema podemos aterrizar nuestras ideas a la implementación vía testing.</p>
+<h2 id="Librerías-disponibles">
+<a class="anchor" href="#Librer%C3%ADas-disponibles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Librerías disponibles<a class="anchor-link" href="#Librer%C3%ADas-disponibles"> </a>
+</h2>
+<p>Acá listamos algunas librerías de TDD de los lenguajes que se usan en i+D</p>
+<h3 id="Python">
+<a class="anchor" href="#Python" aria-hidden="true"><span class="octicon octicon-link"></span></a>Python<a class="anchor-link" href="#Python"> </a>
+</h3>
+<ul>
+<li>
+<a href="https://docs.python.org/3/library/unittest.html">unittest</a>: Módulo dentro de la librería estándar de Python. Permite realizar tests unitarios, de integración y end to end.</li>
+<li>
+<a href="https://docs.python.org/3/library/doctest.html">doctest</a>: Permite realizar test de la documentación del código, cuando éste trae ejemplos de uso (Como en la documentacion de <a href="http://www.numpy.org/">Numpy</a> o <a href="https://pandas.pydata.org/">Pandas</a>).</li>
+<li>
+<a href="https://docs.pytest.org/en/latest/">pytest</a>: Librería de testing ampliamente usada en proyectos nuevos de Python.</li>
+<li>
+<a href="https://nose.readthedocs.io/en/latest/">nose</a>: Librería que extiende unittest para hacerlo más simple.</li>
+<li>
+<a href="https://coverage.readthedocs.io/en/v4.5.x/">coverage</a>: Herramienta para medir la <a href="https://es.wikipedia.org/wiki/Cobertura_de_c%C3%B3digo">cobertura de código</a> de los proyectos.</li>
+<li>
+<a href="https://tox.readthedocs.io/en/latest/">tox</a>: Herramienta para facilitar el test de una librería en diferentes versiones e intérpretes de Python.</li>
+<li>
+<a href="https://hypothesis.readthedocs.io/en/latest/">hypothesis</a>: Librería para escribir tests vía reglas que ayuda a encontrar casos borde.</li>
+<li>
+<a href="https://behave.readthedocs.io/en/latest/">behave</a>: Permite utilizar <a href="https://es.wikipedia.org/wiki/Desarrollo_guiado_por_comportamiento">Behavior Driven Development</a>, un proceso de desarrollo derivado del TDD.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Knowledge-base-/-Lecturas-recomendadas">
+<a class="anchor" href="#Knowledge-base-/-Lecturas-recomendadas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Knowledge base / Lecturas recomendadas<a class="anchor-link" href="#Knowledge-base-/-Lecturas-recomendadas"> </a>
+</h2>
+<ul>
+<li>
+<em><a href="/.attachments/Realizing%20Quality%20Improvement%20Through%20Test%20Driven%20Development%20-%20Results%20and%20Experiences%20of%20Four%20Industrial%20Teams%20(nagappan_tdd">Realizing Quality Improvement Through Test Driven Development - Results and Experiences of Four Industrial Teams</a>-8514b668-2c79-4567-a57d-f682b44dd3d9.pdf)</em>, es una buena lectura, sobretodo los consejos que dan en las conclusiones.</li>
+<li>
+<a href="https://testing.googleblog.com/">Google Testing Blog</a>: Poseen varios artículos sobre cómo abordar problemas tipo, buenas prácticas de diseño para generar código testeable, entre otros. En particular destaca la serie <em>Testing on the Toilet</em>.</li>
+<li>
+<a href="https://martinfowler.com/tags/testing.html">Cualquier artículo de Martin Fowler sobre testing</a>, empezando por <a href="https://martinfowler.com/articles/practical-test-pyramid.html">éste</a>
+</li>
+<li>
+<a href="https://sourcemaking.com/design_patterns">Design Patterns</a>: Los patrones de diseño de software tienen en consideración que el código sea <em>testeable</em>.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="fralfaro/ds_blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/ds_blog/jupyter/2021/07/31/tdd.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/ds_blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/ds_blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/ds_blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Personal Data Science Blog.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fralfaro" title="fralfaro"><svg class="svg-icon grey"><use xlink:href="/ds_blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://www.linkedin.com/in/FAAM" title="FAAM"><svg class="svg-icon grey"><use xlink:href="/ds_blog/assets/minima-social-icons.svg#linkedin"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
