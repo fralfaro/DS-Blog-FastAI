@@ -5,10 +5,10 @@ permalink: /about/
 ---
 
 ## Contact Information
+[<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">](https://www.python.org/)
+[<img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">](https://www.python.org/)
+[<img src="https://img.shields.io/badge/GitLab-330F63?style=for-the-badge&logo=gitlab&logoColor=white">](https://www.python.org/)
 
-[![Linkedin Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/faam/) 
-[![Github Badge](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/fralfaro) 
-[![Gitlab Badge](https://img.shields.io/badge/GitLab-330F63?style=for-the-badge&logo=gitlab&logoColor=white)](https://gitlab.com/FAAM) 
 
 - Name: Francisco Antonio Alfaro Medina
 - Phone: +56 9 94541139
@@ -75,47 +75,9 @@ I currently work as a Senior Data Scientist at ITAU (Bank). I enjoy programming,
 
 ## Certifications
 
-<table>
-  <tr>
-    <th><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/480px-Microsoft_logo.svg.png" width="35" height="35" /> </th>
-    <th >Microsoft Certified: Azure Data Engineer Associate</th>
-  </tr>
-</table>
-
-<table>
-  <tr>
-    <th><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/480px-Microsoft_logo.svg.png" width="35" height="35" /> </th>
-    <th >Microsoft Certified: Azure Fundamentals</th>
-  </tr>
-</table>
-
-
-<table>
-  <tr>
-    <th><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Coursera-Logo_600x600.svg/1200px-Coursera-Logo_600x600.svg.png" width="35" height="35" /> </th>
-    <th >Machine Learning</th>
-  </tr>
-</table>
-
-<table>
-  <tr>
-    <th><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Coursera-Logo_600x600.svg/1200px-Coursera-Logo_600x600.svg.png" width="35" height="35" /> </th>
-    <th >Neural Networks and Deep Learning</th>
-  </tr>
-</table>
-
-<table>
-  <tr>
-    <th><img src="https://i.pinimg.com/originals/d1/d7/11/d1d7113a292af6ebbe146a83c8a752a5.png" width="35" height="35" /> </th>
-    <th >Docker Mastery: with Kubernetes +Swarm from a Docker Captain</th>
-  </tr>
-</table>
-
-<table>
-  <tr>
-    <th><img src="https://i.pinimg.com/originals/d1/d7/11/d1d7113a292af6ebbe146a83c8a752a5.png" width="35" height="35" /> </th>
-    <th >Taming Big Data with Apache Spark and Python - Hands On! </th>
-  </tr>
-</table>
-
-
+* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/480px-Microsoft_logo.svg.png" width="35" height="35" /> Microsoft Certified: Azure Data Engineer Associate
+* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/480px-Microsoft_logo.svg.png" width="35" height="35" /> Microsoft Certified: Azure Fundamentals
+* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Coursera-Logo_600x600.svg/1200px-Coursera-Logo_600x600.svg.png" width="35" height="35" /> Machine Learning
+* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Coursera-Logo_600x600.svg/1200px-Coursera-Logo_600x600.svg.png" width="35" height="35" /> Neural Networks and Deep Learning
+* <img src="https://i.pinimg.com/originals/d1/d7/11/d1d7113a292af6ebbe146a83c8a752a5.png" width="35" height="35" /> Docker Mastery: with Kubernetes +Swarm from a Docker Captain
+* <img src="https://i.pinimg.com/originals/d1/d7/11/d1d7113a292af6ebbe146a83c8a752a5.png" width="35" height="35" /> Taming Big Data with Apache Spark and Python - Hands On!
