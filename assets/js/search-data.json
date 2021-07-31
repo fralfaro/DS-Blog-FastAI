@@ -29,7 +29,7 @@
   
       ,"page1": {
           "title": "About Me",
-          "content": "This website is powered by fastpages 1. . a blogging platform that natively supports Jupyter notebooks in addition to other formats. &#8617; . |",
+          "content": "Contact Information . . Name: Francisco Antonio Alfaro Medina | Phone: +56 9 94541139 | Email: francisco.alfaro.496@gmail.com | Curriculum Vitae: | . About me . 🎮 Gaming | 🏀 Basketball | 💡 Learning | 📚 Teaching . Statistician and Teacher at Universidad Técnica Federico Santa María. I currently work as a Senior Data Scientist at ITAU (Bank). I enjoy programming, learning about different topics and teaching about maths and computer. . 🔍 Researches Interests: . Software Development | Statistical Modelling | Machine/Deep Learning | Cloud computing | Big Data | Time Series | . My Tech Stack . Languages &amp; Frameworks . . . . . Cloud . . Tools and Others . . . Certifications . Microsoft Certified: Azure Data Engineer Associate . Microsoft Certified: Azure Fundamentals . Machine Learning . Neural Networks and Deep Learning . Docker Mastery: with Kubernetes +Swarm from a Docker Captain . Taming Big Data with Apache Spark and Python - Hands On! .",
           "url": "https://fralfaro.github.io/ds_blog/about/",
           "relUrl": "/about/",
           "date": ""
