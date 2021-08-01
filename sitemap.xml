@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://fralfaro.github.io/ds_blog/markdown/2021/07/31/tdd.html</loc>
+<loc>https://fralfaro.github.io/ds_blog/jupyter/2021/07/31/tdd.html</loc>
 <lastmod>2021-07-31T00:00:00-05:00</lastmod>
-</url>
-<url>
-<loc>https://fralfaro.github.io/ds_blog/markdown/2021/12/31/cursos.html</loc>
-<lastmod>2021-12-31T00:00:00-06:00</lastmod>
-</url>
-<url>
-<loc>https://fralfaro.github.io/ds_blog/jupyter/2021/12/31/mat281.html</loc>
-<lastmod>2021-12-31T00:00:00-06:00</lastmod>
 </url>
 <url>
 <loc>https://fralfaro.github.io/ds_blog/about/</loc>
