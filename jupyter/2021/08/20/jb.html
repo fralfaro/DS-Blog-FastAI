@@ -100,7 +100,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      9 min read
     
 </span></p>
 
@@ -136,6 +136,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#Citas-y-bibliograf%C3%ADa">Citas y bibliografía </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#Agregar-un-archivo-de-contenido-de-Jupyter-Notebook">Agregar un archivo de contenido de Jupyter Notebook </a></li>
 </ul>
 </li>
 </ul>
@@ -361,8 +362,9 @@ The beautiful planet Jupiter! Source: [NASA](https://solarsystem.nasa.gov/resour
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-
-<pre><code>Jupiter has a mass of:  $m_{j} \approx 1.9 \times 10^{27} kg$</code></pre>
+<pre>
+Jupiter has a mass of:  $m_{j} \approx 1.9 \times 10^{27} kg$
+</pre>
 <p>Jupiter has a mass of:  $m_{j} \approx 1.9 \times 10^{27} kg$</p>
 
 </div>
@@ -372,10 +374,11 @@ The beautiful planet Jupiter! Source: [NASA](https://solarsystem.nasa.gov/resour
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Los bloques matemáticos se pueden definir usando la notación <code>$$</code>:</p>
+<pre>
 
-<pre><code>
 $$m_{j} \approx 1.9 \times 10^{27} kg$$
-</code></pre>
+
+</pre>
 <p>
 $$m_{j} \approx 1.9 \times 10^{27} kg$$
 </p>
@@ -601,6 +604,63 @@ There might even be more planets out there with a similar mass to Jupiter {cite}
 </pre>
 <p>Y debería renderizarse así:</p>
 <p><img src="https://ubc-dsci.github.io/jupyterdays/_images/second-build.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Agregar-un-archivo-de-contenido-de-Jupyter-Notebook">
+<a class="anchor" href="#Agregar-un-archivo-de-contenido-de-Jupyter-Notebook" aria-hidden="true"><span class="octicon octicon-link"></span></a>Agregar un archivo de contenido de Jupyter Notebook<a class="anchor-link" href="#Agregar-un-archivo-de-contenido-de-Jupyter-Notebook"> </a>
+</h2>
+<p>Todos los flujos de trabajo de formato y estilo que vimos en markdown también se aplican a un Jupyter Notebook; simplemente agréguelos a una celda de markdown y listo.</p>
+<p>Comencemos con lo siguiente:</p>
+<ul>
+<li>Cree un nuevo notebook llamado <code>great_red_spot.ipynb</code>;</li>
+<li>Agregue este archivo a su <code>_toc.yml</code>;</li>
+<li>Agregue una celda de markdown con el siguiente contenido:</li>
+</ul>
+<pre>
+# The Great Red Spot
+
+Jupiter’s iconic Great Red Spot (GRS) is actually an enormous storm that is bigger than Earth that has raged for hundreds of years! {numref}`great-red-spot` below shows an image of Jupiter captured by the Hubble Space Telescope on June 27, 2019.
+
+```{figure} https://solarsystem.nasa.gov/system/resources/detail_files/626_PIA21775.jpg
+---
+height: 300px
+name: great-red-spot
+---
+Jupiter's Great Red Spot! Source: [NASA](https://solarsystem.nasa.gov/resources/626/jupiters-great-red-spot-in-true-color/?category=planets_jupiter).
+```
+
+Jupiter's GRS has been observed to be shrinking for about the last century and a half! [Here](https://github.com/UBC-DSCI/jupyterdays/tree/master/jupyterdays/sessions/beuzen/data) is some data of the length of the GRS spanning the last ~150 years which we can use to investigate this phenomenon.
+</pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>¡Ahora intente construir su libro (<code>jupyter-book build .</code>) para asegurarse de que todo se vea bien! Usando la barra de contenido del lado izquierdo, navegue a la nueva página “The Great Red Spot”, que debería verse así:</p>
+<p><img src="https://ubc-dsci.github.io/jupyterdays/_images/third-build.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>¡Ok genial! Ahora importemos los datos a los que hicimos referencia para que podamos crear algunos gráficos.</p>
+<p>Cree una nueva celda de código debajo de la celda de rebaja actual y agregue el siguiente código para leer en nuestro conjunto de datos de GRS como un marco de datos de Pandas.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">backend</span> <span class="o">=</span> <span class="s2">"plotly"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://raw.githubusercontent.com/UBC-DSCI/jupyterdays/master/jupyterdays/sessions/beuzen/data/GRS_data.csv"</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'Year'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Year'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> 
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
 
 </div>
 </div>
