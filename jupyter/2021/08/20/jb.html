@@ -96,10 +96,11 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h1"><a href="#Introducción">Introducción </a>
+<li class="toc-entry toc-h1"><a href="#Introducción">Introducción </a></li>
+<li class="toc-entry toc-h1"><a href="#Primeros-pasos">Primeros pasos </a>
 <ul>
-<li class="toc-entry toc-h2"><a href="#```{figure}-https://ubc-dsci.github.io/jupyterdays/_images/book_logo.png">```{figure} https://ubc-dsci.github.io/jupyterdays/_images/book_logo.png </a></li>
-<li class="toc-entry toc-h2"><a href="#name:-book-logo">name: book-logo </a></li>
+<li class="toc-entry toc-h2"><a href="#Instalación">Instalación </a></li>
+<li class="toc-entry toc-h2"><a href="#Crear-una-estructura-de-libro">Crear una estructura de libro </a></li>
 </ul>
 </li>
 </ul><!--
@@ -117,14 +118,63 @@ window.onload = wrap_img;
 <h1 id="Introducción">
 <a class="anchor" href="#Introducci%C3%B3n" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introducción<a class="anchor-link" href="#Introducci%C3%B3n"> </a>
 </h1>
-<h2 id="```{figure}-https://ubc-dsci.github.io/jupyterdays/_images/book_logo.png">
-<a class="anchor" href="#%60%60%60%7Bfigure%7D-https://ubc-dsci.github.io/jupyterdays/_images/book_logo.png" aria-hidden="true"><span class="octicon octicon-link"></span></a>```{figure} <a href="https://ubc-dsci.github.io/jupyterdays/_images/book_logo.png">https://ubc-dsci.github.io/jupyterdays/_images/book_logo.png</a><a class="anchor-link" href="#%60%60%60%7Bfigure%7D-https://ubc-dsci.github.io/jupyterdays/_images/book_logo.png"> </a>
+<p><a href="https://jupyterbook.org/intro.html">Jupyter Book</a> es un proyecto de código abierto para crear libros y documentos mediante Jupyter Notebooks y/o Markdown.</p>
+<p>Algunas características improtante del uso de Jupyter Book:</p>
+<ul>
+<li>contenido con calidad de publicación que incluya figuras, símbolos matemáticos, citas y referencias cruzadas!</li>
+<li>escribir contenido como Jupyter Notebooks, markdown o reStructuredText</li>
+<li>Agregue interactividad a su libro, por ejemplo, alternar la visibilidad de las celdas, conectarse con un servicio en línea como <strong>Binder</strong> e incluir resultados interactivos (por ejemplo, figuras y widgets).</li>
+<li>generar una variedad de resultados, incluidos sitios web (HTML, CSS, JS), markdown y PDF.</li>
+<li>una interfaz de línea de comandos para crear libros rápidamente, por ejemplo, <code>jupyter-book build mybook /</code>
+</li>
+</ul>
+<p>En esta sesión, se muestra un ejemplo de cómo crear un Jupyter Book desde cero y algunas de las características clave que ofrece Jupyter Book.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Primeros-pasos">
+<a class="anchor" href="#Primeros-pasos" aria-hidden="true"><span class="octicon octicon-link"></span></a>Primeros pasos<a class="anchor-link" href="#Primeros-pasos"> </a>
+</h1>
+<h2 id="Instalación">
+<a class="anchor" href="#Instalaci%C3%B3n" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instalación<a class="anchor-link" href="#Instalaci%C3%B3n"> </a>
 </h2>
-<h2 id="name:-book-logo">
-<a class="anchor" href="#name:-book-logo" aria-hidden="true"><span class="octicon octicon-link"></span></a>name: book-logo<a class="anchor-link" href="#name:-book-logo"> </a>
+<p>Para instalar <strong>Jupyter Book</strong>, necesitará usar la línea de comando. Si ha instalado Anaconda, puede usar:</p>
+
+<pre><code>conda install -c conda-forge jupyter-book</code></pre>
+<p>De lo contrario, puede instalar con pip:</p>
+
+<pre><code>pip install jupyter-book</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Crear-una-estructura-de-libro">
+<a class="anchor" href="#Crear-una-estructura-de-libro" aria-hidden="true"><span class="octicon octicon-link"></span></a>Crear una estructura de libro<a class="anchor-link" href="#Crear-una-estructura-de-libro"> </a>
 </h2>
-<p>The Jupyter Book logo.
-```</p>
+<p>Jupyter Book viene con una herramienta que le permite crear y construir libros rápidamente. Para crear el esqueleto del libro, escriba lo siguiente en la línea de comando:</p>
+
+<pre><code>jupyter-book create jupiter</code></pre>
+<blockquote>
+<p><strong>Nota</strong>:Aquí llamamos al libro <code>jupiter</code>, pero puedes elegir llamar a tu libro como quieras.</p>
+</blockquote>
+<p>Ahora tendrás un nuevo directorio llamado <code>jupiter</code> (o como quieras llamar a tu libro), con el siguiente contenido:</p>
+
+<pre><code>jupiter
+  ├── _config.yml
+  ├── _toc.yml
+  ├── content.md
+  ├── intro.md
+  ├── markdown.md
+  ├── notebooks.ipynb
+  ├── references.bib
+  └── requirements.txt</code></pre>
 
 </div>
 </div>
