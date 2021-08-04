@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Tutorial de RISE | DS-Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Tutorial de RISE" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Presentaciones interactivas usando jupyter notebook." />
+<meta property="og:description" content="Presentaciones interactivas usando jupyter notebook." />
+<link rel="canonical" href="https://fralfaro.github.io/ds_blog/jupyter/2021/08/05/rise.html" />
+<meta property="og:url" content="https://fralfaro.github.io/ds_blog/jupyter/2021/08/05/rise.html" />
+<meta property="og:site_name" content="DS-Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-08-05T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Presentaciones interactivas usando jupyter notebook.","url":"https://fralfaro.github.io/ds_blog/jupyter/2021/08/05/rise.html","@type":"BlogPosting","headline":"Tutorial de RISE","dateModified":"2021-08-05T00:00:00-05:00","datePublished":"2021-08-05T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://fralfaro.github.io/ds_blog/jupyter/2021/08/05/rise.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/ds_blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://fralfaro.github.io/ds_blog/feed.xml" title="DS-Blog" /><link rel="shortcut icon" type="image/x-icon" href="/ds_blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/ds_blog/">DS-Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/ds_blog/about/">About Me</a><a class="page-link" href="/ds_blog/search/">Search</a><a class="page-link" href="/ds_blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Tutorial de RISE</h1><p class="page-description">Presentaciones interactivas usando jupyter notebook.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-08-05T00:00:00-05:00" itemprop="datePublished">
+        Aug 5, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/ds_blog/categories/#jupyter">jupyter</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Introducción">Introducción </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#¿Por-qué-usar-RISE?">¿Por qué usar RISE? </a></li>
+<li class="toc-entry toc-h2"><a href="#Conocimiento-A-priori">Conocimiento A priori </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Primeros-Pasos">Primeros Pasos </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Instalación">Instalación </a></li>
+<li class="toc-entry toc-h2"><a href="#Habilitación-del-modo-de-presentación">Habilitación del modo de presentación </a></li>
+<li class="toc-entry toc-h2"><a href="#Creando-las-diapositivas-con-celdas">Creando las diapositivas con celdas </a></li>
+<li class="toc-entry toc-h2"><a href="#Ver-la-presentación-de-diapositivas">Ver la presentación de diapositivas </a></li>
+<li class="toc-entry toc-h2"><a href="#Cambio-de-diapositivas">Cambio de diapositivas </a></li>
+<li class="toc-entry toc-h2"><a href="#Ejecución-de-código-y-edición-sobre-la-marcha">Ejecución de código y edición sobre la marcha </a></li>
+<li class="toc-entry toc-h2"><a href="#Exportar-presentación">Exportar presentación </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Referencias">Referencias </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-08-05-rise.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Introducción">
+<a class="anchor" href="#Introducci%C3%B3n" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introducción<a class="anchor-link" href="#Introducci%C3%B3n"> </a>
+</h1>
+<p><a href="https://rise.readthedocs.io/en/stable/">RISE</a> es una extensión a los jupyter notebooks que permite transformar tus notebooks en presentaciones interactivas.</p>
+<p>Toda las celdas pueden editarse y ejecutarse directamente, <strong>durante</strong> la presentación. Esto es práctico si necesitas corregir un error en una celda de texto. Más importante aún, puedes ejecutar código directamente en el kernel. En una misma diapositiva puedes tener múltiples celdas y elegir cuál ejecutar, o corregir el texto y volver a ejecutar.</p>
+<p><img src="/ds_blog/images/copied_from_nb/../images/rise/rise.gif" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="¿Por-qué-usar-RISE?">
+<a class="anchor" href="#%C2%BFPor-qu%C3%A9-usar-RISE?" aria-hidden="true"><span class="octicon octicon-link"></span></a>¿Por qué usar RISE?<a class="anchor-link" href="#%C2%BFPor-qu%C3%A9-usar-RISE?"> </a>
+</h2>
+<ul>
+<li>Simplifica la generación de material.</li>
+<li>Se mantiene un archivo y no varios archivos para hablar de lo mismo.</li>
+<li>Es fácil de corregir, no se necesita mucho esfuerzo (similar a una PPT).</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Conocimiento-A-priori">
+<a class="anchor" href="#Conocimiento-A-priori" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conocimiento A priori<a class="anchor-link" href="#Conocimiento-A-priori"> </a>
+</h2>
+<p>Crear presentaciones con RISE es sencillo siempre y cuando tengas conocimientos básicos de Python, Jupyter Notebooks y línea de comandos.</p>
+<p>Además, será útil tener experiencia instalando y trabajando con extensiones de Jupyter Notebooks y paquetes de Python.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Primeros-Pasos">
+<a class="anchor" href="#Primeros-Pasos" aria-hidden="true"><span class="octicon octicon-link"></span></a>Primeros Pasos<a class="anchor-link" href="#Primeros-Pasos"> </a>
+</h1>
+<h2 id="Instalación">
+<a class="anchor" href="#Instalaci%C3%B3n" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instalación<a class="anchor-link" href="#Instalaci%C3%B3n"> </a>
+</h2>
+<p>Para instalar <strong>RISE</strong>, necesitará usar la línea de comando. Si ha instalado Anaconda, puede usar:</p>
+
+<pre><code>terminal
+conda install -c conda-forge rise</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>De lo contrario, puede instalar con pip:</p>
+
+<pre><code>terminal
+pip install RISE</code></pre>
+<blockquote>
+<p><strong>Nota</strong>:No interactuarás directamente con <strong>RISE</strong>. En su lugar, podrá acceder a él a través de Jupyter Notebooks.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Habilitación-del-modo-de-presentación">
+<a class="anchor" href="#Habilitaci%C3%B3n-del-modo-de-presentaci%C3%B3n" aria-hidden="true"><span class="octicon octicon-link"></span></a>Habilitación del modo de presentación<a class="anchor-link" href="#Habilitaci%C3%B3n-del-modo-de-presentaci%C3%B3n"> </a>
+</h2>
+<p>Para crear una presentación, deberá iniciar Jupyter Notebooks y abrir un nuevo notebook (tenga en cuenta que debe hacer esto después de haber instalado <strong>RISE</strong>). Una vez que tenga un Jupyter Notebook nuevo, deberá habilitar la presentación de diapositivas. Puede hacer esto haciendo lo siguiente:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Haga clic en "Ver" en la barra de herramientas de Jupyter</li>
+<li>Coloca el cursor sobre "Barra de herramientas de celda" en el menú "Ver"</li>
+<li>Haga clic en "Presentación de diapositivas" en el menú "Barra de herramientas de celda"</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/ds_blog/images/copied_from_nb/../images/rise/1.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Creando-las-diapositivas-con-celdas">
+<a class="anchor" href="#Creando-las-diapositivas-con-celdas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creando las diapositivas con celdas<a class="anchor-link" href="#Creando-las-diapositivas-con-celdas"> </a>
+</h2>
+<p>En este punto, debería tener una barra de herramientas de celda con un menú desplegable en el lado derecho:
+<img src="/ds_blog/images/copied_from_nb/../images/rise/2.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Debería ver seis opciones aquí. Este menú desplegable y sus opciones determinan cómo encaja cada celda en la presentación. Las opciones y sus descripciones se encuentran a continuación:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>
+<strong>slide</strong>: indica que la celda seleccionada debe ser el comienzo de una nueva diapositiva.</li>
+<li>
+<strong>sub-slide -</strong>: indica que la celda seleccionada debe ser el comienzo de una nueva sub-diapositiva, que aparece en un nuevo marco debajo de la diapositiva anterior.</li>
+<li>
+<strong>fragment</strong>: indica que la celda seleccionada debe aparecer como una compilación de la diapositiva anterior.</li>
+<li>
+<strong>skip</strong>: indica que la celda seleccionada debe omitirse y no ser parte de la presentación de diapositivas.</li>
+<li>
+<strong>notes</strong>: indica que la celda seleccionada debe ser solo notas del presentador.</li>
+<li>
+<strong>- -</strong>: indica que la celda seleccionada debe seguir el comportamiento de la celda anterior, lo cual es útil cuando una celda de rebaja y una celda de código deben aparecer simultáneamente.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Cada una de estas opciones puede incluir código Python o código Markdown/HTML/LaTeX como un Jupyter Notebook tradicional.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Ver-la-presentación-de-diapositivas">
+<a class="anchor" href="#Ver-la-presentaci%C3%B3n-de-diapositivas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ver la presentación de diapositivas<a class="anchor-link" href="#Ver-la-presentaci%C3%B3n-de-diapositivas"> </a>
+</h2>
+<p>Una vez que se han utilizado las celdas para crear material para la presentación, la presentación se puede ver directamente desde el notebook.</p>
+<p>Hay dos opciones para ver la presentación de diapositivas:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Usar el acceso directo OPTION + R shortcut (ALT + R on Windows) para ingresar y salir del modo de presentación desde dentro de la computadora portátil</li>
+<li>Al hacer clic en el botón "Modo de presentación" de la computadora portátil, esto solo aparecerá si ha instalado <strong>RISE</strong>.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/ds_blog/images/copied_from_nb/../images/rise/3.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Después de ingresar al modo de presentación, debería ver una pantalla similar a esta:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/ds_blog/images/copied_from_nb/../images/rise/5.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Cambio-de-diapositivas">
+<a class="anchor" href="#Cambio-de-diapositivas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cambio de diapositivas<a class="anchor-link" href="#Cambio-de-diapositivas"> </a>
+</h2>
+<p>Si bien puede ser tentador usar las teclas <strong>&lt;-</strong> y <strong>-&gt;</strong> para cambiar las diapositivas en la presentación, esto no funcionará por completo: omitirá las celdas marcadas como <strong>sub-slides</strong>. En su lugar, se debe usar ESPACIO para mover la presentación de diapositivas hacia adelante y MAYÚS + ESPACIO para mover la presentación de diapositivas hacia atrás.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Hay muchos otros atajos de teclado a los que se puede acceder dentro de la presentación haciendo clic en el signo de interrogación (<strong>?</strong>) en la esquina inferior izquierda.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Ejecución-de-código-y-edición-sobre-la-marcha">
+<a class="anchor" href="#Ejecuci%C3%B3n-de-c%C3%B3digo-y-edici%C3%B3n-sobre-la-marcha" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ejecución de código y edición sobre la marcha<a class="anchor-link" href="#Ejecuci%C3%B3n-de-c%C3%B3digo-y-edici%C3%B3n-sobre-la-marcha"> </a>
+</h2>
+<p>Una de las mejores cosas de <strong>RISE</strong> es que funciona en una sesión de Python en vivo, lo que significa que puede editar y ejecutar código mientras se ejecuta la presentación.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/ds_blog/images/copied_from_nb/../images/rise/6.gif" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Exportar-presentación">
+<a class="anchor" href="#Exportar-presentaci%C3%B3n" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exportar presentación<a class="anchor-link" href="#Exportar-presentaci%C3%B3n"> </a>
+</h2>
+<p>Puedes exportar tu presentación desplegando la opción: <code>File -&gt; Download as</code>.</p>
+<blockquote>
+<p><strong>Nota</strong>:Para poder descargar en formato <code>.pdf</code>, necesita tener instalado <code>pandoc</code>.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/ds_blog/images/copied_from_nb/../images/rise/descarga.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Referencias">
+<a class="anchor" href="#Referencias" aria-hidden="true"><span class="octicon octicon-link"></span></a>Referencias<a class="anchor-link" href="#Referencias"> </a>
+</h1>
+<ul>
+<li><a href="https://rise.readthedocs.io/en/stable/">RISE - Documentation</a></li>
+<li><a href="https://www.markroepke.me/posts/2019/05/23/creating-interactive-slideshows-in-jupyter.html">Creating Interactive Slideshows in Jupyter Notebooks</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="fralfaro/ds_blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/ds_blog/jupyter/2021/08/05/rise.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/ds_blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/ds_blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/ds_blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Personal Data Science Blog.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fralfaro" title="fralfaro"><svg class="svg-icon grey"><use xlink:href="/ds_blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://www.linkedin.com/in/FAAM" title="FAAM"><svg class="svg-icon grey"><use xlink:href="/ds_blog/assets/minima-social-icons.svg#linkedin"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
