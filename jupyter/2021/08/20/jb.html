@@ -487,16 +487,16 @@ NASA provides a lot more information about the physical characteristics of Jupit
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Citas-y-bibliografía">
 <a class="anchor" href="#Citas-y-bibliograf%C3%ADa" aria-hidden="true"><span class="octicon octicon-link"></span></a>Citas y bibliografía<a class="anchor-link" href="#Citas-y-bibliograf%C3%ADa"> </a>
 </h3>
 <p>El último contenido corresponde a referencias y una bibliografía. Puede agregar citas de cualquier trabajo almacenado en el archivo Bibtex <code>Reference.bib</code> que se encuentra en el directorio raíz de su libro.</p>
 <p>Para incluir una cita en su libro, agregue una entrada bibtex a <code>referencias.bib</code>, por ejemplo:</p>
-<p></p>
-<pre>
-@article{mayor1995jupiter,
+
+<pre><code>@article{mayor1995jupiter,
     title={A Jupiter-mass companion to a solar-type star},
     author={Mayor, Michel and Queloz, Didier},
     journal={Nature},
@@ -505,8 +505,9 @@ NASA provides a lot more information about the physical characteristics of Jupit
     pages={355--359},
     year={1995},
     publisher={Nature Publishing Group}
-}&lt;/p&gt;
-<p>@article{guillot1999interiors,
+}
+
+@article{guillot1999interiors,
     title={Interiors of giant planets inside and outside the solar system},
     author={Guillot, Tristan},
     journal={Science},
@@ -515,15 +516,21 @@ NASA provides a lot more information about the physical characteristics of Jupit
     pages={72--77},
     year={1999},
     publisher={American Association for the Advancement of Science}
-}
-&lt;/pre&gt;</p>
+}</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <blockquote>
 <p><strong>Nota:</strong> Consulte la <a href="http://www.bibtex.org/Using/">documentación de BibTex</a> para obtener información sobre el estilo de referencia de BibTex. Google Scholar facilita la exportación de un formato de cita bibtex.</p>
 </blockquote>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -661,17 +668,17 @@ Jupiter's GRS has been observed to be shrinking for about the last century and a
 <span class="n">df</span><span class="p">[</span><span class="s1">'Year'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Year'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> 
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
+<blockquote>
+<p><strong>Nota</strong>:Estamos imprimiendo la salida en la pantalla con el uso de <code>df.head()</code> y esto se mostrará en nuestro Jupyter Book renderizado.
+Si reconstruye su libro (<code>jupyter-book build .</code>) en este punto, verá algo como lo siguiente:</p>
+</blockquote>
+<p><img src="https://ubc-dsci.github.io/jupyterdays/_images/fourth-build.png" alt=""></p>
 
 </div>
 </div>
 </div>
-&lt;/div&gt;
- 
+</div>
 
-</pre>
-</div>
-</div></div>
-</div>
 
 
   </div>
