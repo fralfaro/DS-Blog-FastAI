@@ -84,7 +84,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      5 min read
     
 </span></p>
 
@@ -115,6 +115,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#Texto">Texto </a></li>
 <li class="toc-entry toc-h3"><a href="#Figuras">Figuras </a></li>
 <li class="toc-entry toc-h3"><a href="#Equaciones-matem%C3%A1ticas">Equaciones matemáticas </a></li>
+<li class="toc-entry toc-h3"><a href="#Controlando-el-dise%C3%B1o-de-la-p%C3%A1gina">Controlando el diseño de la página </a></li>
 </ul>
 </li>
 </ul>
@@ -321,7 +322,7 @@ The beautiful planet Jupiter! Source: [NASA](https://solarsystem.nasa.gov/resour
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Una vez finalizada la compilación, tendrá un nuevo subdirectorio llamado _build / html en la raíz de su libro, navegue hasta esa ubicación y abra <code>_build/html/index.html</code>. Debería verse algo como esto:</p>
+<p>Una vez finalizada la compilación, tendrá un nuevo subdirectorio llamado<code>_build/html/</code> en la raíz de su libro, navegue hasta esa ubicación y abra <code>_build/html/index.html</code>. Debería verse algo como esto:</p>
 <p><img src="https://ubc-dsci.github.io/jupyterdays/_images/first-build.png" alt=""></p>
 
 </div>
@@ -344,7 +345,7 @@ The beautiful planet Jupiter! Source: [NASA](https://solarsystem.nasa.gov/resour
 <div class="text_cell_render border-box-sizing rendered_html">
 
 <pre><code>Jupiter has a mass of:  $m_{j} \approx 1.9 \times 10^{27} kg$</code></pre>
-<p>Jupiter has a mass of:  $m_{j} \approx 1.9 \times 10^{27} kg$</p>
+<p>Jupiter has a mass of:  $`m_{j} \approx 1.9 \times 10^{27} kg`$</p>
 
 </div>
 </div>
@@ -355,10 +356,10 @@ The beautiful planet Jupiter! Source: [NASA](https://solarsystem.nasa.gov/resour
 <p>Los bloques matemáticos se pueden definir usando la notación $$:</p>
 
 <pre><code>
-$$ m_{j} \approx 1.9 \times 10^{27} kg $$
+$$m_{j} \approx 1.9 \times 10^{27} kg$$
 </code></pre>
 <p>
-$$ m_{j} \approx 1.9 \times 10^{27} kg $$
+$$`m_{j} \approx 1.9 \times 10^{27} kg`$$
 </p>
 
 </div>
@@ -378,6 +379,63 @@ m_{j} \approx 1.9 \times 10^{27} kg
 </pre>
 </blockquote>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Agreguemos más contenido a nuestro libro. Copie y agregue el siguiente texto a su archivo <code>Introduction.md</code>:</p>
+<pre>
+## The Mass of Jupiter
+
+We can estimate the mass of Jupiter from the period and size of an object orbiting it. For example, we can use Jupiter's moon Callisto to estimate it's mass.
+
+Callisto's period: $p_{c}=16.7 days$
+
+Callisto's orbit radius: $r_{c}=1,900,000 km$
+
+Now, using [Kepler's Law](https://solarsystem.nasa.gov/resources/310/orbits-and-keplers-laws/) we can work out the mass of Jupiter.
+
+```{math}
+:label: eq1
+m_{j} \approx \frac{r_{c}}{p_{c}} \times 7.9 \times 10^{10}
+```
+
+```{math}
+:label: eq2
+m_{j} \approx 1.9 \times 10^{27} kg
+```
+</pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A continuación, puede reconstruir su libro (<code>jupyter-book build .</code>) y abrir <code>_build/html/index.html</code> para asegurarse de que todo se esté procesando como se esperaba.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Controlando-el-diseño-de-la-página">
+<a class="anchor" href="#Controlando-el-dise%C3%B1o-de-la-p%C3%A1gina" aria-hidden="true"><span class="octicon octicon-link"></span></a>Controlando el diseño de la página<a class="anchor-link" href="#Controlando-el-dise%C3%B1o-de-la-p%C3%A1gina"> </a>
+</h3>
+<p>Hay varias formas diferentes de controlar el diseño de las páginas de su Jupyter Book. El cambio de diseño que utilizo con más frecuencia es agregar contenido a un margen en la página. Puede agregar un margen usando la siguiente directiva:</p>
+<pre>
+```{margin} An optional title
+Some margin content.
+```
+</pre>
+<p>Agreguemos algo de contenido marginal al libro:</p>
+<pre>
+```{margin} Did you know?
+Jupiter is 11.0x larger than Earth!
+```
+</pre>
 </div>
 </div>
 </div>
