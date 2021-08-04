@@ -78,7 +78,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -101,6 +101,13 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h2"><a href="#Instalación">Instalación </a></li>
 <li class="toc-entry toc-h2"><a href="#Crear-una-estructura-de-libro">Crear una estructura de libro </a></li>
+<li class="toc-entry toc-h2"><a href="#Re-estructuración-del-directorio">Re-estructuración del directorio </a></li>
+<li class="toc-entry toc-h2"><a href="#Agregar-un-archivo-Markdown">Agregar un archivo Markdown </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Texto">Texto </a></li>
+<li class="toc-entry toc-h3"><a href="#Figuras">Figuras </a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul><!--
@@ -175,6 +182,74 @@ window.onload = wrap_img;
   ├── notebooks.ipynb
   ├── references.bib
   └── requirements.txt</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Re-estructuración-del-directorio">
+<a class="anchor" href="#Re-estructuraci%C3%B3n-del-directorio" aria-hidden="true"><span class="octicon octicon-link"></span></a>Re-estructuración del directorio<a class="anchor-link" href="#Re-estructuraci%C3%B3n-del-directorio"> </a>
+</h2>
+<p>Jupyter Book admite varios tipos de archivos:</p>
+<ul>
+<li>Markdown (.md)</li>
+<li>notebooks (.ipynb)</li>
+<li>etc.</li>
+</ul>
+<p>Como Markdown y Jupyter Notebooks probablemente serán los tipos de archivo más comunes que usará, se mostrará un ejemplo de ello.</p>
+<p>Lo primero será eliminar los archivos de inicio en el directorio:</p>
+<ul>
+<li>content.md</li>
+<li>intro.md</li>
+<li>markdown.md</li>
+<li>notebooks.ipynb</li>
+</ul>
+<p>Así que ejecutamos por línea de comando:</p>
+
+<pre><code>rm content.md intro.md markdown.md notebooks.ipynb</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Agregar-un-archivo-Markdown">
+<a class="anchor" href="#Agregar-un-archivo-Markdown" aria-hidden="true"><span class="octicon octicon-link"></span></a>Agregar un archivo Markdown<a class="anchor-link" href="#Agregar-un-archivo-Markdown"> </a>
+</h2>
+<p>Se comienza por agregar un archivo de markdown. Con algún editor a elección (por ejemplo, jupyter notebook o jupyterlab) se crea un nuevo archivo markdown llamado <code>Introduction.md</code>.</p>
+<p>Se usa este archivo como demostración de algunos de los principales tipos de contenido que puede agregar en Jupyter-Book.</p>
+<h3 id="Texto">
+<a class="anchor" href="#Texto" aria-hidden="true"><span class="octicon octicon-link"></span></a>Texto<a class="anchor-link" href="#Texto"> </a>
+</h3>
+<p>Se agrega un texto de Markdown simple a nuestro archivo. Si no está familiarizado con la sintaxis de markdown, consulte <a href="">Markdown Cheat Sheet</a><a href="https://www.markdownguide.org/cheat-sheet/">https://www.markdownguide.org/cheat-sheet/</a>. Puede copiar y pegar el siguiente contenido directamente en su archivo <code>Introduction.md</code>.</p>
+
+<pre><code># Jupiter Book
+
+This book contains information about the planet **Jupiter** - the fifth planet from the sun and the largest planet in the solar system!</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Figuras">
+<a class="anchor" href="#Figuras" aria-hidden="true"><span class="octicon octicon-link"></span></a>Figuras<a class="anchor-link" href="#Figuras"> </a>
+</h3>
+<p>Puedes incluir figuras en tu Jupyter Book usando la siguiente sintaxis:</p>
+
+<pre><code>markdown
+
+```{figure} my_image.png
+---
+height: 150px
+name: my-image
+---
+Here is my image's caption!</code></pre>
+<p>```</p>
 
 </div>
 </div>
