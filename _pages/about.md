@@ -1,13 +1,13 @@
 ---
 layout: page
-title: About Me
+title: Acerca de 
 permalink: /about/
 ---
 
-## Contact Information
+## Información
 
-- Name: Francisco Antonio Alfaro Medina
-- Phone: +56 9 94541139
+- Nombre: Francisco Antonio Alfaro Medina
+- Celular: +56 9 94541139
 - Email: francisco.alfaro.496@gmail.com
 - Curriculum Vitae: [cv](https://gitlab.com/FAAM/curriculum_vitae/-/jobs/artifacts/master/browse?job=generate_pdf)
 - Social Media:
@@ -16,23 +16,5 @@ permalink: /about/
   - [Linkedin](https://www.linkedin.com/in/faam/)
   - [HomePage](https://faam.gitlab.io/mkdocs/)
 
-
-
-
-
-## About me 
-🎮 Gaming | 🏀 Basketball | 💡 Learning | 📚 Teaching 
-
-Statistician and Teacher at Universidad Técnica Federico Santa María.
-I currently work as a Senior Data Scientist at ITAU (Bank). I enjoy programming, learning about different topics and teaching about maths and computer. 
-
-
-
-🔍 Researches Interests:
- - Software Development
- - Statistical Modelling
- - Machine/Deep Learning
- - Cloud computing
- - Big Data
- - Time Series
+  
 
