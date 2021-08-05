@@ -100,7 +100,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      11 min read
     
 </span></p>
 
@@ -673,6 +673,75 @@ Jupiter's GRS has been observed to be shrinking for about the last century and a
 Si reconstruye su libro (<code>jupyter-book build .</code>) en este punto, verá algo como lo siguiente:</p>
 </blockquote>
 <p><img src="https://ubc-dsci.github.io/jupyterdays/_images/fourth-build.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ahora, podemos usar estos datos para crear algunos gráficos.</p>
+<p>Las tramas en su Jupyter Book pueden ser estáticas (por ejemplo, <code>matplotlib</code>, <code>seaborn</code>) o interactivas (por ejemplo, <code>altair</code>, <code>plotly</code>, <code>bokeh</code>). 
+Para este tutorial, crearemos algunos gráficos de ejemplo usando <code>Plotly</code> (a través del backend de Pandas).</p>
+<p>Primero creemos un diagrama de dispersión simple de nuestros datos. Cree una nueva celda de código en su cuaderno y agregue el siguiente código:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.io</span> <span class="k">as</span> <span class="nn">pio</span>
+<span class="n">pio</span><span class="o">.</span><span class="n">renderers</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="s2">"notebook"</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"Year"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"GRS Length"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"Recorder"</span><span class="p">,</span>
+                      <span class="n">range_x</span><span class="o">=</span><span class="p">[</span><span class="mi">1870</span><span class="p">,</span> <span class="mi">2030</span><span class="p">],</span> <span class="n">range_y</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span>
+                      <span class="n">width</span><span class="o">=</span><span class="mi">650</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="s1">'text'</span><span class="p">:</span> <span class="s2">"Great Red Spot Size"</span><span class="p">,</span> <span class="s1">'x'</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">:</span><span class="mf">0.92</span><span class="p">})</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ya que estamos en eso, creemos también una trama animada. Cree otra celda de código nueva y agregue el siguiente código:</p>
+<div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"Year"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"GRS Length"</span><span class="p">,</span>
+                      <span class="n">animation_frame</span><span class="o">=</span><span class="s2">"Year"</span><span class="p">,</span>
+                      <span class="n">range_x</span><span class="o">=</span><span class="p">[</span><span class="mi">1870</span><span class="p">,</span> <span class="mi">2030</span><span class="p">],</span> <span class="n">range_y</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span>
+                      <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">520</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="s1">'text'</span><span class="p">:</span> <span class="s2">"Great Red Spot Size Animation"</span><span class="p">,</span> <span class="s1">'x'</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">:</span><span class="mf">0.94</span><span class="p">})</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">updatemenus</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">buttons</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">"frame"</span><span class="p">][</span><span class="s2">"duration"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+<blockquote>
+<p><strong>Nota:</strong> Plotly tiene <a href="https://plotly.com/python/renderers/">diferentes renderizadores</a> disponibles para generar gráficos. Es posible que deba experimentar con renderizadores para obtener el resultado que desea en su Jupyter Book. He descubierto que <code>pio.renderers.default = "notebook"</code> funciona con la versión actual de Jupyter Book.
+¡Ahora, reconstruyamos nuestro libro y echemos un vistazo!</p>
+</blockquote>
+<p><img src="https://ubc-dsci.github.io/jupyterdays/_images/fifth-build.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Es posible que desee ocultar parte del código en su libro, ¡no hay problema! Eso también se hace fácilmente con Jupyter Book.</p>
+<p>El que nos interesa aquí es ocultar la entrada de código. Podemos hacerlo fácilmente agregando la etiqueta <code>hide-input</code> a la celda que deseamos ocultar. Hay varias formas de agregar etiquetas a la celda en Jupyter Notebooks. En Jupyter Lab, haga clic en el icono de engranaje en la barra lateral izquierda y luego agregue la etiqueta deseada como se muestra a continuación:</p>
+<p><img src="https://ubc-dsci.github.io/jupyterdays/_images/hide-content.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Continúe y agregue las etiquetas <code>hide-input</code> a ambas celdas de trazado en su archivo <code>great_red_spot.ipynb</code>. Cuando reconstruyas el libro, verás que la entrada del código está oculta (pero se puede alternar con el ícono <code>+</code>):</p>
+<p><img src="https://ubc-dsci.github.io/jupyterdays/_images/sixth-build.png" alt=""></p>
+<blockquote>
+<p><strong>Nota</strong>:También puede almacenar el contenido de la libreta como valores, gráficos o marcos de datos en variables que se pueden utilizar en toda su libreta mediante la herramienta <code>glue</code>.</p>
+</blockquote>
 
 </div>
 </div>
