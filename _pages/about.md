@@ -7,7 +7,7 @@ permalink: /about/
 Estadístico y Docente de la Universidad Técnica Federico Santa María.
 Actualmente trabajo como Senior Data Scientist. Disfruto programando, aprendiendo sobre diferentes temas y enseñando sobre matemáticas y computación.
 
-# Informacion General
+## Informacion General
 
 - Nombre: Francisco Antonio Alfaro Medina
 - Celular: +56 9 94541139
