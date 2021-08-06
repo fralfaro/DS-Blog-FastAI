@@ -4,18 +4,16 @@ title: Software
 permalink: /software/
 ---
 
-
-# Software
-
 ## **Python Packages**
 
 Python is an interpreted high-level general-purpose programming language. Python is used for web development, AI, machine learning, operating systems, 
 mobile application development, and video games. I contribute as developer/maintainer of the following Python packages:  
 
 ### ***fastmatrix*: Fast computation of some matrices useful in statistics**
-[![Gitlab Badge](https://img.shields.io/badge/fastmatrix-package-blue)](https://gitlab.com/FAAM/fastmatrix)
-[![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-380/)
-![Progress](https://img.shields.io/badge/project-in%20progress-blue)
+<a href="https://gitlab.com/FAAM/fastmatrix"><img alt="Link" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" style="float:left; padding-right:10px" ></a>
+<a href="https://www.python.org/downloads/release/python-380/"><img alt="Link" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" style="float:left; padding-right:10px" ></a>
+<img alt="Link" src="https://img.shields.io/badge/project-in%20progress-blue" style="float:left; padding-right:10px" ></a>
+<br/><br/>
 <!---
 <img src="https://img.shields.io/pypi/dm/airflow?color=blue" alt="">
 -->
