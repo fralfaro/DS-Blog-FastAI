@@ -18,7 +18,7 @@ permalink: /about/
 
 
 
-## **About me**
+## **Personal Information**
 🎮 Gaming | 🏀 Basketball | 💡 Learning | 📚 Teaching 
 
 Statistician and Teacher at Universidad Técnica Federico Santa María.
