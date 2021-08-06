@@ -42,7 +42,7 @@ I currently work as a Senior Data Scientist at ITAU (Bank). I enjoy programming,
 
 <img alt="Link" src="https://img.shields.io/badge/Python-100000?style=for-the-badge&logo=python&logoColor=darkgreen" style="float:left; padding-right:10px" >
 <img alt="Link" src="https://img.shields.io/badge/Jupyter-100000.svg?&style=for-the-badge&logo=Jupyter&logoColor=whiten" style="float:left; padding-right:10px" >
-<img alt="Link" src=https://img.shields.io/badge/R-100000?style=for-the-badge&logo=r&logoColor=blue" style="float:left; padding-right:10px" >
+<img alt="Link" src="https://img.shields.io/badge/R-100000?style=for-the-badge&logo=r&logoColor=blue" style="float:left; padding-right:10px" >
 <img alt="Link" src="https://img.shields.io/badge/C-100000?style=for-the-badge&logo=c&logoColor=Yellow" style="float:left; padding-right:10px" >
 
 
