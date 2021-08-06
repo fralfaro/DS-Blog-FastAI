@@ -9,7 +9,7 @@ permalink: /software/
 Python is an interpreted high-level general-purpose programming language. Python is used for web development, AI, machine learning, operating systems, 
 mobile application development, and video games. I contribute as developer/maintainer of the following Python packages:  
 
-> **Note**: The original projects was developed by Felipe Osorio. These repositories are only a packages transform from R to Python.
+> **Note**: The original projects was developed by [Felipe Osorio](http://fosorios.mat.utfsm.cl/). These repositories are only a packages transform from R to Python.
 
 ### ***fastmatrix*: Fast computation of some matrices useful in statistics**
 <a href="https://gitlab.com/FAAM/fastmatrix"><img alt="Link" src="https://img.shields.io/badge/fastmatrix-package-blue" style="float:left; padding-right:10px" ></a>
