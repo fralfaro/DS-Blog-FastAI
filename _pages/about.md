@@ -72,7 +72,7 @@ I currently work as a Senior Data Scientist at ITAU (Bank). I enjoy programming,
 <img alt="Link" src="https://img.shields.io/badge/-Git-black?style=for-the-badge&logo=git" style="float:left; padding-right:10px" >
 <img alt="Link" src="https://img.shields.io/badge/pycharm-143?style=for-the-badge&logo=pycharm&logoColor=black&color=black&labelColor=green" style="float:left; padding-right:10px" >
 <img alt="Link" src="https://img.shields.io/badge/VIM-%2311AB00.svg?&style=for-the-badge&logo=vim&logoColor=white" style="float:left; padding-right:10px" >
-
+<br/><br/>
 
 
 
