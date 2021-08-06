@@ -65,12 +65,10 @@
   
 
   
-
-  
   
 
   
-      ,"page7": {
+      ,"page6": {
           "title": "Software",
           "content": "Software . Python Packages . Python is an interpreted high-level general-purpose programming language. Python is used for web development, AI, machine learning, operating systems, mobile application development, and video games. I contribute as developer/maintainer of the following Python packages: . fastmatrix: Fast computation of some matrices useful in statistics . . Yet another R package for matrices. It contains a small set of functions to fast computation of some matrices and operations useful in statistics. . HEAVY: Robust estimation using heavy-tailed distributions . . Functions to perform robust estimation considering heavy-tailed distributions. Currently, the package includes linear regression, linear mixed-effect models, multivariate location and scatter estimation, multivariate regression, penalized splines and random variate generation. . L1pack: Routines for L1 Estimation . . Provides routines to perform L1 estimation for linear regression, evaluation of density, distribution function, quantile function and random number generation for univariate and multivariate Laplace distribution. . MVT: Estimation and testing for the multivariate t-distribution . . This package contains a set of routines to perform estimation and inference under the multivariate t-distribution. These methods are a direct generalization of the multivariate inference under the gaussian assumption. In addition, these procedures provide robust methods useful against outliers. . SpatialPack: Tools for assessment the association between two spatial processes . . This package provides tools to assess the association between two spatial processes. Currently, four methodologies are implemented: A modified t-test to perform hypothesis testing about the independence between the processes, a suitable nonparametric correlation coefficient, the codispersion coefficient, and an F test for assessing the multiple correlation between one spatial process and several others. Functions for image processing and computing the spatial association between images are also provided. SpatialPack gives methods to complement methodologies that are available in geoR for one spatial process. .",
           "url": "https://fralfaro.github.io/ds_blog/software/",
@@ -81,9 +79,7 @@
   
 
   
-
-  
-      ,"page9": {
+      ,"page7": {
           "title": "Teaching",
           "content": "Universities Courses . MAT281 - Applications of Mathematics in Engineering . University: Universidad Técnica Federico Santa María (UTFSM) | Course: Applications of Mathematics in Engineering | Course abbreviation: MAT281 | Prerequisites: None | Academic Unit that teaches it: Department of Mathematics | Training axis: Applied Engineering and Integration | Information: file | Repository: 2019 , 2020 , 2021 | . Previous Courses . MAT021 - Calculus and Algebra I (UTFSM) | MAT022 - Calculus and Algebra II (UTFSM) | . Personal Courses . Basic Tools . Course: Basic Tools | Description: Basic tools for Data Scientists | Repository: Gitlab | . Python Introduction . Course: Python Introduction | Description: Basic concepts about Python | Repository: Gitlab | . Data Structures and Algorithms . Course: Data Structures and Algorithms | Description: Data structures and algorithms with Python | Repository: Gitlab | . Data Manipulation . Course: Data Manipulation | Description: Basic concepts about data manipulation wih Python (Numpy, Panda, Matplotlib) | Repository: Gitlab | . Machine Learning . Course: Machine Learning | Description: Basic concepts about Machine Learning (numpy, pandas, scikit-learn) | Repository: Gitlab | . Deep Learning . Course: Deep Learning | Description: Basic concepts about Deep Learning with Tensorflow and Keras | Repository: Gitlab | . Big Data . Course: Big Data | Description: Basic concepts about Big Data with Pyspark | Repository: Gitlab | . Software Design I . Course: Software Design I | Description: Basic concepts about software design (version control, testing, and automatic build management) | Repository: Gitlab | . Software Design II . Course: Software Design II | Description: Advanced concepts about software design (version control, testing, and automatic build management) | Repository: Gitlab | .",
           "url": "https://fralfaro.github.io/ds_blog/teaching/",
@@ -103,7 +99,7 @@
   
 
   
-      ,"page13": {
+      ,"page11": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://fralfaro.github.io/ds_blog/robots.txt",
