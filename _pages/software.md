@@ -10,13 +10,10 @@ Python is an interpreted high-level general-purpose programming language. Python
 mobile application development, and video games. I contribute as developer/maintainer of the following Python packages:  
 
 ### ***fastmatrix*: Fast computation of some matrices useful in statistics**
-<a href="https://gitlab.com/FAAM/fastmatrix"><img alt="Link" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" style="float:left; padding-right:10px" ></a>
-<a href="https://www.python.org/downloads/release/python-380/"><img alt="Link" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" style="float:left; padding-right:10px" ></a>
-<img alt="Link" src="https://img.shields.io/badge/project-in%20progress-blue" style="float:left; padding-right:10px" ></a>
+<a href="https://gitlab.com/FAAM/fastmatrix"><img alt="Link" src="https://img.shields.io/badge/HEAVY-package-blue" style="float:left; padding-right:10px" ></a>
+<a href="https://www.python.org/downloads/release/python-380/"><img alt="Link" src="https://img.shields.io/badge/python-3.8-blue.svg" style="float:left; padding-right:10px" ></a>
+<img alt="Link" src="https://img.shields.io/badge/project-in%20progress-blue" style="float:left; padding-right:10px" >
 <br/><br/>
-<!---
-<img src="https://img.shields.io/pypi/dm/airflow?color=blue" alt="">
--->
 
 Yet another R package for matrices. It contains a small set of functions to fast computation of some matrices and operations useful in statistics.
 
