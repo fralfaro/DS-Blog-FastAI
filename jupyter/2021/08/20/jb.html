@@ -223,6 +223,32 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>en donde:</p>
+<ul>
+<li>
+<code>_config.yml</code>: archivo que contiene las configuraciones del proyecto.</li>
+<li>
+<code>_toc.yml</code>: archivo que ordena los capítulos del libro.</li>
+<li>
+<code>content.md</code>: archivo genérico <code>.md</code>.</li>
+<li>
+<code>intro.md</code>: archivo genérico <code>.md</code>.</li>
+<li>
+<code>markdown.md</code>: archivo genérico <code>.md</code>.</li>
+<li>
+<code>notebooks.ipynb</code>: archivo genérico <code>.ipynb</code>.</li>
+<li>
+<code>references.bib</code>: archivo para añadir las referencias.</li>
+<li>
+<code>requirements.txt</code>: archivo que contiene las dependencias  python) del proyecto.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Re-estructuración-del-directorio">
 <a class="anchor" href="#Re-estructuraci%C3%B3n-del-directorio" aria-hidden="true"><span class="octicon octicon-link"></span></a>Re-estructuración del directorio<a class="anchor-link" href="#Re-estructuraci%C3%B3n-del-directorio"> </a>
 </h2>
@@ -243,7 +269,31 @@ window.onload = wrap_img;
 <p>Así que ejecutamos por línea de comando:</p>
 
 <pre><code>rm content.md intro.md markdown.md notebooks.ipynb</code></pre>
+<p>Por otro lado, nuestro proyecto estaré conformado por tres archivos:</p>
+<ul>
+<li>index.md</li>
+<li>Introduction.md</li>
+<li>great_red_spot.ipynb</li>
+</ul>
+<p>Luego, debemos indicar cómo serán mostrados estos documentos en el archivo <code>_toc.yml</code>. La estructura será la siguiente:</p>
 
+<pre><code>format: jb-book
+root: index
+chapters:
+- file: Introduction
+- file: great_red_spot</code></pre>
+<p>En este caso, <code>root: index</code> corresponde al primer archivo que se visualiza en el jupyter-book. En el archivo <code>index.md</code> escribiremos:</p>
+<pre>
+# Home
+
+jupyter book example
+
+## Contenidos
+
+```{tableofcontents}
+```
+
+</pre>
 </div>
 </div>
 </div>
