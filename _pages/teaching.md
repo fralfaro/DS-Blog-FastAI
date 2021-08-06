@@ -28,11 +28,15 @@ permalink: /teaching/
 ## **Personal Courses**  
 
 ### Basic Tools
+
 <a href="https://gitlab.com/FAAM"><img alt="Link" src="https://img.shields.io/badge/GitLab-330F63?style=flat-square&logo=gitlab&logoColor=white" style="float:left; padding-right:10px" ></a>
 <a href="https://faam.gitlab.io/basic_tools/"><img alt="Link" src="https://jupyterbook.org/badge.svg" style="float:left; padding-right:10px" ></a>
 <a href="https://gitlab.com/FAAM/basic_tools/-/commits/master"><img alt="Link" src="https://gitlab.com/FAAM/basic_tools/badges/master/pipeline.svg" style="float:left; padding-right:10px" ></a>
 <br/><br/>
-Basic tools for Data Scientists.
+
+- **Course**: Basic Tools.
+- **Description**: Basic tools for Data Scientists.
+- **Repository**: [link](https://gitlab.com/FAAM/basic_tools).
 
 
 ### Python Introduction
