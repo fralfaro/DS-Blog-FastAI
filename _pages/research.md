@@ -6,7 +6,7 @@ permalink: /research/
 
 ## **Research**
 - Alfaro,F. (2019). Estimation of the reciprocal effects between Happiness and Job Performance in Chile.  
-Master thesis. <a href="https://gitlab.com/FAAM/mkdocs/-/blob/master/docs/files/researches/tesis_master.pdf" title="PDF" target="_new"> File: <img src="https://seeklogo.com/images/A/acrobat-file-pdf-logo-37A1BFDE35-seeklogo.com.png"  width="30" height="30"></a>
+Master thesis. <a href="https://gitlab.com/FAAM/mkdocs/-/blob/master/docs/files/researches/tesis_master.pdf" title="PDF" target="_new"> File: <img src="https://seeklogo.com/images/A/acrobat-file-pdf-logo-37A1BFDE35-seeklogo.com.png"  width="30" height="30" style="float:center"></a>
 
 - Alfaro,F. (2018/2019). University retention about construction engineering students.   
 Investigation. <a href="https://gitlab.com/FAAM" title="repository" target="_new"> Repository: <img src="https://cdn.worldvectorlogo.com/logos/gitlab.svg"  width="30" height="30"></a>
