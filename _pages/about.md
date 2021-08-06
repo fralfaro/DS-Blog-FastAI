@@ -67,12 +67,12 @@ I currently work as a Senior Data Scientist at ITAU (Bank). I enjoy programming,
 ![AWS Badge](https://img.shields.io/badge/Amazon_AWS-100000?style=for-the-badge&logo=amazon-aws&logoColor=orange)
 
 ### Tools and Others
+<img alt="Link" src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" style="float:left; padding-right:10px" >
+<img alt="Link" src="https://img.shields.io/badge/redis-%23DD0031.svg?&style=for-the-badge&logo=redis&logoColor=white" style="float:left; padding-right:10px" >
+<img alt="Link" src="https://img.shields.io/badge/-Git-black?style=for-the-badge&logo=git" style="float:left; padding-right:10px" >
+<img alt="Link" src="https://img.shields.io/badge/pycharm-143?style=for-the-badge&logo=pycharm&logoColor=black&color=black&labelColor=green" style="float:left; padding-right:10px" >
+<img alt="Link" src="https://img.shields.io/badge/VIM-%2311AB00.svg?&style=for-the-badge&logo=vim&logoColor=white" style="float:left; padding-right:10px" >
 
-![Linux Badge](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-![REDIS Badge](https://img.shields.io/badge/redis-%23DD0031.svg?&style=for-the-badge&logo=redis&logoColor=white)
-![Git](https://img.shields.io/badge/-Git-black?style=for-the-badge&logo=git)
-![Pycharm Badge](https://img.shields.io/badge/pycharm-143?style=for-the-badge&logo=pycharm&logoColor=black&color=black&labelColor=green)
-![VIM Badge](https://img.shields.io/badge/VIM-%2311AB00.svg?&style=for-the-badge&logo=vim&logoColor=white)
 
 
 
