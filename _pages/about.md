@@ -15,7 +15,6 @@ permalink: /about/
 - Phone: +56 9 94541139
 - Email: francisco.alfaro.496@gmail.com
 - Curriculum Vitae: [link](https://gitlab.com/FAAM/curriculum_vitae/-/jobs/1466713568/artifacts/browse)
-- <p> Curriculum Vitae: <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></p>
 
 
 
