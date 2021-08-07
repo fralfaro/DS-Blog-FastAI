@@ -43,6 +43,8 @@ I currently work as a Senior Data Scientist at ITAU (Bank). I enjoy programming,
 
 ## **My Tech Stack**
 
+### Languages & Frameworks
+
 <img alt="Link" src="https://img.shields.io/badge/Python-100000?style=for-the-badge&logo=python&logoColor=darkgreen" style="float:left; padding-right:10px" >
 <img alt="Link" src="https://img.shields.io/badge/Jupyter-100000.svg?&style=for-the-badge&logo=Jupyter&logoColor=whiten" style="float:left; padding-right:10px" >
 <img alt="Link" src="https://img.shields.io/badge/R-100000?style=for-the-badge&logo=r&logoColor=blue" style="float:left; padding-right:10px" >
@@ -57,15 +59,16 @@ I currently work as a Senior Data Scientist at ITAU (Bank). I enjoy programming,
 <img alt="Link" src="https://img.shields.io/badge/MySQL-2311AB00?style=for-the-badge&logo=mysql&logoColor=white" style="float:left; padding-right:10px" >
 <img alt="Link" src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" style="float:left; padding-right:10px" >
 <img alt="Link" src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" style="float:left; padding-right:10px" >
-<br/><br/>
-<br/><br/>
+<br/><br/><br/><br/>
+
+### Cloud
 
 <img alt="Link" src="https://img.shields.io/badge/Google_Cloud-100000?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHBhdGggZD0iTTQwLjcyOCAyMC40ODhsMi4wNS4wMzUgNS41Ny01LjU3LjI3LTIuMzZDNDQuMiA4LjY1NyAzOC4zNjcgNi4yNiAzMS45OTMgNi4yNmMtMTEuNTQgMC0yMS4yOCA3Ljg1Mi0yNC4xNjMgMTguNDg4LjYwOC0uNDI0IDEuOTA4LS4xMDYgMS45MDgtLjEwNmwxMS4xMy0xLjgzcy41NzItLjk0Ny44NjItLjlBMTMuODggMTMuODggMCAwIDEgMzIgMTcuMzc1YzMuMy4wMDcgNi4zNCAxLjE3MyA4LjcyOCAzLjEwMnoiIGZpbGw9IiNlYTQzMzUiLz48cGF0aCBkPSJNNTYuMTcgMjQuNzdjLTEuMjkzLTQuNzctMy45NTgtOC45ODItNy41NTUtMTIuMTc3bC03Ljg4NyA3Ljg4N2MzLjE2IDIuNTUgNS4xODcgNi40NTIgNS4xODcgMTAuODJ2MS4zOTJjMy44MzcgMCA2Ljk1NCAzLjEyNCA2Ljk1NCA2Ljk1NCAwIDMuODM3LTMuMTI0IDYuOTU0LTYuOTU0IDYuOTU0SDMyLjAwN0wzMC42MTUgNDh2OC4zNDZsMS4zOTIgMS4zODVoMTMuOTA4QTE4LjExIDE4LjExIDAgMCAwIDY0IDM5LjY0N2MtLjAwNy02LjE1NS0zLjEtMTEuNi03LjgzLTE0Ljg3NnoiIGZpbGw9IiM0Mjg1ZjQiLz48cGF0aCBkPSJNMTguMDg1IDU3Ljc0aDEzLjlWNDYuNmgtMTMuOWE2Ljg5IDYuODkgMCAwIDEtMi44NjItLjYyMmwtMi4wMDcuNjE1LTUuNTcgNS41Ny0uNDg4IDEuODhhMTggMTggMCAwIDAgMTAuOTI2IDMuNjg5eiIgZmlsbD0iIzM0YTg1MyIvPjxwYXRoIGQ9Ik0xOC4wODUgMjEuNTdBMTguMTEgMTguMTEgMCAwIDAgMCAzOS42NTRjMCA1Ljg3MyAyLjgxMyAxMS4wOTUgNy4xNjYgMTQuNDAzbDguMDY0LTguMDY0YTYuOTYgNi45NiAwIDAgMS00LjA5OS02LjMzOWMwLTMuODM3IDMuMTI0LTYuOTU0IDYuOTU0LTYuOTU0IDIuODIgMCA1LjI0NCAxLjcgNi4zNCA0LjFsOC4wNjQtOC4wNjRjLTMuMzA3LTQuMzUzLTguNTMtNy4xNjYtMTQuNDAzLTcuMTY2eiIgZmlsbD0iI2ZiYmMwNSIvPjwvc3ZnPg==" style="float:left; padding-right:10px" >
 <img alt="Link" src="https://img.shields.io/badge/microsoft%20azure-100000?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iNzcuNDMiIHZpZXdCb3g9IjAgMCAxOS42OCAxNS4yNCI+PHBhdGggZD0iTTkuMTA1IDE0LjQzbDQuNjQyLS44Mi4wNDMtLjAxLTIuMzg3LTIuODRhNDAzLjk0NSA0MDMuOTQ1IDAgMCAxLTIuMzg3LTIuODUzYzAtLjAxNCAyLjQ2NS02LjgwMiAyLjQ3OS02LjgyNi4wMDQtLjAwOCAxLjY4MiAyLjg4OCA0LjA2NiA3LjAybDQuMDkgNy4wOS4wMzEuMDU0LTcuNTg3LS4wMDEtNy41ODctLjAwMSA0LjU5Ny0uODEyek0wIDEzLjU2NmMwLS4wMDQgMS4xMjUtMS45NTcgMi41LTQuMzRMNSA0Ljg5M2wyLjkxMy0yLjQ0NUM5LjUxNSAxLjEwNCAxMC44My4wMDIgMTAuODM2IDBhLjUxMi41MTIgMCAwIDEtLjA0Ny4xMThMNy42MjUgNi45MDNsLTMuMTA3IDYuNjYzLTIuMjU5LjAwM2MtMS4yNDIuMDAyLTIuMjU5IDAtMi4yNTktLjAwNHoiIGZpbGw9IiMwMDg5ZDYiLz48L3N2Zz4=" style="float:left; padding-right:10px" >
 <img alt="Link" src="https://img.shields.io/badge/Amazon_AWS-100000?style=for-the-badge&logo=amazon-aws&logoColor=orange" style="float:left; padding-right:10px" >
-<br/><br/>
-<br/><br/>
+&nbsp;
 
+### Tools and Others
 <img alt="Link" src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" style="float:left; padding-right:10px" >
 <img alt="Link" src="https://img.shields.io/badge/redis-%23DD0031.svg?&style=for-the-badge&logo=redis&logoColor=white" style="float:left; padding-right:10px" >
 <img alt="Link" src="https://img.shields.io/badge/-Git-black?style=for-the-badge&logo=git" style="float:left; padding-right:10px" >
