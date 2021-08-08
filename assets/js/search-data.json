@@ -25,9 +25,9 @@
     
         ,"post2": {
             "title": "Jupyter Noteboook",
-            "content": "Introducci&#243;n . RISE es una extensión a los jupyter notebooks que permite transformar tus notebooks en presentaciones interactivas. . Toda las celdas pueden editarse y ejecutarse directamente, durante la presentación. Esto es práctico si necesitas corregir un error en una celda de texto. Más importante aún, puedes ejecutar código directamente en el kernel. En una misma diapositiva puedes tener múltiples celdas y elegir cuál ejecutar, o corregir el texto y volver a ejecutar. .",
-            "url": "https://fralfaro.github.io/ds_blog/jupyter/2021/08/08/rise.html",
-            "relUrl": "/jupyter/2021/08/08/rise.html",
+            "content": "Introducci&#243;n . Jupyter Notebook, en adelante Jupyter, es un entorno de trabajo interactivo que permite desarrollar código en Python (por defecto, aunque permite otros lenguajes) de manera dinámica, a la vez que integrar en un mismo documento tanto bloques de código como texto, gráficas o imágenes. Es un SaaS utilizado ampliamente en análisis numérico, estadística y machine learning, entre otros campos de la informática y las matemáticas. .",
+            "url": "https://fralfaro.github.io/ds_blog/jupyter/2021/08/08/jupyter.html",
+            "relUrl": "/jupyter/2021/08/08/jupyter.html",
             "date": " • Aug 8, 2021"
         }
         
