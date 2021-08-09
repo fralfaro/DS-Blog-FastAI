@@ -121,6 +121,13 @@ kramdown:
 feed:
   posts_limit: 5 #default posts_limit: 10
   excerpt_only: true
+
+defaults:
+  # You can use the following to enable comments on all posts.
+  - scope:
+      type:            posts
+    values:
+      applause_button:       true
   
 exclude:
   - settings.ini
