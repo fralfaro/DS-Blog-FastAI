@@ -94,7 +94,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      10 min read
     
 </span></p>
 
@@ -120,6 +120,7 @@ window.onload = wrap_img;
 </li>
 <li class="toc-entry toc-h1"><a href="#Primeros-pasos">Primeros pasos </a>
 <ul>
+<li class="toc-entry toc-h2"><a href="#Notebook-Server">Notebook Server </a></li>
 <li class="toc-entry toc-h2"><a href="#Toolbox">Toolbox </a></li>
 <li class="toc-entry toc-h2"><a href="#Markdown">Markdown </a></li>
 <li class="toc-entry toc-h2"><a href="#Código">Código </a>
@@ -182,6 +183,57 @@ window.onload = wrap_img;
 <h1 id="Primeros-pasos">
 <a class="anchor" href="#Primeros-pasos" aria-hidden="true"><span class="octicon octicon-link"></span></a>Primeros pasos<a class="anchor-link" href="#Primeros-pasos"> </a>
 </h1>
+<h2 id="Notebook-Server">
+<a class="anchor" href="#Notebook-Server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notebook Server<a class="anchor-link" href="#Notebook-Server"> </a>
+</h2>
+<p>Una vez que haya instalado Jupyter Notebook en su computadora, estará listo para ejecutar el servidor de la computadora portátil. Puede iniciar el servidor del portátil desde la línea de comandos (usando Terminal en Mac/Linux, Símbolo del sistema en Windows) ejecutando:</p>
+
+<pre><code>jupyter notebook</code></pre>
+<p>Esto imprimirá cierta información sobre el servidor en su terminal, incluida la URL de la aplicación web (de forma predeterminada, <code>http://localhost:8888</code>):</p>
+
+<pre><code>$ jupyter notebook
+[I 08:58:24.417 NotebookApp] Serving notebooks from local directory: /Users/catherine
+[I 08:58:24.417 NotebookApp] 0 active kernels
+[I 08:58:24.417 NotebookApp] The Jupyter Notebook is running at: http://localhost:8888/
+[I 08:58:24.417 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A continuación, abrirá su navegador web predeterminado a esta URL. Cuando el notebook se abra en su navegador, verá el Panel, que mostrará una lista de notebooks, archivos y subdirectorios en el directorio donde se inició el servidor.</p>
+<p><img src="/ds_blog/images/copied_from_nb/../images/jupyter/root.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>La parte superior de la lista de notebooks se muestran rutas de navegación en las que se puede hacer clic del directorio actual.</p>
+<p>Para crear un nuevo notebook, haga clic en el botón <code>New</code> en la parte superior de la lista y seleccione el <a href="https://jupyter.readthedocs.io/en/latest/projects/kernels.html">kernel</a> del menú desplegable (como se ve a continuación). Los kernels que se enumeran dependen de lo que esté instalado en el servidor.</p>
+<blockquote>
+<p><strong>Nota</strong>:Es posible que algunos de los kernels de la siguiente captura de pantalla no existan como una opción para usted.
+<img src="/ds_blog/images/copied_from_nb/../images/jupyter/new.png" alt=""></p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Una vez seleccionado el kernel, se abrira nuestro primer notebook!.</p>
+<p><img src="/ds_blog/images/copied_from_nb/../images/jupyter/primer.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Toolbox">
 <a class="anchor" href="#Toolbox" aria-hidden="true"><span class="octicon octicon-link"></span></a>Toolbox<a class="anchor-link" href="#Toolbox"> </a>
 </h2>
@@ -608,12 +660,12 @@ $$\int_0^\infty\frac{\sin x}{x}\,\mathrm{d}x=\frac{\pi}{2}$$
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-6f9915db4ed24a649489c37406678665"></div>
+<div id="altair-viz-b0053e63c68e4487addab1ad059fc884"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-6f9915db4ed24a649489c37406678665") {
-      outputDiv = document.getElementById("altair-viz-6f9915db4ed24a649489c37406678665");
+    if (outputDiv.id !== "altair-viz-b0053e63c68e4487addab1ad059fc884") {
+      outputDiv = document.getElementById("altair-viz-b0053e63c68e4487addab1ad059fc884");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -655,7 +707,7 @@ $$\int_0^\infty\frac{\sin x}{x}\,\mathrm{d}x=\frac{\pi}{2}$$
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "line", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}}, {"mark": {"type": "rule", "color": "#aaa"}, "encoding": {"x": {"type": "temporal", "field": "date"}}, "transform": [{"filter": {"selection": "selector005"}}]}, {"mark": "circle", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "opacity": {"condition": {"value": 1, "selection": "selector005"}, "value": 0}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}, "selection": {"selector005": {"type": "single", "encodings": ["x"], "on": "mouseover", "nearest": true, "empty": "none"}}}, {"mark": {"type": "text", "align": "left", "dx": 5, "dy": -5, "stroke": "white", "strokeWidth": 2}, "encoding": {"color": {"type": "nominal", "field": "symbol"}, "text": {"type": "quantitative", "field": "price"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}, "transform": [{"filter": {"selection": "selector005"}}]}, {"mark": {"type": "text", "align": "left", "dx": 5, "dy": -5}, "encoding": {"color": {"type": "nominal", "field": "symbol"}, "text": {"type": "quantitative", "field": "price"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}, "transform": [{"filter": {"selection": "selector005"}}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "height": 400, "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "line", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}}, {"mark": {"type": "rule", "color": "#aaa"}, "encoding": {"x": {"type": "temporal", "field": "date"}}, "transform": [{"filter": {"selection": "selector001"}}]}, {"mark": "circle", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "opacity": {"condition": {"value": 1, "selection": "selector001"}, "value": 0}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}, "selection": {"selector001": {"type": "single", "encodings": ["x"], "on": "mouseover", "nearest": true, "empty": "none"}}}, {"mark": {"type": "text", "align": "left", "dx": 5, "dy": -5, "stroke": "white", "strokeWidth": 2}, "encoding": {"color": {"type": "nominal", "field": "symbol"}, "text": {"type": "quantitative", "field": "price"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}, "transform": [{"filter": {"selection": "selector001"}}]}, {"mark": {"type": "text", "align": "left", "dx": 5, "dy": -5}, "encoding": {"color": {"type": "nominal", "field": "symbol"}, "text": {"type": "quantitative", "field": "price"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}, "transform": [{"filter": {"selection": "selector001"}}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "height": 400, "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"}, {"mode": "vega-lite"});
 </script>
 </div>
 
@@ -778,7 +830,7 @@ Automagic is ON, % prefix IS NOT needed for line magics.</pre>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>8.43 ns ± 0.211 ns per loop (mean ± std. dev. of 7 runs, 100000000 loops each)
+<pre>8.68 ns ± 0.387 ns per loop (mean ± std. dev. of 7 runs, 100000000 loops each)
 </pre>
 </div>
 </div>
@@ -825,6 +877,45 @@ Automagic is ON, % prefix IS NOT needed for line magics.</pre>
 2
 1
 Hola desde /usr/bin/bash
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>También, puede acceder a la línea de comandos, anteponiendo el símbolo de <code>!</code>. Esto es de bastante utilidad, sobre todo cuando en presentaciones con notebook se quiere mostrar as dependencias que se necesitan instalar.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pwd
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/home/fralfaro/PycharmProjects/ds_blog/_notebooks
 </pre>
 </div>
 </div>
