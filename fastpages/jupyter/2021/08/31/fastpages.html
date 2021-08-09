@@ -9,8 +9,8 @@
 <meta property="og:title" content="Fastpages" />
 <meta name="author" content="Jeremy Howard & Hamel Husain" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Una plataforma de blogs fácil de usar con funciones adicionales para Jupyter Notebooks." />
-<meta property="og:description" content="Una plataforma de blogs fácil de usar con funciones adicionales para Jupyter Notebooks." />
+<meta name="description" content="Una plataforma de blogs para Jupyter Notebooks." />
+<meta property="og:description" content="Una plataforma de blogs para Jupyter Notebooks." />
 <link rel="canonical" href="https://fralfaro.github.io/ds_blog/fastpages/jupyter/2021/08/31/fastpages.html" />
 <meta property="og:url" content="https://fralfaro.github.io/ds_blog/fastpages/jupyter/2021/08/31/fastpages.html" />
 <meta property="og:site_name" content="DS-Blog" />
@@ -18,7 +18,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-08-31T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"Una plataforma de blogs fácil de usar con funciones adicionales para Jupyter Notebooks.","url":"https://fralfaro.github.io/ds_blog/fastpages/jupyter/2021/08/31/fastpages.html","@type":"BlogPosting","headline":"Fastpages","dateModified":"2021-08-31T00:00:00-05:00","datePublished":"2021-08-31T00:00:00-05:00","author":{"@type":"Person","name":"Jeremy Howard & Hamel Husain"},"image":"https://fralfaro.github.io/ds_blog/images/fastpages.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://fralfaro.github.io/ds_blog/fastpages/jupyter/2021/08/31/fastpages.html"},"@context":"https://schema.org"}</script>
+{"description":"Una plataforma de blogs para Jupyter Notebooks.","url":"https://fralfaro.github.io/ds_blog/fastpages/jupyter/2021/08/31/fastpages.html","@type":"BlogPosting","headline":"Fastpages","dateModified":"2021-08-31T00:00:00-05:00","datePublished":"2021-08-31T00:00:00-05:00","author":{"@type":"Person","name":"Jeremy Howard & Hamel Husain"},"image":"https://fralfaro.github.io/ds_blog/images/fastpages.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://fralfaro.github.io/ds_blog/fastpages/jupyter/2021/08/31/fastpages.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/ds_blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://fralfaro.github.io/ds_blog/feed.xml" title="DS-Blog" /><link rel="shortcut icon" type="image/x-icon" href="/ds_blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -71,41 +71,47 @@ window.onload = wrap_img;
 </head>
 <body><header class="site-header">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/ds_blog/">DS-Blog</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+  <div class="wrapper">
+<a class="site-title" rel="author" href="/ds_blog/">DS-Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
         <label for="nav-trigger">
           <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
             </svg>
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/ds_blog/about/">About me</a><a class="page-link" href="/ds_blog/research/">Research &amp; Talks</a><a class="page-link" href="/ds_blog/software/">Software</a><a class="page-link" href="/ds_blog/teaching/">Teaching</a></div>
-      </nav></div>
+        <div class="trigger">
+<a class="page-link" href="/ds_blog/about/">About me</a><a class="page-link" href="/ds_blog/research/">Research &amp; Talks</a><a class="page-link" href="/ds_blog/software/">Software</a><a class="page-link" href="/ds_blog/teaching/">Teaching</a>
+</div>
+      </nav>
+</div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Fastpages</h1><p class="page-description">Una plataforma de blogs fácil de usar con funciones adicionales para Jupyter Notebooks.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-08-31T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Fastpages</h1>
+<p class="page-description">Una plataforma de blogs para Jupyter Notebooks.</p>
+<p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-08-31T00:00:00-05:00" itemprop="datePublished">
         Aug 31, 2021
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <span class="p-author h-card" itemprop="name">Jeremy Howard & Hamel Husain</span></span>
+            <span class="p-author h-card" itemprop="name">Jeremy Howard &amp; Hamel Husain</span></span>
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      5 min read
     
 </span></p>
 
     
-      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i> 
       
         <a class="category-tags-link" href="/ds_blog/categories/#fastpages">fastpages</a>
-        &nbsp;
+         
       
         <a class="category-tags-link" href="/ds_blog/categories/#jupyter">jupyter</a>
         
@@ -125,13 +131,13 @@ window.onload = wrap_img;
 
           <div class="px-2">
     <a href="https://mybinder.org/v2/gh/fralfaro/ds_blog/master?filepath=_notebooks%2F2021-08-31-fastpages.ipynb" target="_blank">
-        <img class="notebook-badge-image" src="/ds_blog/assets/badges/binder.svg" alt="Open In Binder"/>
+        <img class="notebook-badge-image" src="/ds_blog/assets/badges/binder.svg" alt="Open In Binder">
     </a>
 </div>
 
           <div class="px-2">
     <a href="https://colab.research.google.com/github/fralfaro/ds_blog/blob/master/_notebooks/2021-08-31-fastpages.ipynb" target="_blank">
-        <img class="notebook-badge-image" src="/ds_blog/assets/badges/colab.svg" alt="Open In Colab"/>
+        <img class="notebook-badge-image" src="/ds_blog/assets/badges/colab.svg" alt="Open In Colab">
     </a>
 </div>
         </div>
@@ -139,20 +145,35 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h1"><a href="#Introducción">Introducción </a></li>
-<li class="toc-entry toc-h1"><a href="#Primeros-pasos">Primeros pasos </a>
+<li class="toc-entry toc-h1"><a href="#Introducci%C3%B3n">Introducción </a></li>
+<li class="toc-entry toc-h1">
+<a href="#Primeros-pasos">Primeros pasos </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#Configurando-Fastpages">Configurando Fastpages </a></li>
-<li class="toc-entry toc-h2"><a href="#Jupyter-Notebooks-y-Fastpages">Jupyter Notebooks y Fastpages </a>
+<li class="toc-entry toc-h2">
+<a href="#Jupyter-Notebooks-y-Fastpages">Jupyter Notebooks y Fastpages </a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#Opciones-a-través-de-FrontMatter¶">Opciones a través de FrontMatter¶ </a></li>
+<li class="toc-entry toc-h3"><a href="#Opciones-a-trav%C3%A9s-de-FrontMatter%C2%B6">Opciones a través de FrontMatter¶ </a></li>
 <li class="toc-entry toc-h3"><a href="#Code-Folding">Code Folding </a></li>
-<li class="toc-entry toc-h3"><a href="#Gráficos-interactivos-con-Altair">Gráficos interactivos con Altair </a></li>
+<li class="toc-entry toc-h3"><a href="#Tablas-de-datos">Tablas de datos </a></li>
+<li class="toc-entry toc-h3"><a href="#Gr%C3%A1ficos-interactivos-con-Altair">Gráficos interactivos con Altair </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#Otras-caracter%C3%ADsticas">Otras características </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Im%C3%A1genes-con--leyenda">Imágenes con  leyenda </a></li>
+<li class="toc-entry toc-h3"><a href="#Tweetcards">Tweetcards </a></li>
+<li class="toc-entry toc-h3"><a href="#Youtube-Videos">Youtube Videos </a></li>
+<li class="toc-entry toc-h3"><a href="#Boxes/Callouts">Boxes/Callouts </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#C%C3%B3mo-Fastpages-convierte-los-notebooks-en-publicaciones-de-blog">Cómo Fastpages convierte los notebooks en publicaciones de blog </a></li>
+<li class="toc-entry toc-h2"><a href="#Referencias">Referencias </a></li>
 </ul>
 </li>
 </ul>
-</li>
-</ul><!--
+<!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
@@ -327,6 +348,112 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Tablas-de-datos">
+<a class="anchor" href="#Tablas-de-datos" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tablas de datos<a class="anchor-link" href="#Tablas-de-datos"> </a>
+</h3>
+<p>Puede mostrar tablas de la forma habitual en su blog:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">'Title'</span><span class="p">,</span> <span class="s1">'Worldwide_Gross'</span><span class="p">,</span> 
+    <span class="s1">'Production_Budget'</span><span class="p">,</span> <span class="s1">'IMDB_Rating'</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Title</th>
+      <th>Worldwide_Gross</th>
+      <th>Production_Budget</th>
+      <th>IMDB_Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>The Land Girls</td>
+      <td>146083.0</td>
+      <td>8000000.0</td>
+      <td>6.1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>First Love, Last Rites</td>
+      <td>10876.0</td>
+      <td>300000.0</td>
+      <td>6.9</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>I Married a Strange Person</td>
+      <td>203134.0</td>
+      <td>250000.0</td>
+      <td>6.8</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Let's Talk About Sex</td>
+      <td>373615.0</td>
+      <td>300000.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Slam</td>
+      <td>1087521.0</td>
+      <td>1000000.0</td>
+      <td>3.4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Gráficos-interactivos-con-Altair">
 <a class="anchor" href="#Gr%C3%A1ficos-interactivos-con-Altair" aria-hidden="true"><span class="octicon octicon-link"></span></a>Gráficos interactivos con Altair<a class="anchor-link" href="#Gr%C3%A1ficos-interactivos-con-Altair"> </a>
 </h3>
@@ -391,21 +518,247 @@ window.onload = wrap_img;
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-f5ea7c545f094a4eb1ad5315dfb1ef35"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-f5ea7c545f094a4eb1ad5315dfb1ef35") {
+      outputDiv = document.getElementById("altair-viz-f5ea7c545f094a4eb1ad5315dfb1ef35");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "line", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}}, {"mark": {"type": "rule", "color": "#aaa"}, "encoding": {"x": {"type": "temporal", "field": "date"}}, "transform": [{"filter": {"selection": "selector001"}}]}, {"mark": "circle", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "opacity": {"condition": {"value": 1, "selection": "selector001"}, "value": 0}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}, "selection": {"selector001": {"type": "single", "encodings": ["x"], "on": "mouseover", "nearest": true, "empty": "none"}}}, {"mark": {"type": "text", "align": "left", "dx": 5, "dy": -5, "stroke": "white", "strokeWidth": 2}, "encoding": {"color": {"type": "nominal", "field": "symbol"}, "text": {"type": "quantitative", "field": "price"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}, "transform": [{"filter": {"selection": "selector001"}}]}, {"mark": {"type": "text", "align": "left", "dx": 5, "dy": -5}, "encoding": {"color": {"type": "nominal", "field": "symbol"}, "text": {"type": "quantitative", "field": "price"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}, "transform": [{"filter": {"selection": "selector001"}}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "height": 400, "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Otras-características">
+<a class="anchor" href="#Otras-caracter%C3%ADsticas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Otras características<a class="anchor-link" href="#Otras-caracter%C3%ADsticas"> </a>
+</h2>
+<p>Al escribir <code>Le doy a esta publicación dos :+1:!</code> Se mostrará esto:</p>
+<p>Le doy a esta publicación dos <img class="emoji" title=":+1:" alt=":+1:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png" height="20" width="20">!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Imágenes-con--leyenda">
+<a class="anchor" href="#Im%C3%A1genes-con--leyenda" aria-hidden="true"><span class="octicon octicon-link"></span></a>Imágenes con  leyenda<a class="anchor-link" href="#Im%C3%A1genes-con--leyenda"> </a>
+</h3>
+<p>Puede incluir imágenes de rebajas con leyenda (<code>caption</code>) como este:</p>
+
+<pre><code>![](https://www.fast.ai/images/fastai_paper/show_batch.png "Credit: https://www.fast.ai/2020/02/13/fastai-A-Layered-API-for-Deep-Learning/")</code></pre>
+<p><img src="https://www.fast.ai/images/fastai_paper/show_batch.png" alt="" title="Credit: https://www.fast.ai/2020/02/13/fastai-A-Layered-API-for-Deep-Learning/"></p>
+<p>Por supuesto, la leyenda es opcional.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Tweetcards">
+<a class="anchor" href="#Tweetcards" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tweetcards<a class="anchor-link" href="#Tweetcards"> </a>
+</h3>
+<p>Si escribe <code>&gt; twitter: https://twitter.com/jakevdp/status/1204765621767901185?s=20</code> mostrará esto:
+
+</p>
+<center>
+    <div class="jekyll-twitter-plugin">
+<blockquote class="twitter-tweet">
+<p lang="en" dir="ltr">Altair 4.0 is released! <a href="https://t.co/PCyrIOTcvv">https://t.co/PCyrIOTcvv</a><br>Try it with:<br><br>  pip install -U altair<br><br>The full list of changes is at <a href="https://t.co/roXmzcsT58">https://t.co/roXmzcsT58</a> ...read on for some highlights. <a href="https://t.co/vWJ0ZveKbZ">pic.twitter.com/vWJ0ZveKbZ</a></p>— Jake VanderPlas (@jakevdp) <a href="https://twitter.com/jakevdp/status/1204765621767901185?ref_src=twsrc%5Etfw">December 11, 2019</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+</center>
+
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Youtube-Videos">
+<a class="anchor" href="#Youtube-Videos" aria-hidden="true"><span class="octicon octicon-link"></span></a>Youtube Videos<a class="anchor-link" href="#Youtube-Videos"> </a>
+</h3>
+<p>Si escribe <code>&gt; youtube: https://youtu.be/XfoYk_Z5AkI</code> mostrará esto:
+
+</p>
+<center class="youtube-iframe-wrapper">
+    <iframe width="730" height="315" src="https://www.youtube.com/embed/XfoYk_Z5AkI" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Boxes/Callouts">
+<a class="anchor" href="#Boxes/Callouts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Boxes/Callouts<a class="anchor-link" href="#Boxes/Callouts"> </a>
+</h3>
+<p>Puedes ejecutar algunas cajas con mensajes de nota, información o warning!. A continuación se muestran algunos ejemplos:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>
+<code>&gt; Warning: There will be no second warning!</code>
+<div class="flash flash-error">
+    <svg class="octicon octicon-alert" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path></svg>
+    <strong>Warning: </strong>There will be no second warning!
+</div>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>
+<code>&gt; Important: Pay attention! It's important.</code>
+<div class="flash flash-warn">
+    <svg class="octicon octicon-zap" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10.561 1.5a.016.016 0 00-.01.004L3.286 8.571A.25.25 0 003.462 9H6.75a.75.75 0 01.694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0012.538 7H9.25a.75.75 0 01-.683-1.06l2.008-4.418.003-.006a.02.02 0 00-.004-.009.02.02 0 00-.006-.006L10.56 1.5zM9.504.43a1.516 1.516 0 012.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 01-.871.354h-.302a1.25 1.25 0 01-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429z"></path></svg>
+    <strong>Important: </strong>Pay attention! It’s important.
+</div>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>
+<code>&gt; Tip: This is my tip.</code> 
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong>This is my tip.
+</div>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>
+<code>&gt; Note: Take note of this.</code> 
+<div class="flash">
+    <svg class="octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>Take note of this.
+</div>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Cómo-Fastpages-convierte-los-notebooks-en-publicaciones-de-blog">
+<a class="anchor" href="#C%C3%B3mo-Fastpages-convierte-los-notebooks-en-publicaciones-de-blog" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cómo Fastpages convierte los notebooks en publicaciones de blog<a class="anchor-link" href="#C%C3%B3mo-Fastpages-convierte-los-notebooks-en-publicaciones-de-blog"> </a>
+</h2>
+<p>fastpages usa <a href="https://nbdev.fast.ai/index.html">nbdev</a> para impulsar el proceso de conversión de Jupyter Notebooks en publicaciones de blog. Cuando guardas un notebook en la carpeta <code>/_notebooks</code> de tu repositorio, GitHub Actions aplica <code>nbdev</code> a esos cuadernos automáticamente. El mismo proceso ocurre cuando guarda documentos de Word o markdown en el directorio <code>_word</code> o<code>_posts</code>, respectivamente.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Referencias">
+<a class="anchor" href="#Referencias" aria-hidden="true"><span class="octicon octicon-link"></span></a>Referencias<a class="anchor-link" href="#Referencias"> </a>
+</h2>
+<ul>
+<li><a href="https://github.com/fastai/fastpages">Repositorio: fastpages</a></li>
+<li><a href="https://github.com/fastai/nbdev">nbdev: notebooks a posts</a></li>
+<li><a href="https://forums.fast.ai/c/fastai-users/nbdev/">Foros de Fastai</a></li>
+</ul>
+
+</div>
+</div>
+</div>
 </div>
 
 
 
-  </div><!-- from https://github.com/utterance/utterances -->
-<script src="https://utteranc.es/client.js"
-        repo="fralfaro/ds_blog"
-        issue-term="title"
-        label="blogpost-comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
+  </div>
+<!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js" repo="fralfaro/ds_blog" issue-term="title" label="blogpost-comment" theme="github-light" crossorigin="anonymous" async>
 </script><a class="u-url" href="/ds_blog/fastpages/jupyter/2021/08/31/fastpages.html" hidden></a>
 </article>
       </div>
@@ -429,7 +782,11 @@ window.onload = wrap_img;
       </div>
     </div>
 
-    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fralfaro" title="fralfaro"><svg class="svg-icon grey"><use xlink:href="/ds_blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://www.linkedin.com/in/FAAM" title="FAAM"><svg class="svg-icon grey"><use xlink:href="/ds_blog/assets/minima-social-icons.svg#linkedin"></use></svg></a></li></ul>
+    <div class="social-links">
+<ul class="social-media-list">
+<li><a rel="me" href="https://github.com/fralfaro" title="fralfaro"><svg class="svg-icon grey"><use xlink:href="/ds_blog/assets/minima-social-icons.svg#github"></use></svg></a></li>
+<li><a rel="me" href="https://www.linkedin.com/in/FAAM" title="FAAM"><svg class="svg-icon grey"><use xlink:href="/ds_blog/assets/minima-social-icons.svg#linkedin"></use></svg></a></li>
+</ul>
 </div>
 
   </div>
