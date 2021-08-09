@@ -274,3 +274,15 @@ pre code {
   width: 100%;
   height: 100%;
 }
+
+// applause-button
+
+applause-button {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+
+  .count-container {
+    color: inherit;
+  }
+}
