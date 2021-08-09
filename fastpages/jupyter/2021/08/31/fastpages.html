@@ -103,7 +103,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      5 min read
+      6 min read
     
 </span></p>
 
@@ -150,6 +150,7 @@ window.onload = wrap_img;
 <a href="#Primeros-pasos">Primeros pasos </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#Configurando-Fastpages">Configurando Fastpages </a></li>
+<li class="toc-entry toc-h2"><a href="#Estrutura-de-fastpages">Estrutura de fastpages </a></li>
 <li class="toc-entry toc-h2">
 <a href="#Jupyter-Notebooks-y-Fastpages">Jupyter Notebooks y Fastpages </a>
 <ul>
@@ -168,7 +169,6 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#Boxes/Callouts">Boxes/Callouts </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#C%C3%B3mo-Fastpages-convierte-los-notebooks-en-publicaciones-de-blog">Cómo Fastpages convierte los notebooks en publicaciones de blog </a></li>
 <li class="toc-entry toc-h2"><a href="#Referencias">Referencias </a></li>
 </ul>
 </li>
@@ -228,6 +228,80 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>¡Todo lo que tienes que hacer es seguir estas instrucciones (en el PR que recibes) y tu nuevo sitio de blogs estará en funcionamiento!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Estrutura-de-fastpages">
+<a class="anchor" href="#Estrutura-de-fastpages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Estrutura de fastpages<a class="anchor-link" href="#Estrutura-de-fastpages"> </a>
+</h2>
+<p>El repositorio de fastpages esta compuesto de la siguiente forma:</p>
+
+<pre><code>├── .github
+├── _action_files
+├── _fastpages_docs
+├── images
+├── _includes
+├── _layouts
+├── _notebooks
+├── _pages
+├── _plugins
+├── _posts
+├── _sass
+└── _word
+└── .devcontainer.json
+└── Makefile
+└── index.html
+└── Gemfile
+└── _config.yml
+└── LICENSE
+└── docker-compose.yml
+└── Gemfile.lock
+└── README.md
+└── .gitattributes
+└── .gitignore</code></pre>
+<p>De momento nos vamos a centrar en algunos de estos archivos:</p>
+<ul>
+<li>
+<p><code>_config.yml</code>: es el archivo que funciona como el motor del proyecto. En ente archivo, podemos poner el nombre a nuestro blog, el logo, información personal (github, linkedin, etc), entre otras cosas.</p>
+</li>
+<li>
+<p><code>index.html</code>: Corresponde a la primera página cuando se despliega nuestro blog. por lo que es importante escribir algún mensaje para especificar la motivación de hacer un blog.</p>
+</li>
+<li>
+<p><code>/_notebooks</code>: Lugar donde se deben guardar los notebooks (<code>.ipynb</code>) con la convención de nomenclatura <code>YYYY-MM-DD-*.ipynb</code>.</p>
+<ul>
+<li>Ejemplo: <code>2020-01-28-My-First-Post.ipynb</code>
+</li>
+</ul>
+</li>
+<li>
+<p><code>/_posts</code>: Lugar donde se deben guardar los archivos markdown (<code>.md</code>) con la convención de nomenclatura <code>YYYY-MM-DD-*.md</code>.</p>
+<ul>
+<li>Ejemplo: <code>2020-01-28-My-First-Post.md</code>
+</li>
+</ul>
+</li>
+<li>
+<p><code>/_word</code>: Lugar donde se deben guardar los archivos word (<code>.docx</code>) con la convención de nomenclatura <code>YYYY-MM-DD-*.docx</code>.</p>
+<ul>
+<li>Ejemplo: <code>2020-01-28-My-First-Post.docx</code> <blockquote>
+<p><strong>Nota</strong>:fastpages usa <a href="https://nbdev.fast.ai/index.html">nbdev</a> para impulsar el proceso de conversión de Jupyter Notebooks en publicaciones de blog. Cuando guardas un notebook en la carpeta <code>/_notebooks</code> de tu repositorio, GitHub Actions aplica <code>nbdev</code> a esos cuadernos automáticamente. El mismo proceso ocurre cuando guarda documentos de Word o markdown en el directorio <code>_word</code> o<code>_posts</code>, respectivamente.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Jupyter-Notebooks-y-Fastpages">
 <a class="anchor" href="#Jupyter-Notebooks-y-Fastpages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Jupyter Notebooks y Fastpages<a class="anchor-link" href="#Jupyter-Notebooks-y-Fastpages"> </a>
 </h2>
@@ -665,15 +739,12 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>
-<code>&gt; Warning: There will be no second warning!</code>
+<p><code>&gt; Warning: There will be no second warning!</code>
+</p>
 <div class="flash flash-error">
     <svg class="octicon octicon-alert" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path></svg>
     <strong>Warning: </strong>There will be no second warning!
 </div>
-</li>
-</ul>
 
 </div>
 </div>
@@ -681,15 +752,12 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>
-<code>&gt; Important: Pay attention! It's important.</code>
+<p><code>&gt; Important: Pay attention! It's important.</code>
+</p>
 <div class="flash flash-warn">
     <svg class="octicon octicon-zap" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10.561 1.5a.016.016 0 00-.01.004L3.286 8.571A.25.25 0 003.462 9H6.75a.75.75 0 01.694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0012.538 7H9.25a.75.75 0 01-.683-1.06l2.008-4.418.003-.006a.02.02 0 00-.004-.009.02.02 0 00-.006-.006L10.56 1.5zM9.504.43a1.516 1.516 0 012.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 01-.871.354h-.302a1.25 1.25 0 01-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429z"></path></svg>
     <strong>Important: </strong>Pay attention! It’s important.
 </div>
-</li>
-</ul>
 
 </div>
 </div>
@@ -697,15 +765,12 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>
-<code>&gt; Tip: This is my tip.</code> 
+<p><code>&gt; Tip: This is my tip.</code> 
+</p>
 <div class="flash flash-success">
     <svg class="octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>This is my tip.
 </div>
-</li>
-</ul>
 
 </div>
 </div>
@@ -713,26 +778,12 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>
-<code>&gt; Note: Take note of this.</code> 
+<p><code>&gt; Note: Take note of this.</code> 
+</p>
 <div class="flash">
     <svg class="octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
     <strong>Note: </strong>Take note of this.
 </div>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Cómo-Fastpages-convierte-los-notebooks-en-publicaciones-de-blog">
-<a class="anchor" href="#C%C3%B3mo-Fastpages-convierte-los-notebooks-en-publicaciones-de-blog" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cómo Fastpages convierte los notebooks en publicaciones de blog<a class="anchor-link" href="#C%C3%B3mo-Fastpages-convierte-los-notebooks-en-publicaciones-de-blog"> </a>
-</h2>
-<p>fastpages usa <a href="https://nbdev.fast.ai/index.html">nbdev</a> para impulsar el proceso de conversión de Jupyter Notebooks en publicaciones de blog. Cuando guardas un notebook en la carpeta <code>/_notebooks</code> de tu repositorio, GitHub Actions aplica <code>nbdev</code> a esos cuadernos automáticamente. El mismo proceso ocurre cuando guarda documentos de Word o markdown en el directorio <code>_word</code> o<code>_posts</code>, respectivamente.</p>
 
 </div>
 </div>
