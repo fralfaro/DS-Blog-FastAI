@@ -67,6 +67,12 @@ window.onload = wrap_img;
     elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
     });
 </script>
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/applause-button/dist/applause-button.css">
+<script src="https://unpkg.com/applause-button/dist/applause-button.js"></script>
+
 </head>
 <body><header class="site-header">
 
@@ -276,7 +282,14 @@ window.onload = wrap_img;
 
 
 
-  </div><!-- from https://github.com/utterance/utterances -->
+  </div>
+
+	
+		<applause-button class="mb6"
+			color=rgb(79,177,186)
+			url=https://fralfaro.github.io/jupyter/2021/07/31/tdd.html >
+		</applause-button>
+	<!-- from https://github.com/utterance/utterances -->
 <script src="https://utteranc.es/client.js"
         repo="fralfaro/ds_blog"
         issue-term="title"
