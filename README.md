@@ -10,4 +10,4 @@ Hi, welcome to [DS-Blog](https://fralfaro.github.io/ds_blog/), a site with focus
 and improving skills related to software development (testing, documentation, etc). Some posts will be written in english and others in spanish.
 
 
-> **Note**: Special thanks to [etra0](https://github.com/etra0) for his contributions to this repository ☕.
+> **Note**: Special thanks to [etra0](https://github.com/etra0) for his contributions to this repository ☕☕.
