@@ -100,7 +100,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      5 min read
     
 </span></p>
 
@@ -121,6 +121,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h1"><a href="#Introducción">Introducción </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#¿Qué-es-el-Test-Driven-Development?">¿Qué es el Test Driven Development? </a></li>
+<li class="toc-entry toc-h2"><a href="#Ejemplo-sencillo">Ejemplo sencillo </a></li>
 <li class="toc-entry toc-h2"><a href="#¿Porqué-debería-usarlo?">¿Porqué debería usarlo? </a></li>
 <li class="toc-entry toc-h2"><a href="#Evidencia-empírica">Evidencia empírica </a></li>
 <li class="toc-entry toc-h2"><a href="#¿Puedo-usar-TDD-siempre?">¿Puedo usar TDD siempre? </a></li>
@@ -147,7 +148,7 @@ window.onload = wrap_img;
 <h1 id="Introducción">
 <a class="anchor" href="#Introducci%C3%B3n" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introducción<a class="anchor-link" href="#Introducci%C3%B3n"> </a>
 </h1>
-<p>Esta página busca dar señales de cómo abordar el desarrollo de software para Data Science usando <em>Test Driven Development</em>, una técnica ampliamente usada en otros rubros de la programación.</p>
+<p>Esta sección busca dar señales de cómo abordar el desarrollo de software para Data Science usando <em>Test Driven Development</em>, una técnica ampliamente usada en otros rubros de la programación.</p>
 <h2 id="¿Qué-es-el-Test-Driven-Development?">
 <a class="anchor" href="#%C2%BFQu%C3%A9-es-el-Test-Driven-Development?" aria-hidden="true"><span class="octicon octicon-link"></span></a>¿Qué es el <em>Test Driven Development</em>?<a class="anchor-link" href="#%C2%BFQu%C3%A9-es-el-Test-Driven-Development?"> </a>
 </h2>
@@ -161,6 +162,69 @@ window.onload = wrap_img;
 <li>
 <strong>Refactor</strong>: Refactoriza de ser necesario</li>
 </ul>
+<h2 id="Ejemplo-sencillo">
+<a class="anchor" href="#Ejemplo-sencillo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ejemplo sencillo<a class="anchor-link" href="#Ejemplo-sencillo"> </a>
+</h2>
+<p>A modo de ejemplo, vamos a testear la función <code>paridad</code>, que determina si un número natural es par o no.</p>
+<p>Lo primero que se debe hacer es crear el test, para ello se ocupará la librería <a href="https://docs.pytest.org/en/6.2.x/">pytest</a>.</p>
+<div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
+    <span class="s2">"number, expected"</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'par'</span><span class="p">),</span>
+<span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_paridad</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">paridad</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
+</pre></div>
+<p>El test nos dice que si la entrada es el número <code>2</code>, el resultado debe ser <code>par</code>. Cómo aun no hemos escrito la función el test fallará (<strong>fase red</strong>).</p>
+
+<pre><code>========= test session starts ============================================ 
+platform linux -- Python 3.8.10, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
+rootdir: /home/fralfaro/PycharmProjects/ds_blog
+plugins: anyio-3.3.0
+collected 1 item                                                                                                                                                                          
+
+temp/test_funcion.py F                                              [100%]
+========= 1 failed in 0.14s  ===============================================</code></pre>
+<p>Ahora escribimos la función (<strong>fase green</strong>):</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">paridad</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">str</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Determina si un numero natural es par o no.</span>
+
+<span class="sd">    :param n: numero entero</span>
+<span class="sd">    :return: 'par' si es el numero es par; 'impar' en otro caso</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="s1">'par'</span> <span class="k">if</span> <span class="n">n</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="s1">'impar'</span>
+</pre></div>
+<p>Volvemos a correr el test:</p>
+
+<pre><code>========= test session starts ============================================ 
+platform linux -- Python 3.8.10, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
+rootdir: /home/fralfaro/PycharmProjects/ds_blog
+plugins: anyio-3.3.0
+collected 1 item                                                                                                                                                                          
+
+temp/test_funcion.py .                                              [100%]
+========= 1 passed in 0.06s  ===============================================</code></pre>
+<p>Hemos cometido un descuido a proposito, no hemos testeado el caso que el número sea impar, por lo cual reescribimos el test (<strong>fase refactor</strong>)</p>
+<div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
+    <span class="s2">"number, expected"</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'par'</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'impar'</span><span class="p">),</span>
+<span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_paridad</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">paridad</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
+</pre></div>
+<p>y corremos los test:</p>
+
+<pre><code>========= test session starts ============================================ 
+platform linux -- Python 3.8.10, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
+rootdir: /home/fralfaro/PycharmProjects/ds_blog
+plugins: anyio-3.3.0
+collected 2 items                                                                                                                                                                          
+
+temp/test_funcion.py ..                                              [100%]
+========= 2 passed in 0.06s  ===============================================</code></pre>
 
 </div>
 </div>
@@ -239,7 +303,7 @@ window.onload = wrap_img;
 <li>
 <a href="https://docs.python.org/3/library/unittest.html">unittest</a>: Módulo dentro de la librería estándar de Python. Permite realizar tests unitarios, de integración y end to end.</li>
 <li>
-<a href="https://docs.python.org/3/library/doctest.html">doctest</a>: Permite realizar test de la documentación del código, cuando éste trae ejemplos de uso (Como en la documentacion de <a href="http://www.numpy.org/">Numpy</a> o <a href="https://pandas.pydata.org/">Pandas</a>).</li>
+<a href="https://docs.python.org/3/library/doctest.html">doctest</a>: Permite realizar test de la documentación del código (ejemplos: <a href="http://www.numpy.org/">Numpy</a> o <a href="https://pandas.pydata.org/">Pandas</a>).</li>
 <li>
 <a href="https://docs.pytest.org/en/latest/">pytest</a>: Librería de testing ampliamente usada en proyectos nuevos de Python.</li>
 <li>
