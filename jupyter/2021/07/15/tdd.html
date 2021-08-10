@@ -175,7 +175,14 @@ window.onload = wrap_img;
 <span class="k">def</span> <span class="nf">test_paridad</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
     <span class="k">assert</span> <span class="n">paridad</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
 </pre></div>
-<p>El test nos dice que si la entrada es el número <code>2</code>, el resultado debe ser <code>par</code>. Cómo aun no hemos escrito la función el test fallará (<strong>fase red</strong>).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>El test nos dice que si la entrada es el número <code>2</code>, el resultado debe ser <code>par</code>. Cómo aún no hemos escrito la función, el test fallará (<strong>fase red</strong>).</p>
 
 <pre><code>========= test session starts ============================================ 
 platform linux -- Python 3.8.10, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
@@ -185,7 +192,14 @@ collected 1 item
 
 temp/test_funcion.py F                                              [100%]
 ========= 1 failed in 0.14s  ===============================================</code></pre>
-<p>Ahora escribimos la función (<strong>fase green</strong>):</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ahora, se escribe la función <code>paridad</code> (<strong>fase green</strong>):</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">paridad</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">str</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Determina si un numero natural es par o no.</span>
@@ -205,7 +219,14 @@ collected 1 item
 
 temp/test_funcion.py .                                              [100%]
 ========= 1 passed in 0.06s  ===============================================</code></pre>
-<p>Hemos cometido un descuido a proposito, no hemos testeado el caso que el número sea impar, por lo cual reescribimos el test (<strong>fase refactor</strong>)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Hemos cometido un descuido a proposito, no hemos testeado el caso si el número fuese impar, por lo cual reescribimos el test (<strong>fase refactor</strong>)</p>
 <div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
     <span class="s2">"number, expected"</span><span class="p">,</span>
     <span class="p">[</span>
@@ -215,7 +236,14 @@ temp/test_funcion.py .                                              [100%]
 <span class="k">def</span> <span class="nf">test_paridad</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
     <span class="k">assert</span> <span class="n">paridad</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
 </pre></div>
-<p>y corremos los test:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>y corremos nuevamente los test:</p>
 
 <pre><code>========= test session starts ============================================ 
 platform linux -- Python 3.8.10, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
