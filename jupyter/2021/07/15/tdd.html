@@ -125,11 +125,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#¿Porqué-debería-usarlo?">¿Porqué debería usarlo? </a></li>
 <li class="toc-entry toc-h2"><a href="#Evidencia-empírica">Evidencia empírica </a></li>
 <li class="toc-entry toc-h2"><a href="#¿Puedo-usar-TDD-siempre?">¿Puedo usar TDD siempre? </a></li>
-<li class="toc-entry toc-h2"><a href="#Librerías-disponibles">Librerías disponibles </a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#Python">Python </a></li>
-</ul>
-</li>
+<li class="toc-entry toc-h2"><a href="#Librerías-disponibles">Librerías disponibles </a></li>
 <li class="toc-entry toc-h2"><a href="#Knowledge-base-/-Lecturas-recomendadas">Knowledge base / Lecturas recomendadas </a></li>
 </ul>
 </li>
@@ -162,11 +158,28 @@ window.onload = wrap_img;
 <li>
 <strong>Refactor</strong>: Refactoriza de ser necesario</li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Ejemplo-sencillo">
 <a class="anchor" href="#Ejemplo-sencillo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ejemplo sencillo<a class="anchor-link" href="#Ejemplo-sencillo"> </a>
 </h2>
 <p>A modo de ejemplo, vamos a testear la función <code>paridad</code>, que determina si un número natural es par o no.</p>
 <p>Lo primero que se debe hacer es crear el test, para ello se ocupará la librería <a href="https://docs.pytest.org/en/6.2.x/">pytest</a>.</p>
+<blockquote>
+<p><strong>Nota</strong>:No es necesario conocer previamente la librería <code>pytest</code> para entender el ejemplo.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
     <span class="s2">"number, expected"</span><span class="p">,</span>
     <span class="p">[</span>
@@ -182,7 +195,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>El test nos dice que si la entrada es el número <code>2</code>, el resultado debe ser <code>par</code>. Cómo aún no hemos escrito la función, el test fallará (<strong>fase red</strong>).</p>
+<p>El test nos dice que si el input es el número <code>2</code>, la función <code>paridad</code> devuelve el output <code>'par'</code>. Cómo aún no hemos escrito la función, el test fallará (<strong>fase red</strong>).</p>
 
 <pre><code>========= test session starts ============================================ 
 platform linux -- Python 3.8.10, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
@@ -253,6 +266,7 @@ collected 2 items
 
 temp/test_funcion.py ..                                              [100%]
 ========= 2 passed in 0.06s  ===============================================</code></pre>
+<p>Listo, nuestra función <code>paridad</code> ha sido testeado correctamente!.</p>
 
 </div>
 </div>
@@ -323,10 +337,7 @@ temp/test_funcion.py ..                                              [100%]
 <h2 id="Librerías-disponibles">
 <a class="anchor" href="#Librer%C3%ADas-disponibles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Librerías disponibles<a class="anchor-link" href="#Librer%C3%ADas-disponibles"> </a>
 </h2>
-<p>Acá listamos algunas librerías de TDD de los lenguajes que se usan en i+D</p>
-<h3 id="Python">
-<a class="anchor" href="#Python" aria-hidden="true"><span class="octicon octicon-link"></span></a>Python<a class="anchor-link" href="#Python"> </a>
-</h3>
+<p>Acá listamos algunas librerías de TDD en Python:</p>
 <ul>
 <li>
 <a href="https://docs.python.org/3/library/unittest.html">unittest</a>: Módulo dentro de la librería estándar de Python. Permite realizar tests unitarios, de integración y end to end.</li>
