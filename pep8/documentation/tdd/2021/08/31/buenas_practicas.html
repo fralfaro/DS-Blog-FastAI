@@ -100,7 +100,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      12 min read
+      11 min read
     
 </span></p>
 
@@ -142,7 +142,7 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li class="toc-entry toc-h1"><a href="#Documentación">Documentación </a></li>
-<li class="toc-entry toc-h1"><a href="#TDD:-Test-Driven-Development">TDD: Test Driven Development </a></li>
+<li class="toc-entry toc-h1"><a href="#Zen-de-python">Zen de python </a></li>
 <li class="toc-entry toc-h1"><a href="#Más-consejos">Más consejos </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#Entender-programación-multiparadigma">Entender programación multiparadigma </a></li>
@@ -274,17 +274,6 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>De hecho podemos usar el nombre para dar más información sobre la variable:</p>
-<div class="highlight"><pre><span></span><span class="n">velocidad_metros_segundo</span> <span class="o">=</span> <span class="mf">12.5</span>
-<span class="n">angulo_radianes</span> <span class="o">=</span> <span class="mf">1.3</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1442,126 +1431,86 @@ potencia(x, y)
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="TDD:-Test-Driven-Development">
-<a class="anchor" href="#TDD:-Test-Driven-Development" aria-hidden="true"><span class="octicon octicon-link"></span></a>TDD: Test Driven Development<a class="anchor-link" href="#TDD:-Test-Driven-Development"> </a>
+<h1 id="Zen-de-python">
+<a class="anchor" href="#Zen-de-python" aria-hidden="true"><span class="octicon octicon-link"></span></a>Zen de python<a class="anchor-link" href="#Zen-de-python"> </a>
 </h1>
-<p>En palabras simples, el desarrollo guiado por pruebas pone las pruebas en el corazón de nuestro trabajo. En su forma más simple consiste en un proceso iterativo de 3 fases:</p>
-<p><img src="/ds_blog/images/copied_from_nb/../images/python/tdd.png" alt=""></p>
+<p>El <strong>Zen</strong> de Python te dará la guía para decidir sobre que hacer con tu código, no te dice como lo debes escribir, sino como debes pensar si estas programando en Python.</p>
+<p>Principios importantes:</p>
 <ul>
 <li>
-<strong>Red</strong>: Escribe un test que ponga a prueba una nueva funcionalidad y asegurate de que el test falla</li>
+<strong>Explícito es mejor que implícito</strong>: Que no se asuma nada, asegúrate que las cosas sean.</li>
 <li>
-<strong>Green</strong>: Escribe el código mínimo necesario para pasar ese test</li>
+<strong>Simple es mejor que complejo</strong>: Evita código complejo, código espagueti o que hace mas cosas para poder hacer una simple tarea.</li>
 <li>
-<strong>Refactor</strong>: Refactoriza de ser necesario</li>
+<strong>Plano es mejor que anidado</strong>: Si tu código tiene mas de 3 niveles de identación, deberías mover parte de ese código a una función.</li>
+<li>
+<strong>Los errores nunca deberían pasar silenciosamente</strong>: No uses un Try/Except sin definir que tipo de error vas a cachar, viene de la mano con Explicito es mejor que implícito.</li>
+<li>
+<strong>Si la implementación es difícil de explicar, es mala idea</strong>.</li>
 </ul>
+<p>También, podemos ver el mensaje original del zen de python, ejecutando la siguiente linea de comando.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>A modo de ejemplo, vamos a testear la función <code>paridad</code>, que determina si un número natural es par o no.</p>
-<p>Lo primero que se debe hacer es crear el test, para ello se ocupará la librería <a href="https://docs.pytest.org/en/6.2.x/">pytest</a>.</p>
-<blockquote>
-<p><strong>Nota</strong>:No es necesario conocer previamente la librería <code>pytest</code> para entender el ejemplo.</p>
-<div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
-    <span class="s2">"number, expected"</span><span class="p">,</span>
-    <span class="p">[</span>
-        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'par'</span><span class="p">),</span>
-<span class="p">])</span>
-<span class="k">def</span> <span class="nf">test_paridad</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">paridad</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">this</span>
 </pre></div>
-</blockquote>
-<p>El test nos dice que si el input es el número <code>2</code>, la función <code>paridad</code> devuelve el output <code>'par'</code>. Cómo aún no hemos escrito la función, el test fallará (<strong>fase red</strong>).</p>
 
-<pre><code>========= test session starts ============================================ 
-platform linux -- Python 3.8.10, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
-rootdir: /home/fralfaro/PycharmProjects/ds_blog
-plugins: anyio-3.3.0
-collected 1 item                                                                                                                                                                          
+    </div>
+</div>
+</div>
 
-temp/test_funcion.py F                                              [100%]
-========= 1 failed in 0.14s  ===============================================</code></pre>
-<p>Ahora, se escribe la función <code>paridad</code> (<strong>fase green</strong>):</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">paridad</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">str</span><span class="p">:</span>
-    <span class="sd">"""</span>
-<span class="sd">    Determina si un numero natural es par o no.</span>
+<div class="output_wrapper">
+<div class="output">
 
-<span class="sd">    :param n: numero entero</span>
-<span class="sd">    :return: 'par' si es el numero es par; 'impar' en otro caso</span>
-<span class="sd">    """</span>
-    <span class="k">return</span> <span class="s1">'par'</span> <span class="k">if</span> <span class="n">n</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="s1">'impar'</span>
-</pre></div>
-<p>Volvemos a correr el test:</p>
+<div class="output_area">
 
-<pre><code>========= test session starts ============================================ 
-platform linux -- Python 3.8.10, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
-rootdir: /home/fralfaro/PycharmProjects/ds_blog
-plugins: anyio-3.3.0
-collected 1 item                                                                                                                                                                          
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The Zen of Python, by Tim Peters
 
-temp/test_funcion.py .                                              [100%]
-========= 1 passed in 0.06s  ===============================================</code></pre>
-<p>Hemos cometido un descuido a proposito, no hemos testeado el caso si el número fuese impar, por lo cual reescribimos el test (<strong>fase refactor</strong>)</p>
-<div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
-    <span class="s2">"number, expected"</span><span class="p">,</span>
-    <span class="p">[</span>
-        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'par'</span><span class="p">),</span>
-        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'impar'</span><span class="p">),</span>
-<span class="p">])</span>
-<span class="k">def</span> <span class="nf">test_paridad</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">paridad</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
-</pre></div>
-<p>y corremos nuevamente los test:</p>
-
-<pre><code>========= test session starts ============================================ 
-platform linux -- Python 3.8.10, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
-rootdir: /home/fralfaro/PycharmProjects/ds_blog
-plugins: anyio-3.3.0
-collected 2 items                                                                                                                                                                          
-
-temp/test_funcion.py ..                                              [100%]
-========= 2 passed in 0.06s  ===============================================</code></pre>
-<p>Listo, nuestra función <code>paridad</code> ha sido testeado correctamente!.</p>
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+</pre>
+</div>
+</div>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Acá listamos algunas librerías de TDD en Python:</p>
-<ul>
-<li>
-<a href="https://docs.python.org/3/library/unittest.html">unittest</a>: Módulo dentro de la librería estándar de Python. Permite realizar tests unitarios, de integración y end to end.</li>
-<li>
-<a href="https://docs.python.org/3/library/doctest.html">doctest</a>: Permite realizar test de la documentación del código (ejemplos: <a href="http://www.numpy.org/">Numpy</a> o <a href="https://pandas.pydata.org/">Pandas</a>).</li>
-<li>
-<a href="https://docs.pytest.org/en/latest/">pytest</a>: Librería de testing ampliamente usada en proyectos nuevos de Python.</li>
-<li>
-<a href="https://nose.readthedocs.io/en/latest/">nose</a>: Librería que extiende unittest para hacerlo más simple.</li>
-<li>
-<a href="https://coverage.readthedocs.io/en/v4.5.x/">coverage</a>: Herramienta para medir la <a href="https://es.wikipedia.org/wiki/Cobertura_de_c%C3%B3digo">cobertura de código</a> de los proyectos.</li>
-<li>
-<a href="https://tox.readthedocs.io/en/latest/">tox</a>: Herramienta para facilitar el test de una librería en diferentes versiones e intérpretes de Python.</li>
-<li>
-<a href="https://hypothesis.readthedocs.io/en/latest/">hypothesis</a>: Librería para escribir tests vía reglas que ayuda a encontrar casos borde.</li>
-<li>
-<a href="https://behave.readthedocs.io/en/latest/">behave</a>: Permite utilizar <a href="https://es.wikipedia.org/wiki/Desarrollo_guiado_por_comportamiento">Behavior Driven Development</a>, un proceso de desarrollo derivado del TDD.</li>
-</ul>
 
 </div>
-</div>
-</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Más-consejos">
 <a class="anchor" href="#M%C3%A1s-consejos" aria-hidden="true"><span class="octicon octicon-link"></span></a>Más consejos<a class="anchor-link" href="#M%C3%A1s-consejos"> </a>
 </h1>
+<p>Los consejos que se presentan son de mucha utilidad si usted quiere llevar sus conociminetos de programación al siguiente nivel, sin embargo, el contenido de cada uno amerita un curso por si solo. Se deja recomienda al lector seguir profundizando en estos temas.</p>
 <h2 id="Entender-programación-multiparadigma">
 <a class="anchor" href="#Entender-programaci%C3%B3n-multiparadigma" aria-hidden="true"><span class="octicon octicon-link"></span></a>Entender programación multiparadigma<a class="anchor-link" href="#Entender-programaci%C3%B3n-multiparadigma"> </a>
 </h2>
@@ -1583,11 +1532,27 @@ temp/test_funcion.py ..                                              [100%]
 <blockquote>
 <p>Un patrón de diseño es una solución a un problema de diseño.</p>
 </blockquote>
-<p>Se destacan tres tipos de patrones de diseños:<em> Comportamiento</em> Creacionales</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Se destacan tres tipos de patrones de diseños:</p>
 <ul>
-<li>Estructurales</li>
+<li><strong>Comportamiento</strong></li>
+<li><strong>Creacionales</strong></li>
+<li><strong>Estructurales</strong></li>
 </ul>
 <p>En el siguiente <a href="https://refactoring.guru/design-patterns/python">link</a> se deja una guía para poder entender estos conceptos en python.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Lecturas-recomendadas">
 <a class="anchor" href="#Lecturas-recomendadas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lecturas recomendadas<a class="anchor-link" href="#Lecturas-recomendadas"> </a>
 </h2>
