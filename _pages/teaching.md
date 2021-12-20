@@ -69,21 +69,14 @@ permalink: /teaching/
 
 ### Big Data
 
-- **Course**: Big Data
+- **Course**: Big Data.
 - **Description**: Basic concepts about Big Data with Pyspark
 - **Repository**: [link](https://gitlab.com/FAAM/python_big_data)
 
 
-### Software Design I
+### Software Design
 
-- **Course**: Software Design I.
+- **Course**: Software Design.
 - **Description**: Basic concepts about software design (version control, testing, and automatic build management).
 - **Repository**: [link](https://gitlab.com/FAAM/python_sdk1).
-
-
-### Software Design II
-
-- **Course**: Software Design II.
-- **Description**: Advanced concepts about software design (version control, testing, and automatic build management).
-- **Repository**: [link](https://gitlab.com/FAAM/python_sdk2).
 
