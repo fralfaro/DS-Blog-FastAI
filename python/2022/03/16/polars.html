@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Polars | DS-Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Polars" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="DataFrames increíblemente rápidos en Rust, Python y Node.js." />
+<meta property="og:description" content="DataFrames increíblemente rápidos en Rust, Python y Node.js." />
+<link rel="canonical" href="https://fralfaro.github.io/ds_blog/python/2022/03/16/polars.html" />
+<meta property="og:url" content="https://fralfaro.github.io/ds_blog/python/2022/03/16/polars.html" />
+<meta property="og:site_name" content="DS-Blog" />
+<meta property="og:image" content="https://fralfaro.github.io/ds_blog/images/polars.PNG" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-16T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"DataFrames increíblemente rápidos en Rust, Python y Node.js.","url":"https://fralfaro.github.io/ds_blog/python/2022/03/16/polars.html","@type":"BlogPosting","headline":"Polars","dateModified":"2022-03-16T00:00:00-05:00","datePublished":"2022-03-16T00:00:00-05:00","image":"https://fralfaro.github.io/ds_blog/images/polars.PNG","mainEntityOfPage":{"@type":"WebPage","@id":"https://fralfaro.github.io/ds_blog/python/2022/03/16/polars.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/ds_blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://fralfaro.github.io/ds_blog/feed.xml" title="DS-Blog" /><link rel="shortcut icon" type="image/x-icon" href="/ds_blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/applause-button/dist/applause-button.css">
+<script src="https://unpkg.com/applause-button/dist/applause-button.js"></script>
+
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/ds_blog/">DS-Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/ds_blog/about/">About me</a><a class="page-link" href="/ds_blog/research/">Research &amp; Talks</a><a class="page-link" href="/ds_blog/software/">Software</a><a class="page-link" href="/ds_blog/teaching/">Teaching</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Polars</h1><p class="page-description">DataFrames increíblemente rápidos en Rust, Python y Node.js.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-03-16T00:00:00-05:00" itemprop="datePublished">
+        Mar 16, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      15 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/ds_blog/categories/#python">python</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Introducción">Introducción </a></li>
+<li class="toc-entry toc-h1"><a href="#Primeros-Pasos">Primeros Pasos </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Instalación">Instalación </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Rendimiento">Rendimiento </a></li>
+<li class="toc-entry toc-h1"><a href="#Expresiones-en-Polars">Expresiones en Polars </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Expresiones">Expresiones </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Contar-valores-únicos">Contar valores únicos </a></li>
+<li class="toc-entry toc-h3"><a href="#Varias-agregaciones">Varias agregaciones </a></li>
+<li class="toc-entry toc-h3"><a href="#Filtro-y-condicionales">Filtro y condicionales </a></li>
+<li class="toc-entry toc-h3"><a href="#Funciones-binarias-y-modificación">Funciones binarias y modificación </a></li>
+<li class="toc-entry toc-h3"><a href="#Expresiones-de-ventana">Expresiones de ventana </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#GroupBy">GroupBy </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Un-enfoque-multiproceso">Un enfoque multiproceso </a></li>
+<li class="toc-entry toc-h3"><a href="#¡No-mates-la-paralelización!">¡No mates la paralelización! </a></li>
+<li class="toc-entry toc-h3"><a href="#Expresiones-polares">Expresiones polares </a></li>
+<li class="toc-entry toc-h3"><a href="#Agregaciones-básicas">Agregaciones básicas </a></li>
+<li class="toc-entry toc-h3"><a href="#Condicionales">Condicionales </a></li>
+<li class="toc-entry toc-h3"><a href="#Filtración">Filtración </a></li>
+<li class="toc-entry toc-h3"><a href="#Sorting">Sorting </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Referencias">Referencias </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-03-16-polars.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Introducción">
+<a class="anchor" href="#Introducci%C3%B3n" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introducción<a class="anchor-link" href="#Introducci%C3%B3n"> </a>
+</h1>
+<p><a href="https://github.com/pola-rs/polars">Polars</a> es una librería de DataFrames increíblemente rápida implementada en <a href="https://github.com/rust-lang/rust">Rust</a> utilizando <a href="https://arrow.apache.org/docs/format/Columnar.html">Arrow Columnar Format</a> de Apache como modelo de memoria.</p>
+<ul>
+<li>Lazy | eager execution</li>
+<li>Multi-threaded</li>
+<li>SIMD (Single Instruction, Multiple Data)</li>
+<li>Query optimization</li>
+<li>Powerful expression API</li>
+<li>Rust | Python | ...</li>
+</ul>
+<p>Esta sección tiene como objetivos presentarle <em>Polars</em> a través de ejemplos y comparándolo con otras soluciones.</p>
+<blockquote>
+<p><strong>Nota</strong>:Si usted no esta familiarizado con la manipulación de datos en Python, se recomienda partir leyendo sobre la librería de <a href="https://pandas.pydata.org/docs/">Pandas</a>. También, se deja como referencia el curso de <a href="https://gitlab.com/FAAM/python_data_manipulation">Manipulación de Datos</a>.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Primeros-Pasos">
+<a class="anchor" href="#Primeros-Pasos" aria-hidden="true"><span class="octicon octicon-link"></span></a>Primeros Pasos<a class="anchor-link" href="#Primeros-Pasos"> </a>
+</h1>
+<h2 id="Instalación">
+<a class="anchor" href="#Instalaci%C3%B3n" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instalación<a class="anchor-link" href="#Instalaci%C3%B3n"> </a>
+</h2>
+<p>Para instalar <strong>Polars</strong>, necesitará usar la línea de comando. Si ha instalado Anaconda, puede usar:</p>
+
+<pre><code>conda install -c conda-forge polars</code></pre>
+<p>De lo contrario, puede instalar con pip:</p>
+
+<pre><code>pip install polars</code></pre>
+<blockquote>
+<p><strong>Nota</strong>:Todos los binarios están preconstruidos para Python v3.6+.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Rendimiento">
+<a class="anchor" href="#Rendimiento" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rendimiento<a class="anchor-link" href="#Rendimiento"> </a>
+</h1>
+<p><em>Polars</em> es muy rápido y, de hecho, es una de las mejores soluciones disponibles. Tomemos como referencia <a href="https://h2oai.github.io/db-benchmark/">db-benchmark</a> de h2oai. Esta página tiene como objetivo comparar varias herramientas similares a bases de datos populares en la ciencia de datos de código abierto. Se ejecuta regularmente con las últimas versiones de estos paquetes y se actualiza automáticamente.</p>
+<p>También se incluye la sintaxis que se cronometra junto con el tiempo. De esta manera, puede ver de inmediato si está realizando estas tareas o no, y si las diferencias de tiempo le importan o no. Una diferencia de 10x puede ser irrelevante si eso es solo 1s frente a 0,1s en el tamaño de sus datos.</p>
+<p>A modo de ejemplo, veamos algunos ejemplos de <em>performances</em> de distintas librerías para ejecutar distintos tipos de tareas sobre datasets con distintos tamaños. Para el caso de tareas básicas sobre un dataset de <strong>50 GB</strong>, <em>Polars</em> supera a librerías espacializadas en distribución de Dataframes como <em>Spark</em> (143 segundos vs 568 segundos). Por otro lado, librerías conocidas en Python como <em>Pandas</em> o <em>Dask</em> se tiene el problema de <strong>out of memory</strong>.</p>
+<p><img src="/ds_blog/images/copied_from_nb/../images/polars/db-benchmark.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Expresiones-en-Polars">
+<a class="anchor" href="#Expresiones-en-Polars" aria-hidden="true"><span class="octicon octicon-link"></span></a>Expresiones en Polars<a class="anchor-link" href="#Expresiones-en-Polars"> </a>
+</h1>
+<p>Polars tiene un poderoso concepto llamado expresiones. Las expresiones polares se pueden usar en varios contextos y son un mapeo funcional de <code>Fn(Series) -&gt; Series</code>, lo que significa que tienen <code>Series</code> como entrada y <code>Series</code> como salida. Al observar esta definición funcional, podemos ver que la salida de un <code>Expr</code> también puede servir como entrada de un <code>Expr</code>.</p>
+<p>Eso puede sonar un poco extraño, así que vamos a dar un ejemplo.</p>
+<p>La siguiente es una expresión:</p>
+<div class="highlight"><pre><span></span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"foo"</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+<p>El fragmento anterior dice seleccionar la columna "foo", luego ordenar esta columna y luego tomar los primeros 2 valores de la salida ordenada. El poder de las expresiones es que cada expresión produce una nueva expresión y que se pueden canalizar juntas. Puede ejecutar una expresión pasándola en uno de los contextos de ejecución polares. Aquí ejecutamos dos expresiones ejecutando df.select:</p>
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">([</span>
+     <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"foo"</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+     <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"barra"</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"foo"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="p">])</span>
+</pre></div>
+<p>Todas las expresiones se ejecutan en paralelo. (Tenga en cuenta que dentro de una expresión puede haber más paralelización).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Expresiones">
+<a class="anchor" href="#Expresiones" aria-hidden="true"><span class="octicon octicon-link"></span></a>Expresiones<a class="anchor-link" href="#Expresiones"> </a>
+</h2>
+<p>En esta sección veremos algunos ejemplos, pero primero vamos a crear un conjunto de datos:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">"nrs"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+        <span class="s2">"names"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"foo"</span><span class="p">,</span> <span class="s2">"ham"</span><span class="p">,</span> <span class="s2">"spam"</span><span class="p">,</span> <span class="s2">"egg"</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+        <span class="s2">"random"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+        <span class="s2">"groups"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">],</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>shape: (5, 4)
+┌──────┬───────┬──────────┬────────┐
+│ nrs  ┆ names ┆ random   ┆ groups │
+│ ---  ┆ ---   ┆ ---      ┆ ---    │
+│ i64  ┆ str   ┆ f64      ┆ str    │
+╞══════╪═══════╪══════════╪════════╡
+│ 1    ┆ foo   ┆ 0.154163 ┆ A      │
+├╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤
+│ 2    ┆ ham   ┆ 0.74     ┆ A      │
+├╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤
+│ 3    ┆ spam  ┆ 0.263315 ┆ B      │
+├╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤
+│ null ┆ egg   ┆ 0.533739 ┆ C      │
+├╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤
+│ 5    ┆ null  ┆ 0.014575 ┆ B      │
+└──────┴───────┴──────────┴────────┘
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Puedes hacer mucho con las expresiones. Son tan expresivos que a veces tienes varias formas de obtener los mismos resultados. Para tener una idea de ellos, veamos algunos ejemplos.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Contar-valores-únicos">
+<a class="anchor" href="#Contar-valores-%C3%BAnicos" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contar valores únicos<a class="anchor-link" href="#Contar-valores-%C3%BAnicos"> </a>
+</h3>
+<p>Podemos contar los valores únicos en una columna. Tenga en cuenta que estamos creando el mismo resultado de diferentes maneras. Para no tener nombres de columna duplicados en el DataFrame, usamos una expresión de alias, que cambia el nombre de una expresión.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"names"</span><span class="p">)</span><span class="o">.</span><span class="n">n_unique</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"unique_names_1"</span><span class="p">),</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"names"</span><span class="p">)</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"unique_names_2"</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>shape: (1, 2)
+┌────────────────┬────────────────┐
+│ unique_names_1 ┆ unique_names_2 │
+│ ---            ┆ ---            │
+│ u32            ┆ u32            │
+╞════════════════╪════════════════╡
+│ 5              ┆ 5              │
+└────────────────┴────────────────┘
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Varias-agregaciones">
+<a class="anchor" href="#Varias-agregaciones" aria-hidden="true"><span class="octicon octicon-link"></span></a>Varias agregaciones<a class="anchor-link" href="#Varias-agregaciones"> </a>
+</h3>
+<p>Podemos hacer varias agregaciones. A continuación mostramos algunas de ellas, pero hay más, como <code>median</code>, <code>mean</code>, <code>first</code>, etc.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="s2">"random"</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"sum"</span><span class="p">),</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="s2">"random"</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"min"</span><span class="p">),</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="s2">"random"</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"max"</span><span class="p">),</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"random"</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"other_max"</span><span class="p">),</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="s2">"random"</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"std dev"</span><span class="p">),</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="s2">"random"</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"variance"</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>shape: (1, 6)
+┌──────────┬──────────┬──────┬───────────┬──────────┬──────────┐
+│ sum      ┆ min      ┆ max  ┆ other_max ┆ std dev  ┆ variance │
+│ ---      ┆ ---      ┆ ---  ┆ ---       ┆ ---      ┆ ---      │
+│ f64      ┆ f64      ┆ f64  ┆ f64       ┆ f64      ┆ f64      │
+╞══════════╪══════════╪══════╪═══════════╪══════════╪══════════╡
+│ 1.705842 ┆ 0.014575 ┆ 0.74 ┆ 0.74      ┆ 0.293209 ┆ 0.085971 │
+└──────────┴──────────┴──────┴───────────┴──────────┴──────────┘
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Filtro-y-condicionales">
+<a class="anchor" href="#Filtro-y-condicionales" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filtro y condicionales<a class="anchor-link" href="#Filtro-y-condicionales"> </a>
+</h3>
+<p>También podemos hacer algunas cosas bastante complejas. En el siguiente fragmento, contamos todos los nombres que terminan con la cadena <code>"am"</code>.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"names"</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"names"</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="sa">r</span><span class="s2">"am$"</span><span class="p">))</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>shape: (5, 4)
+┌──────┬───────┬──────────┬────────┐
+│ nrs  ┆ names ┆ random   ┆ groups │
+│ ---  ┆ ---   ┆ ---      ┆ ---    │
+│ i64  ┆ str   ┆ f64      ┆ str    │
+╞══════╪═══════╪══════════╪════════╡
+│ 1    ┆ foo   ┆ 0.154163 ┆ A      │
+├╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤
+│ 2    ┆ ham   ┆ 0.74     ┆ A      │
+├╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤
+│ 3    ┆ spam  ┆ 0.263315 ┆ B      │
+├╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤
+│ null ┆ egg   ┆ 0.533739 ┆ C      │
+├╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤
+│ 5    ┆ null  ┆ 0.014575 ┆ B      │
+└──────┴───────┴──────────┴────────┘
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Funciones-binarias-y-modificación">
+<a class="anchor" href="#Funciones-binarias-y-modificaci%C3%B3n" aria-hidden="true"><span class="octicon octicon-link"></span></a>Funciones binarias y modificación<a class="anchor-link" href="#Funciones-binarias-y-modificaci%C3%B3n"> </a>
+</h3>
+<p>En el ejemplo a continuación, usamos un condicional para crear una nueva expresión a continuación <code>when -&gt; then -&gt; otherwise</code>. La función <code>when()</code> requiere una expresión de predicado (y, por lo tanto, conduce a una <code>serie booleana</code>), luego espera una expresión que se usará en caso de que el predicado se evalúe como verdadero y, de lo contrario, espera una expresión que se usará en caso de que el predicado se evalúe. falso.</p>
+<p>Tenga en cuenta que puede pasar cualquier expresión, o simplemente expresiones base como <code>pl.col("foo")</code>, <code>pl.lit(3)</code>, <code>pl.lit("bar")</code>, etc.</p>
+<p>Finalmente, multiplicamos esto con el resultado de una expresión de suma.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">when</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"random"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">otherwise</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"random"</span><span class="p">))</span> <span class="o">*</span> <span class="n">pl</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="s2">"nrs"</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>shape: (5, 1)
+┌──────────┐
+│ literal  │
+│ ---      │
+│ f64      │
+╞══════════╡
+│ 1.695791 │
+├╌╌╌╌╌╌╌╌╌╌┤
+│ 0.0      │
+├╌╌╌╌╌╌╌╌╌╌┤
+│ 2.896465 │
+├╌╌╌╌╌╌╌╌╌╌┤
+│ 0.0      │
+├╌╌╌╌╌╌╌╌╌╌┤
+│ 0.160325 │
+└──────────┘
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Expresiones-de-ventana">
+<a class="anchor" href="#Expresiones-de-ventana" aria-hidden="true"><span class="octicon octicon-link"></span></a>Expresiones de ventana<a class="anchor-link" href="#Expresiones-de-ventana"> </a>
+</h3>
+<p>Una expresión polar también puede hacer un GROUPBY, AGGREGATION y JOIN implícitos en una sola expresión. En los ejemplos a continuación, hacemos un GROUPBY sobre <code>"groups"</code> y AGREGATE SUM de <code>"random"</code>, y en la siguiente expresión GROUPBY OVER <code>"names"</code> y AGREGATE una lista de <code>"random"</code>. Estas funciones de ventana se pueden combinar con otras expresiones y son una forma eficaz de determinar estadísticas de grupo. Vea más expresiones en el siguiente <a href="https://pola-rs.github.io/polars/py-polars/html/reference/expression.html#aggregation">link</a>.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span>
+    <span class="p">[</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"*"</span><span class="p">),</span>  <span class="c1"># select all</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"random"</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">over</span><span class="p">(</span><span class="s2">"groups"</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"sum[random]/groups"</span><span class="p">),</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"random"</span><span class="p">)</span><span class="o">.</span><span class="n">list</span><span class="p">()</span><span class="o">.</span><span class="n">over</span><span class="p">(</span><span class="s2">"names"</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"random/name"</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>shape: (5, 6)
+┌──────┬───────┬──────────┬────────┬────────────────────┬─────────────┐
+│ nrs  ┆ names ┆ random   ┆ groups ┆ sum[random]/groups ┆ random/name │
+│ ---  ┆ ---   ┆ ---      ┆ ---    ┆ ---                ┆ ---         │
+│ i64  ┆ str   ┆ f64      ┆ str    ┆ f64                ┆ list [f64]  │
+╞══════╪═══════╪══════════╪════════╪════════════════════╪═════════════╡
+│ 1    ┆ foo   ┆ 0.154163 ┆ A      ┆ 0.894213           ┆ [0.154163]  │
+├╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 2    ┆ ham   ┆ 0.74     ┆ A      ┆ 0.894213           ┆ [0.74]      │
+├╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 3    ┆ spam  ┆ 0.263315 ┆ B      ┆ 0.2778             ┆ [0.263315]  │
+├╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ null ┆ egg   ┆ 0.533739 ┆ C      ┆ 0.533739           ┆ [0.533739]  │
+├╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 5    ┆ null  ┆ 0.014575 ┆ B      ┆ 0.2778             ┆ [0.014575]  │
+└──────┴───────┴──────────┴────────┴────────────────────┴─────────────┘
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="GroupBy">
+<a class="anchor" href="#GroupBy" aria-hidden="true"><span class="octicon octicon-link"></span></a>GroupBy<a class="anchor-link" href="#GroupBy"> </a>
+</h2>
+<h3 id="Un-enfoque-multiproceso">
+<a class="anchor" href="#Un-enfoque-multiproceso" aria-hidden="true"><span class="octicon octicon-link"></span></a>Un enfoque multiproceso<a class="anchor-link" href="#Un-enfoque-multiproceso"> </a>
+</h3>
+<p>Una de las formas más eficientes de procesar datos tabulares es paralelizar su procesamiento a través del enfoque "dividir-aplicar-combinar". Esta operación es el núcleo de la implementación del agrupamiento de <em>Polars</em>, lo que le permite lograr operaciones ultrarrápidas. Más específicamente, las fases de "división" y "aplicación" se ejecutan de forma multiproceso.</p>
+<p>Una operación de agrupación simple se toma a continuación como ejemplo para ilustrar este enfoque:</p>
+<p><img src="/ds_blog/images/copied_from_nb/../images/polars/polar_split.PNG" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Para las operaciones hash realizadas durante la fase de "división", Polars utiliza un enfoque sin bloqueo de subprocesos múltiples que se ilustra en el siguiente esquema:</p>
+<p><img src="/ds_blog/images/copied_from_nb/../images/polars/polar_multi.PNG" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>¡Esta paralelización permite que las operaciones de agrupación y unión (por ejemplo) sean increíblemente rápidas!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="¡No-mates-la-paralelización!">
+<a class="anchor" href="#%C2%A1No-mates-la-paralelizaci%C3%B3n!" aria-hidden="true"><span class="octicon octicon-link"></span></a>¡No mates la paralelización!<a class="anchor-link" href="#%C2%A1No-mates-la-paralelizaci%C3%B3n!"> </a>
+</h3>
+<p>Todos hemos escuchado que <em>Python</em> es lento y "no escala". Además de la sobrecarga de ejecutar el código de bytes "lento", Python debe permanecer dentro de las restricciones del  <code>Bloqueo de intérprete global (GIL)</code>. Esto significa que si uno usa una lambda o una función de Python personalizada para aplicar durante una fase de paralelización, la velocidad de <em>Polars</em> se limita al ejecutar el código de <em>Python</em>, lo que evita que varios subprocesos ejecuten la función.</p>
+<p>Todo esto se siente terriblemente limitante, especialmente porque a menudo necesitamos esos lambda en un paso  <code>.groupby()</code>, por ejemplo. Este enfoque aún es compatible con <em>Polars</em>, pero teniendo en cuenta el código de bytes Y el precio GIL deben pagarse.</p>
+<p>Para mitigar esto, <em>Polars</em> implementa una poderosa sintaxis definida no solo en su API perezosa (<em>lazy</em>), sino también en su entusiasta (<em>eager</em>).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Expresiones-polares">
+<a class="anchor" href="#Expresiones-polares" aria-hidden="true"><span class="octicon octicon-link"></span></a>Expresiones polares<a class="anchor-link" href="#Expresiones-polares"> </a>
+</h3>
+<p>En la introducción de la página anterior, discutimos que el uso de funciones personalizadas de Python eliminaba la paralelización y que podemos usar las expresiones de la API diferida para mitigar esto. Echemos un vistazo a lo que eso significa.</p>
+<p>Comencemos con el conjunto de datos simple del congreso de  <code>EE. UU.</code></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"legislators-current.csv"</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"birthday"</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Date</span><span class="p">))</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+&lt;table border="1 "class="dataframe "&gt;
+<thead>
+<tr>
+<th>
+last_name
+</th>
+<th>
+first_name
+</th>
+<th>
+middle_name
+</th>
+<th>
+suffix
+</th>
+<th>
+nickname
+</th>
+<th>
+full_name
+</th>
+<th>
+birthday
+</th>
+<th>
+gender
+</th>
+<th>
+type
+</th>
+<th>
+state
+</th>
+<th>
+district
+</th>
+<th>
+senate_class
+</th>
+<th>
+party
+</th>
+<th>
+url
+</th>
+<th>
+address
+</th>
+<th>
+phone
+</th>
+<th>
+contact_form
+</th>
+<th>
+rss_url
+</th>
+<th>
+twitter
+</th>
+<th>
+facebook
+</th>
+<th>
+youtube
+</th>
+<th>
+youtube_id
+</th>
+<th>
+bioguide_id
+</th>
+<th>
+thomas_id
+</th>
+<th>
+opensecrets_id
+</th>
+<th>
+lis_id
+</th>
+<th>
+fec_ids
+</th>
+<th>
+cspan_id
+</th>
+<th>
+govtrack_id
+</th>
+<th>
+votesmart_id
+</th>
+<th>
+ballotpedia_id
+</th>
+<th>
+washington_post_id
+</th>
+<th>
+icpsr_id
+</th>
+<th>
+wikipedia_id
+</th>
+</tr>
+<tr>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+date
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+<td>
+i64
+</td>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+"Brown"
+</td>
+<td>
+"Sherrod"
+</td>
+<td>
+null
+</td>
+<td>
+null
+</td>
+<td>
+null
+</td>
+<td>
+"Sherrod Brown"
+</td>
+<td>
+1952-11-09
+</td>
+<td>
+"M"
+</td>
+<td>
+"sen"
+</td>
+<td>
+"OH"
+</td>
+<td>
+null
+</td>
+<td>
+1
+</td>
+<td>
+"Democrat"
+</td>
+<td>
+"https://www.brown.senate.gov"
+</td>
+<td>
+"503 Hart Senate Office Building Washington DC 20510"
+</td>
+<td>
+"202-224-2315"
+</td>
+<td>
+"https://www.brown.senate.gov/contact/"
+</td>
+<td>
+"http://www.brown.senate.gov/rss/feeds/?type=all&amp;"
+</td>
+<td>
+"SenSherrodBrown"
+</td>
+<td>
+"SenatorSherrodBrown"
+</td>
+<td>
+"SherrodBrownOhio"
+</td>
+<td>
+"UCgy8jfERh-t_ixkKKoCmglQ"
+</td>
+<td>
+"B000944"
+</td>
+<td>
+136
+</td>
+<td>
+"N00003535"
+</td>
+<td>
+"S307"
+</td>
+<td>
+"H2OH13033,S6OH00163"
+</td>
+<td>
+5051
+</td>
+<td>
+400050
+</td>
+<td>
+27018
+</td>
+<td>
+"Sherrod Brown"
+</td>
+<td>
+null
+</td>
+<td>
+29389
+</td>
+<td>
+"Sherrod Brown"
+</td>
+</tr>
+<tr>
+<td>
+"Cantwell"
+</td>
+<td>
+"Maria"
+</td>
+<td>
+null
+</td>
+<td>
+null
+</td>
+<td>
+null
+</td>
+<td>
+"Maria Cantwell"
+</td>
+<td>
+1958-10-13
+</td>
+<td>
+"F"
+</td>
+<td>
+"sen"
+</td>
+<td>
+"WA"
+</td>
+<td>
+null
+</td>
+<td>
+1
+</td>
+<td>
+"Democrat"
+</td>
+<td>
+"https://www.cantwell.senate.gov"
+</td>
+<td>
+"511 Hart Senate Office Building Washington DC 20510"
+</td>
+<td>
+"202-224-3441"
+</td>
+<td>
+"https://www.cantwell.senate.gov/public/index.cfm/email-maria"
+</td>
+<td>
+"http://www.cantwell.senate.gov/public/index.cfm/rss/feed"
+</td>
+<td>
+"SenatorCantwell"
+</td>
+<td>
+"senatorcantwell"
+</td>
+<td>
+"SenatorCantwell"
+</td>
+<td>
+"UCN52UDqKgvHRk39ncySrIMw"
+</td>
+<td>
+"C000127"
+</td>
+<td>
+172
+</td>
+<td>
+"N00007836"
+</td>
+<td>
+"S275"
+</td>
+<td>
+"S8WA00194,H2WA01054"
+</td>
+<td>
+26137
+</td>
+<td>
+300018
+</td>
+<td>
+27122
+</td>
+<td>
+"Maria Cantwell"
+</td>
+<td>
+null
+</td>
+<td>
+39310
+</td>
+<td>
+"Maria Cantwell"
+</td>
+</tr>
+<tr>
+<td>
+"Cardin"
+</td>
+<td>
+"Benjamin"
+</td>
+<td>
+"L."
+</td>
+<td>
+null
+</td>
+<td>
+null
+</td>
+<td>
+"Benjamin L. Cardin"
+</td>
+<td>
+1943-10-05
+</td>
+<td>
+"M"
+</td>
+<td>
+"sen"
+</td>
+<td>
+"MD"
+</td>
+<td>
+null
+</td>
+<td>
+1
+</td>
+<td>
+"Democrat"
+</td>
+<td>
+"https://www.cardin.senate.gov"
+</td>
+<td>
+"509 Hart Senate Office Building Washington DC 20510"
+</td>
+<td>
+"202-224-4524"
+</td>
+<td>
+"https://www.cardin.senate.gov/contact/"
+</td>
+<td>
+"http://www.cardin.senate.gov/rss/feeds/?type=all"
+</td>
+<td>
+"SenatorCardin"
+</td>
+<td>
+"senatorbencardin"
+</td>
+<td>
+"senatorcardin"
+</td>
+<td>
+"UCiQaJnMzlfzzG3VESgyZChA"
+</td>
+<td>
+"C000141"
+</td>
+<td>
+174
+</td>
+<td>
+"N00001955"
+</td>
+<td>
+"S308"
+</td>
+<td>
+"H6MD03177,S6MD03177"
+</td>
+<td>
+4004
+</td>
+<td>
+400064
+</td>
+<td>
+26888
+</td>
+<td>
+"Ben Cardin"
+</td>
+<td>
+null
+</td>
+<td>
+15408
+</td>
+<td>
+"Ben Cardin"
+</td>
+</tr>
+<tr>
+<td>
+"Carper"
+</td>
+<td>
+"Thomas"
+</td>
+<td>
+"Richard"
+</td>
+<td>
+null
+</td>
+<td>
+null
+</td>
+<td>
+"Thomas R. Carper"
+</td>
+<td>
+1947-01-23
+</td>
+<td>
+"M"
+</td>
+<td>
+"sen"
+</td>
+<td>
+"DE"
+</td>
+<td>
+null
+</td>
+<td>
+1
+</td>
+<td>
+"Democrat"
+</td>
+<td>
+"https://www.carper.senate.gov/public"
+</td>
+<td>
+"513 Hart Senate Office Building Washington DC 20510"
+</td>
+<td>
+"202-224-2441"
+</td>
+<td>
+"https://www.carper.senate.gov/public/index.cfm/email-senator-carper"
+</td>
+<td>
+"http://www.carper.senate.gov/public/index.cfm/rss/feed"
+</td>
+<td>
+"SenatorCarper"
+</td>
+<td>
+"tomcarper"
+</td>
+<td>
+"senatorcarper"
+</td>
+<td>
+"UCgLnvbKwu4B3navofj6Qvvw"
+</td>
+<td>
+"C000174"
+</td>
+<td>
+179
+</td>
+<td>
+"N00012508"
+</td>
+<td>
+"S277"
+</td>
+<td>
+"S8DE00079"
+</td>
+<td>
+663
+</td>
+<td>
+300019
+</td>
+<td>
+22421
+</td>
+<td>
+"Tom Carper"
+</td>
+<td>
+null
+</td>
+<td>
+15015
+</td>
+<td>
+"Tom Carper"
+</td>
+</tr>
+<tr>
+<td>
+"Casey"
+</td>
+<td>
+"Robert"
+</td>
+<td>
+"P."
+</td>
+<td>
+"Jr."
+</td>
+<td>
+"Bob"
+</td>
+<td>
+"Robert P. Casey, Jr."
+</td>
+<td>
+1960-04-13
+</td>
+<td>
+"M"
+</td>
+<td>
+"sen"
+</td>
+<td>
+"PA"
+</td>
+<td>
+null
+</td>
+<td>
+1
+</td>
+<td>
+"Democrat"
+</td>
+<td>
+"https://www.casey.senate.gov"
+</td>
+<td>
+"393 Russell Senate Office Building Washington DC 20510"
+</td>
+<td>
+"202-224-6324"
+</td>
+<td>
+"https://www.casey.senate.gov/contact"
+</td>
+<td>
+"http://www.casey.senate.gov/rss/feeds/?all"
+</td>
+<td>
+"SenBobCasey"
+</td>
+<td>
+"SenatorBobCasey"
+</td>
+<td>
+"SenatorBobCasey"
+</td>
+<td>
+"UCtVssXhx-KuZa-hSvnsnJ0A"
+</td>
+<td>
+"C001070"
+</td>
+<td>
+1828
+</td>
+<td>
+"N00027503"
+</td>
+<td>
+"S309"
+</td>
+<td>
+"S6PA00217"
+</td>
+<td>
+47036
+</td>
+<td>
+412246
+</td>
+<td>
+2541
+</td>
+<td>
+"Bob Casey, Jr."
+</td>
+<td>
+null
+</td>
+<td>
+40703
+</td>
+<td>
+"Bob Casey Jr."
+</td>
+</tr>
+</tbody>
+&lt;/table&gt;
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Agregaciones-básicas">
+<a class="anchor" href="#Agregaciones-b%C3%A1sicas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Agregaciones básicas<a class="anchor-link" href="#Agregaciones-b%C3%A1sicas"> </a>
+</h3>
+<p>Puede combinar fácilmente diferentes agregaciones agregando varias expresiones en una lista. No hay un límite superior en el número de agregaciones que puede hacer y puede hacer cualquier combinación que desee. En el fragmento a continuación, hacemos las siguientes agregaciones:</p>
+<p>Por grupo <code>"first_name"</code>:</p>
+<ul>
+<li>cuente el número de filas en el grupo:<ul>
+<li>forma abreviada: <code>pl.count("party")</code>
+</li>
+<li>forma completa: <code>pl.col("party").count()</code>
+</li>
+</ul>
+</li>
+<li>agregue el grupo de valores de género a una lista:<ul>
+<li>forma completa: <code>pl.col("gender").list()</code>
+</li>
+</ul>
+</li>
+<li>obtenga el primer valor de la columna <code>"last_name"</code> en el grupo:<ul>
+<li>forma abreviada: <code>pl.primero("last_name")</code>
+</li>
+<li>forma completa: <code>pl.col("last_name").first()</code>
+</li>
+</ul>
+</li>
+</ul>
+<p>Además de la agregación, clasificamos inmediatamente el resultado y lo limitamos a los 5 principales para que tengamos un buen resumen general.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">dataset</span><span class="o">.</span><span class="n">lazy</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"first_name"</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">pl</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span>
+            <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"gender"</span><span class="p">)</span><span class="o">.</span><span class="n">list</span><span class="p">(),</span>
+            <span class="n">pl</span><span class="o">.</span><span class="n">first</span><span class="p">(</span><span class="s2">"last_name"</span><span class="p">),</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">"count"</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>shape: (5, 4)
+┌────────────┬───────┬─────────────────────┬───────────┐
+│ first_name ┆ count ┆ gender              ┆ last_name │
+│ ---        ┆ ---   ┆ ---                 ┆ ---       │
+│ str        ┆ u32   ┆ list [str]          ┆ str       │
+╞════════════╪═══════╪═════════════════════╪═══════════╡
+│ John       ┆ 19    ┆ ["M", "M", ... "M"] ┆ Barrasso  │
+├╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┤
+│ Mike       ┆ 13    ┆ ["M", "M", ... "M"] ┆ Kelly     │
+├╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┤
+│ Michael    ┆ 11    ┆ ["M", "M", ... "M"] ┆ Bennet    │
+├╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┤
+│ David      ┆ 11    ┆ ["M", "M", ... "M"] ┆ Cicilline │
+├╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┤
+│ James      ┆ 9     ┆ ["M", "M", ... "M"] ┆ Inhofe    │
+└────────────┴───────┴─────────────────────┴───────────┘
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Condicionales">
+<a class="anchor" href="#Condicionales" aria-hidden="true"><span class="octicon octicon-link"></span></a>Condicionales<a class="anchor-link" href="#Condicionales"> </a>
+</h3>
+<p>Ok, eso fue bastante fácil, ¿verdad? Subamos un nivel. Digamos que queremos saber cuántos delegados de un "estado" son administración "demo" o "repu". Podríamos consultarlo directamente en la agregación sin la necesidad de <code>lambda</code> o arreglar el DataFrame.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">dataset</span><span class="o">.</span><span class="n">lazy</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"state"</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"party"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Democrat"</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"demo"</span><span class="p">),</span>
+            <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"party"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Republican"</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"repu"</span><span class="p">),</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">"demo"</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>shape: (5, 3)
+┌───────┬──────┬──────┐
+│ state ┆ demo ┆ repu │
+│ ---   ┆ ---  ┆ ---  │
+│ str   ┆ u32  ┆ u32  │
+╞═══════╪══════╪══════╡
+│ CA    ┆ 44   ┆ 10   │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┤
+│ NY    ┆ 21   ┆ 8    │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┤
+│ IL    ┆ 15   ┆ 5    │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┤
+│ TX    ┆ 13   ┆ 25   │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┤
+│ NJ    ┆ 12   ┆ 2    │
+└───────┴──────┴──────┘
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Por supuesto, también se podría hacer algo similar con un GROUPBY anidado, pero eso no me permitiría mostrar estas características agradables. 😉</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">dataset</span><span class="o">.</span><span class="n">lazy</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">"state"</span><span class="p">,</span> <span class="s2">"party"</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="n">pl</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"party"</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"count"</span><span class="p">)])</span>
+    <span class="o">.</span><span class="n">filter</span><span class="p">((</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"party"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Democrat"</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"party"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Republican"</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">"count"</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>shape: (5, 3)
+┌───────┬────────────┬───────┐
+│ state ┆ party      ┆ count │
+│ ---   ┆ ---        ┆ ---   │
+│ str   ┆ str        ┆ u32   │
+╞═══════╪════════════╪═══════╡
+│ CA    ┆ Democrat   ┆ 44    │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+│ TX    ┆ Republican ┆ 25    │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+│ NY    ┆ Democrat   ┆ 21    │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+│ FL    ┆ Republican ┆ 18    │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+│ IL    ┆ Democrat   ┆ 15    │
+└───────┴────────────┴───────┘
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Filtración">
+<a class="anchor" href="#Filtraci%C3%B3n" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filtración<a class="anchor-link" href="#Filtraci%C3%B3n"> </a>
+</h3>
+<p>También podemos filtrar los grupos. Digamos que queremos calcular una media por grupo, pero no queremos incluir todos los valores de ese grupo y tampoco queremos filtrar las filas del <code>DataFrame</code> (porque necesitamos esas filas para otra agregación).</p>
+<p>En el siguiente ejemplo, mostramos cómo se puede hacer eso. Tenga en cuenta que podemos hacer funciones de <em>Python</em> para mayor claridad. Estas funciones no nos cuestan nada. Esto se debe a que solo creamos <code>Polars expression</code>, no aplicamos una función personalizada sobre <code>Series</code> durante el tiempo de ejecución de la consulta.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+
+<span class="k">def</span> <span class="nf">compute_age</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">pl</span><span class="o">.</span><span class="n">Expr</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">date</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"birthday"</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">avg_birthday</span><span class="p">(</span><span class="n">gender</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pl</span><span class="o">.</span><span class="n">Expr</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">compute_age</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"gender"</span><span class="p">)</span> <span class="o">==</span> <span class="n">gender</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="sa">f</span><span class="s2">"avg </span><span class="si">{</span><span class="n">gender</span><span class="si">}</span><span class="s2"> birthday"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">dataset</span><span class="o">.</span><span class="n">lazy</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">"state"</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">avg_birthday</span><span class="p">(</span><span class="s2">"M"</span><span class="p">),</span>
+            <span class="n">avg_birthday</span><span class="p">(</span><span class="s2">"F"</span><span class="p">),</span>
+            <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"gender"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"# male"</span><span class="p">),</span>
+            <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"gender"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"F"</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"# female"</span><span class="p">),</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>shape: (5, 5)
+┌───────┬────────────────┬────────────────┬────────┬──────────┐
+│ state ┆ avg M birthday ┆ avg F birthday ┆ # male ┆ # female │
+│ ---   ┆ ---            ┆ ---            ┆ ---    ┆ ---      │
+│ str   ┆ f64            ┆ f64            ┆ u32    ┆ u32      │
+╞═══════╪════════════════╪════════════════╪════════╪══════════╡
+│ MT    ┆ 61.666667      ┆ null           ┆ 3      ┆ 0        │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┤
+│ OH    ┆ 59.466667      ┆ 64.0           ┆ 15     ┆ 3        │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┤
+│ AK    ┆ 72.5           ┆ 64.0           ┆ 2      ┆ 1        │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┤
+│ IN    ┆ 55.0           ┆ 50.5           ┆ 9      ┆ 2        │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┤
+│ MD    ┆ 67.8           ┆ null           ┆ 10     ┆ 0        │
+└───────┴────────────────┴────────────────┴────────┴──────────┘
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Sorting">
+<a class="anchor" href="#Sorting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sorting<a class="anchor-link" href="#Sorting"> </a>
+</h3>
+<p>A menudo veo que se ordena un DataFrame con el único propósito de ordenar durante la operación GROUPBY. Digamos que queremos obtener los nombres de los políticos más antiguos y más jóvenes (no es que todavía estén vivos) por estado, podríamos ORDENAR y AGRUPAR.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_person</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">pl</span><span class="o">.</span><span class="n">Expr</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"first_name"</span><span class="p">)</span> <span class="o">+</span> <span class="n">pl</span><span class="o">.</span><span class="n">lit</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span> <span class="o">+</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"last_name"</span><span class="p">)</span>
+
+
+<span class="n">q</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">dataset</span><span class="o">.</span><span class="n">lazy</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">"birthday"</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">"state"</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">get_person</span><span class="p">()</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"youngest"</span><span class="p">),</span>
+            <span class="n">get_person</span><span class="p">()</span><span class="o">.</span><span class="n">last</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"oldest"</span><span class="p">),</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>shape: (5, 3)
+┌───────┬─────────────────┬─────────────────┐
+│ state ┆ youngest        ┆ oldest          │
+│ ---   ┆ ---             ┆ ---             │
+│ str   ┆ str             ┆ str             │
+╞═══════╪═════════════════╪═════════════════╡
+│ VI    ┆ Stacey Plaskett ┆ Stacey Plaskett │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ MD    ┆ Steny Hoyer     ┆ Jamie Raskin    │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ NE    ┆ Deb Fischer     ┆ Benjamin Sasse  │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ AL    ┆ Richard Shelby  ┆ Barry Moore     │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ MP    ┆ Gregorio Sablan ┆ Gregorio Sablan │
+└───────┴─────────────────┴─────────────────┘
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Referencias">
+<a class="anchor" href="#Referencias" aria-hidden="true"><span class="octicon octicon-link"></span></a>Referencias<a class="anchor-link" href="#Referencias"> </a>
+</h1>
+<ul>
+<li><a href="https://pola-rs.github.io/polars-book/user-guide/introduction.html">Polars - User Guide</a></li>
+<li><a href="https://github.com/pola-rs/polars">Polars - Github</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div>
+
+	
+		<applause-button class="mb6"
+			color=rgb(79,177,186)
+			url=https://fralfaro.github.io/python/2022/03/16/polars.html >
+		</applause-button>
+	<!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="fralfaro/ds_blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/ds_blog/python/2022/03/16/polars.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/ds_blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/ds_blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/ds_blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Data Science Blog.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fralfaro" target="_blank" title="fralfaro"><svg class="svg-icon grey"><use xlink:href="/ds_blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://www.linkedin.com/in/FAAM" target="_blank" title="FAAM"><svg class="svg-icon grey"><use xlink:href="/ds_blog/assets/minima-social-icons.svg#linkedin"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
