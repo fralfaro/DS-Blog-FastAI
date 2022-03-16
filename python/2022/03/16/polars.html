@@ -670,8 +670,8 @@ window.onload = wrap_img;
 <h3 id="¡No-mates-la-paralelización!">
 <a class="anchor" href="#%C2%A1No-mates-la-paralelizaci%C3%B3n!" aria-hidden="true"><span class="octicon octicon-link"></span></a>¡No mates la paralelización!<a class="anchor-link" href="#%C2%A1No-mates-la-paralelizaci%C3%B3n!"> </a>
 </h3>
-<p>Todos hemos escuchado que <em>Python</em> es lento y "no escala". Además de la sobrecarga de ejecutar el código de bytes "lento", Python debe permanecer dentro de las restricciones del  <code>Global interpreter lock (GIL)</code>. Esto significa que si se usa la operación <code>lambda</code> o una función de Python personalizada para aplicar durante una fase de paralelización, la velocidad de <em>Polars</em> se limita al ejecutar el código de <em>Python</em>, lo que evita que varios subprocesos ejecuten la función.</p>
-<p>Todo esto se siente terriblemente limitante, especialmente porque a menudo necesitamos esos <code>lambda</code> en un paso  <code>.groupby()</code>, por ejemplo. Este enfoque aún es compatible con <em>Polars</em>, pero teniendo en cuenta el código de bytes Y el precio GIL deben pagarse.</p>
+<p>Todos hemos escuchado que <em>Python</em> es lento y "no escala". Además de la sobrecarga de ejecutar el código de bytes "lento", Python debe permanecer dentro de las restricciones del <a href="https://realpython.com/python-gil/">Global interpreter lock (GIL)</a>. Esto significa que si se usa la operación <code>lambda</code> o una función de Python personalizada para aplicar durante una fase de paralelización, la velocidad de <em>Polars</em> se limita al ejecutar el código de <em>Python</em>, lo que evita que varios subprocesos ejecuten la función.</p>
+<p>Todo esto se siente terriblemente limitante, especialmente porque a menudo necesitamos esos <code>lambda</code> en un paso  <code>.groupby()</code>, por ejemplo. Este enfoque aún es compatible con <em>Polars</em>, pero teniendo en cuenta el código de bytes Y el precio <code>GIL</code> deben pagarse.</p>
 <p>Para mitigar esto, <em>Polars</em> implementa una poderosa sintaxis definida no solo en su <code>lazy</code>, sino también en su uso <code>eager</code>.</p>
 
 </div>
