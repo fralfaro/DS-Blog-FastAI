@@ -229,7 +229,7 @@ window.onload = wrap_img;
 <p>La siguiente es una expresión:</p>
 <div class="highlight"><pre><span></span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"foo"</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
-<p>El fragmento anterior dice seleccionar la columna "foo", luego ordenar esta columna y luego tomar los primeros 2 valores de la salida ordenada. El poder de las expresiones es que cada expresión produce una nueva expresión y que se pueden canalizar juntas. Puede ejecutar una expresión pasándola en uno de los contextos de ejecución polares. Aquí ejecutamos dos expresiones ejecutando df.select:</p>
+<p>El fragmento anterior dice seleccionar la columna <code>"foo"</code>, luego ordenar esta columna y luego tomar los primeros 2 valores de la salida ordenada. El poder de las expresiones es que cada expresión produce una nueva expresión y que se pueden canalizar juntas. Puede ejecutar una expresión pasándola en uno de los contextos de ejecución polares. Aquí ejecutamos dos expresiones ejecutando <code>df.select</code>:</p>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">([</span>
      <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"foo"</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
      <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"barra"</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"foo"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -328,7 +328,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Puedes hacer mucho con las expresiones. Son tan expresivos que a veces tienes varias formas de obtener los mismos resultados. Para tener una idea de ellos, veamos algunos ejemplos.</p>
+<p>Puedes hacer mucho con las expresiones, veamos algunos ejemplos:</p>
 
 </div>
 </div>
@@ -339,7 +339,7 @@ window.onload = wrap_img;
 <h3 id="Contar-valores-únicos">
 <a class="anchor" href="#Contar-valores-%C3%BAnicos" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contar valores únicos<a class="anchor-link" href="#Contar-valores-%C3%BAnicos"> </a>
 </h3>
-<p>Podemos contar los valores únicos en una columna. Tenga en cuenta que estamos creando el mismo resultado de diferentes maneras. Para no tener nombres de columna duplicados en el DataFrame, usamos una expresión de alias, que cambia el nombre de una expresión.</p>
+<p>Podemos contar los valores únicos en una columna. Tenga en cuenta que estamos creando el mismo resultado de diferentes maneras. Para no tener nombres de columna duplicados en el DataFrame, usamos una expresión de <code>alias</code>, que cambia el nombre de una expresión.</p>
 
 </div>
 </div>
@@ -453,7 +453,7 @@ window.onload = wrap_img;
 <h3 id="Filtro-y-condicionales">
 <a class="anchor" href="#Filtro-y-condicionales" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filtro y condicionales<a class="anchor-link" href="#Filtro-y-condicionales"> </a>
 </h3>
-<p>También podemos hacer algunas cosas bastante complejas. En el siguiente fragmento, contamos todos los nombres que terminan con la cadena <code>"am"</code>.</p>
+<p>También podemos hacer cosas bastante complejas. En el siguiente fragmento, contamos todos los nombres que terminan con la cadena <code>"am"</code>.</p>
 
 </div>
 </div>
@@ -470,7 +470,7 @@ window.onload = wrap_img;
         <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"names"</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"names"</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="sa">r</span><span class="s2">"am$"</span><span class="p">))</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span>
     <span class="p">]</span>
 <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -483,22 +483,14 @@ window.onload = wrap_img;
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>shape: (5, 4)
-┌──────┬───────┬──────────┬────────┐
-│ nrs  ┆ names ┆ random   ┆ groups │
-│ ---  ┆ ---   ┆ ---      ┆ ---    │
-│ i64  ┆ str   ┆ f64      ┆ str    │
-╞══════╪═══════╪══════════╪════════╡
-│ 1    ┆ foo   ┆ 0.154163 ┆ A      │
-├╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤
-│ 2    ┆ ham   ┆ 0.74     ┆ A      │
-├╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤
-│ 3    ┆ spam  ┆ 0.263315 ┆ B      │
-├╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤
-│ null ┆ egg   ┆ 0.533739 ┆ C      │
-├╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤
-│ 5    ┆ null  ┆ 0.014575 ┆ B      │
-└──────┴───────┴──────────┴────────┘
+<pre>shape: (1, 1)
+┌───────┐
+│ names │
+│ ---   │
+│ u32   │
+╞═══════╡
+│ 2     │
+└───────┘
 </pre>
 </div>
 </div>
@@ -515,7 +507,8 @@ window.onload = wrap_img;
 <h3 id="Funciones-binarias-y-modificación">
 <a class="anchor" href="#Funciones-binarias-y-modificaci%C3%B3n" aria-hidden="true"><span class="octicon octicon-link"></span></a>Funciones binarias y modificación<a class="anchor-link" href="#Funciones-binarias-y-modificaci%C3%B3n"> </a>
 </h3>
-<p>En el ejemplo a continuación, usamos un condicional para crear una nueva expresión a continuación <code>when -&gt; then -&gt; otherwise</code>. La función <code>when()</code> requiere una expresión de predicado (y, por lo tanto, conduce a una <code>serie booleana</code>), luego espera una expresión que se usará en caso de que el predicado se evalúe como verdadero y, de lo contrario, espera una expresión que se usará en caso de que el predicado se evalúe. falso.</p>
+<p>En el ejemplo a continuación, usamos un condicional para crear una nueva expresión <code>when -&gt; then -&gt; otherwise</code>.</p>
+<p>La función <code>when()</code> requiere una expresión de predicado (y, por lo tanto, conduce a una <code>serie booleana</code>), luego espera una expresión que se usará en caso de que el predicado se evalúe como verdadero y, de lo contrario, espera una expresión que se usará en caso de que el predicado se evalúe.</p>
 <p>Tenga en cuenta que puede pasar cualquier expresión, o simplemente expresiones base como <code>pl.col("foo")</code>, <code>pl.lit(3)</code>, <code>pl.lit("bar")</code>, etc.</p>
 <p>Finalmente, multiplicamos esto con el resultado de una expresión de suma.</p>
 
@@ -579,7 +572,8 @@ window.onload = wrap_img;
 <h3 id="Expresiones-de-ventana">
 <a class="anchor" href="#Expresiones-de-ventana" aria-hidden="true"><span class="octicon octicon-link"></span></a>Expresiones de ventana<a class="anchor-link" href="#Expresiones-de-ventana"> </a>
 </h3>
-<p>Una expresión polar también puede hacer un GROUPBY, AGGREGATION y JOIN implícitos en una sola expresión. En los ejemplos a continuación, hacemos un GROUPBY sobre <code>"groups"</code> y AGREGATE SUM de <code>"random"</code>, y en la siguiente expresión GROUPBY OVER <code>"names"</code> y AGREGATE una lista de <code>"random"</code>. Estas funciones de ventana se pueden combinar con otras expresiones y son una forma eficaz de determinar estadísticas de grupo. Vea más expresiones en el siguiente <a href="https://pola-rs.github.io/polars/py-polars/html/reference/expression.html#aggregation">link</a>.</p>
+<p>Una expresión polar también puede hacer un <code>GROUPBY</code>, <code>AGGREGATION</code> y <code>JOIN</code> implícitos en una sola expresión.</p>
+<p>En los ejemplos a continuación, hacemos un <code>GROUPBY</code> sobre <code>"groups"</code> y <code>AGREGATE SUM</code> de <code>"random"</code>, y en la siguiente expresión <code>GROUPBY OVER</code> <code>"names"</code> y <code>AGREGATE</code> una lista de <code>"random"</code>. Estas funciones de ventana se pueden combinar con otras expresiones y son una forma eficaz de determinar estadísticas de grupo. Vea más expresiones en el siguiente <a href="https://pola-rs.github.io/polars/py-polars/html/reference/expression.html#aggregation">link</a>.</p>
 
 </div>
 </div>
@@ -676,9 +670,9 @@ window.onload = wrap_img;
 <h3 id="¡No-mates-la-paralelización!">
 <a class="anchor" href="#%C2%A1No-mates-la-paralelizaci%C3%B3n!" aria-hidden="true"><span class="octicon octicon-link"></span></a>¡No mates la paralelización!<a class="anchor-link" href="#%C2%A1No-mates-la-paralelizaci%C3%B3n!"> </a>
 </h3>
-<p>Todos hemos escuchado que <em>Python</em> es lento y "no escala". Además de la sobrecarga de ejecutar el código de bytes "lento", Python debe permanecer dentro de las restricciones del  <code>Bloqueo de intérprete global (GIL)</code>. Esto significa que si uno usa una lambda o una función de Python personalizada para aplicar durante una fase de paralelización, la velocidad de <em>Polars</em> se limita al ejecutar el código de <em>Python</em>, lo que evita que varios subprocesos ejecuten la función.</p>
-<p>Todo esto se siente terriblemente limitante, especialmente porque a menudo necesitamos esos lambda en un paso  <code>.groupby()</code>, por ejemplo. Este enfoque aún es compatible con <em>Polars</em>, pero teniendo en cuenta el código de bytes Y el precio GIL deben pagarse.</p>
-<p>Para mitigar esto, <em>Polars</em> implementa una poderosa sintaxis definida no solo en su API perezosa (<em>lazy</em>), sino también en su entusiasta (<em>eager</em>).</p>
+<p>Todos hemos escuchado que <em>Python</em> es lento y "no escala". Además de la sobrecarga de ejecutar el código de bytes "lento", Python debe permanecer dentro de las restricciones del  <code>Global interpreter lock (GIL)</code>. Esto significa que si se usa la operación <code>lambda</code> o una función de Python personalizada para aplicar durante una fase de paralelización, la velocidad de <em>Polars</em> se limita al ejecutar el código de <em>Python</em>, lo que evita que varios subprocesos ejecuten la función.</p>
+<p>Todo esto se siente terriblemente limitante, especialmente porque a menudo necesitamos esos <code>lambda</code> en un paso  <code>.groupby()</code>, por ejemplo. Este enfoque aún es compatible con <em>Polars</em>, pero teniendo en cuenta el código de bytes Y el precio GIL deben pagarse.</p>
+<p>Para mitigar esto, <em>Polars</em> implementa una poderosa sintaxis definida no solo en su <code>lazy</code>, sino también en su uso <code>eager</code>.</p>
 
 </div>
 </div>
@@ -690,7 +684,7 @@ window.onload = wrap_img;
 <a class="anchor" href="#Expresiones-polares" aria-hidden="true"><span class="octicon octicon-link"></span></a>Expresiones polares<a class="anchor-link" href="#Expresiones-polares"> </a>
 </h3>
 <p>En la introducción de la página anterior, discutimos que el uso de funciones personalizadas de Python eliminaba la paralelización y que podemos usar las expresiones de la API diferida para mitigar esto. Echemos un vistazo a lo que eso significa.</p>
-<p>Comencemos con el conjunto de datos simple del congreso de  <code>EE. UU.</code></p>
+<p>Comencemos con el conjunto de datos simple del <a href="https://github.com/unitedstates/congress-legislators">congreso de EE. UU.</a></p>
 
 </div>
 </div>
@@ -846,7 +840,7 @@ window.onload = wrap_img;
 <h3 id="Condicionales">
 <a class="anchor" href="#Condicionales" aria-hidden="true"><span class="octicon octicon-link"></span></a>Condicionales<a class="anchor-link" href="#Condicionales"> </a>
 </h3>
-<p>Ok, eso fue bastante fácil, ¿verdad? Subamos un nivel. Digamos que queremos saber cuántos delegados de un "estado" son administración "demo" o "repu". Podríamos consultarlo directamente en la agregación sin la necesidad de <code>lambda</code> o arreglar el DataFrame.</p>
+<p>Ok, eso fue bastante fácil, ¿verdad? Subamos un nivel. Digamos que queremos saber cuántos delegados de un "estado" (<code>state</code>) son administración "Democrat" o "Republican". Podríamos consultarlo directamente en la agregación sin la necesidad de <code>lambda</code> o arreglar el DataFrame.</p>
 
 </div>
 </div>
@@ -914,7 +908,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Por supuesto, también se podría hacer algo similar con un GROUPBY anidado, pero eso no me permitiría mostrar estas características agradables. 😉</p>
+<p>Por supuesto, también se podría hacer algo similar con un <code>GROUPBY</code> anidado, pero eso no me permitiría mostrar estas características agradables. 😉</p>
 
 </div>
 </div>
@@ -1052,15 +1046,15 @@ window.onload = wrap_img;
 │ ---   ┆ ---            ┆ ---            ┆ ---    ┆ ---      │
 │ str   ┆ f64            ┆ f64            ┆ u32    ┆ u32      │
 ╞═══════╪════════════════╪════════════════╪════════╪══════════╡
-│ NH    ┆ 41.0           ┆ 67.333333      ┆ 1      ┆ 3        │
+│ MS    ┆ 60.0           ┆ 62.0           ┆ 5      ┆ 1        │
 ├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┤
-│ CA    ┆ 57.323529      ┆ 67.75          ┆ 34     ┆ 20       │
+│ NV    ┆ 55.5           ┆ 61.75          ┆ 2      ┆ 4        │
 ├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┤
-│ CO    ┆ 57.428571      ┆ 49.5           ┆ 7      ┆ 2        │
+│ KS    ┆ 54.2           ┆ 41.0           ┆ 5      ┆ 1        │
 ├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┤
-│ KY    ┆ 62.375         ┆ null           ┆ 8      ┆ 0        │
+│ IN    ┆ 55.0           ┆ 50.5           ┆ 9      ┆ 2        │
 ├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┤
-│ HI    ┆ 55.0           ┆ 74.0           ┆ 3      ┆ 1        │
+│ IL    ┆ 60.923077      ┆ 58.428571      ┆ 13     ┆ 7        │
 └───────┴────────────────┴────────────────┴────────┴──────────┘
 </pre>
 </div>
@@ -1078,7 +1072,7 @@ window.onload = wrap_img;
 <h3 id="Sorting">
 <a class="anchor" href="#Sorting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sorting<a class="anchor-link" href="#Sorting"> </a>
 </h3>
-<p>A menudo veo que se ordena un DataFrame con el único propósito de ordenar durante la operación GROUPBY. Digamos que queremos obtener los nombres de los políticos más antiguos y más jóvenes (no es que todavía estén vivos) por estado, podríamos ORDENAR y AGRUPAR.</p>
+<p>A menudo veo que se ordena un DataFrame con el único propósito de ordenar durante la operación <code>GROUPBY</code>. Digamos que queremos obtener los nombres de los políticos más antiguos y más jóvenes (no es que todavía estén vivos) por estado, podríamos <code>ORDENAR</code> y <code>AGRUPAR</code>.</p>
 
 </div>
 </div>
@@ -1123,21 +1117,21 @@ window.onload = wrap_img;
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>shape: (5, 3)
-┌───────┬───────────────────────┬───────────────────────┐
-│ state ┆ youngest              ┆ oldest                │
-│ ---   ┆ ---                   ┆ ---                   │
-│ str   ┆ str                   ┆ str                   │
-╞═══════╪═══════════════════════╪═══════════════════════╡
-│ MI    ┆ Jack Bergman          ┆ Peter Meijer          │
-├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
-│ IA    ┆ Charles Grassley      ┆ Ashley Hinson         │
-├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
-│ AS    ┆ Aumua Amata Radewagen ┆ Aumua Amata Radewagen │
-├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
-│ TN    ┆ Steve Cohen           ┆ David Kustoff         │
-├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
-│ WV    ┆ David McKinley        ┆ Alexander Mooney      │
-└───────┴───────────────────────┴───────────────────────┘
+┌───────┬──────────────────────────┬──────────────────────────┐
+│ state ┆ youngest                 ┆ oldest                   │
+│ ---   ┆ ---                      ┆ ---                      │
+│ str   ┆ str                      ┆ str                      │
+╞═══════╪══════════════════════════╪══════════════════════════╡
+│ PR    ┆ Jenniffer González-Colón ┆ Jenniffer González-Colón │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ ND    ┆ John Hoeven              ┆ Kelly Armstrong          │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ KY    ┆ Harold Rogers            ┆ Garland Barr             │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ NM    ┆ Teresa Leger Fernandez   ┆ Melanie Stansbury        │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ OR    ┆ Peter DeFazio            ┆ Jeff Merkley             │
+└───────┴──────────────────────────┴──────────────────────────┘
 </pre>
 </div>
 </div>
